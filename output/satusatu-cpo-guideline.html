@@ -1,0 +1,3034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>SatuSatu — CPO Product Management Team Guideline · March 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;line-height:1.6;min-width:1280px}
+a{color:#818cf8;text-decoration:none}
+a:hover{color:#c7d2fe}
+/* SIDEBAR */
+#sidebar{position:fixed;top:0;left:0;width:240px;height:100vh;background:#0d1526;border-right:1px solid #1e293b;overflow-y:auto;padding:20px 0;z-index:100}
+#sidebar .brand{padding:12px 16px 16px;border-bottom:1px solid #1e293b;margin-bottom:8px}
+#sidebar .brand-title{font-size:13px;font-weight:700;color:#f1f5f9;letter-spacing:0.5px}
+#sidebar .brand-sub{font-size:11px;color:#64748b;margin-top:2px}
+#sidebar nav a{display:block;padding:6px 16px;font-size:12px;color:#94a3b8;border-left:2px solid transparent;transition:all 0.15s}
+#sidebar nav a:hover{color:#e2e8f0;background:#1e293b;border-left-color:#7c3aed}
+#sidebar nav .section-num{display:inline-block;width:20px;font-weight:600;color:#475569;font-size:11px}
+#sidebar nav .section-label{color:inherit}
+/* MAIN */
+#main{margin-left:260px;padding:32px 40px;max-width:1100px}
+/* SECTION CARDS */
+.section-card{background:#131f33;border-radius:10px;padding:28px 32px;margin-bottom:32px;border-left:4px solid #7c3aed;position:relative}
+.section-card.trust{border-left-color:#0891b2}
+.section-card.conversion{border-left-color:#16a34a}
+.section-card.discovery{border-left-color:#f97316}
+.section-card.metrics{border-left-color:#e11d48}
+.section-card.risk{border-left-color:#eab308}
+.section-card.strategy{border-left-color:#6366f1}
+.section-title{font-size:20px;font-weight:700;color:#f1f5f9;margin-bottom:4px}
+.section-subtitle{font-size:13px;color:#64748b;margin-bottom:20px}
+h3{font-size:15px;font-weight:600;color:#cbd5e1;margin:20px 0 10px}
+h4{font-size:13px;font-weight:600;color:#94a3b8;margin:14px 0 8px;text-transform:uppercase;letter-spacing:0.5px}
+p{margin-bottom:12px;color:#cbd5e1;font-size:13.5px}
+/* BADGES */
+.badge{display:inline-block;padding:2px 7px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
+.badge-p0{background:#7f1d1d;color:#fca5a5}
+.badge-p1{background:#7c2d12;color:#fdba74}
+.badge-p2{background:#713f12;color:#fde68a}
+.badge-p3{background:#14532d;color:#86efac}
+.badge-now{background:#14532d;color:#86efac}
+.badge-next{background:#1e3a8a;color:#93c5fd}
+.badge-later{background:#4c1d95;color:#c4b5fd}
+.badge-on-dev{background:#164e63;color:#67e8f9}
+.badge-testing{background:#1e3a5f;color:#93c5fd}
+.badge-released{background:#1f2d1f;color:#86efac}
+.badge-suggested{background:#2e1065;color:#d8b4fe}
+.badge-design{background:#1e1b4b;color:#a5b4fc}
+.badge-basic{background:#1c1917;color:#d6d3d1}
+.badge-perf{background:#0c1a2e;color:#93c5fd}
+.badge-delight{background:#1a0533;color:#e879f9}
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12.5px}
+th{background:#1e293b;color:#94a3b8;padding:8px 10px;text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;border-bottom:2px solid #334155}
+td{padding:7px 10px;border-bottom:1px solid #1e293b;color:#cbd5e1;vertical-align:top}
+tr:hover td{background:#1e2d45}
+.table-wrap{overflow-x:auto;margin:12px 0}
+/* CHART CONTAINERS */
+.chart-wrap{background:#0f172a;border:1px solid #1e293b;border-radius:8px;padding:16px;margin:16px 0;overflow-x:auto}
+.chart-title{font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+/* INFO BOXES */
+.info-box{border-radius:8px;padding:14px 16px;margin:14px 0;font-size:13px}
+.info-box.warning{background:#422006;border-left:3px solid #f97316;color:#fed7aa}
+.info-box.danger{background:#450a0a;border-left:3px solid #e11d48;color:#fecaca}
+.info-box.info{background:#0c1a2e;border-left:3px solid #2563eb;color:#bfdbfe}
+.info-box.success{background:#052e16;border-left:3px solid #16a34a;color:#bbf7d0}
+.info-box.purple{background:#1a0533;border-left:3px solid #7c3aed;color:#ddd6fe}
+.info-box strong{font-weight:700}
+/* CODE */
+pre,code{font-family:'JetBrains Mono','Fira Code',monospace;font-size:11.5px}
+pre{background:#0a0f1e;border:1px solid #1e293b;border-radius:6px;padding:14px;overflow-x:auto;color:#e2e8f0;margin:10px 0;line-height:1.5}
+code{background:#1e293b;padding:1px 5px;border-radius:3px;color:#c4b5fd}
+/* ICE FLOOR RULE BOX */
+.rule-box{background:#1a0d2e;border:1px solid #7c3aed;border-radius:8px;padding:14px 16px;margin:14px 0}
+.rule-box-title{font-size:12px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+/* RACI */
+.raci-table td:first-child{font-weight:600;color:#94a3b8;font-size:11px;width:80px}
+/* FOOTER */
+#footer{background:#0d1526;border-top:1px solid #1e293b;padding:20px 40px;margin-left:260px;text-align:center;color:#475569;font-size:12px}
+#footer strong{color:#64748b}
+/* PRINT */
+@media print{
+  #sidebar{display:none}
+  #main{margin-left:0;padding:20px}
+  #footer{margin-left:0}
+  .section-card{break-inside:avoid;page-break-inside:avoid}
+  body{background:#fff;color:#000;min-width:unset}
+  .section-card{border:1px solid #ccc;background:#fff}
+  .badge{border:1px solid #999}
+}
+/* DIVIDERS */
+.h-divider{height:1px;background:#1e293b;margin:20px 0}
+/* FLOW NODE */
+.flow-label{font-size:10px;font-family:-apple-system,sans-serif}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="brand">
+    <div class="brand-title">SatuSatu · CPO Guideline</div>
+    <div class="brand-sub">March 2026 · Internal Use Only</div>
+  </div>
+  <nav>
+    <a href="#s1"><span class="section-num">1.</span><span class="section-label"> Customer Journey Map</span></a>
+    <a href="#s2"><span class="section-num">2.</span><span class="section-label"> Explore vs. Exploit</span></a>
+    <a href="#s3"><span class="section-num">3.</span><span class="section-label"> Prioritization Framework</span></a>
+    <a href="#s4"><span class="section-num">4.</span><span class="section-label"> Roadmap Construction</span></a>
+    <a href="#s5"><span class="section-num">5.</span><span class="section-label"> Now / Next / Later</span></a>
+    <a href="#s6"><span class="section-num">6.</span><span class="section-label"> Dependency Graph</span></a>
+    <a href="#s7"><span class="section-num">7.</span><span class="section-label"> Metrics Tree & Funnel</span></a>
+    <a href="#s8"><span class="section-num">8.</span><span class="section-label"> Leading Indicators</span></a>
+    <a href="#s9"><span class="section-num">9.</span><span class="section-label"> Lagging Indicators</span></a>
+    <a href="#s10"><span class="section-num">10.</span><span class="section-label"> Counter-Metrics</span></a>
+    <a href="#s11"><span class="section-num">11.</span><span class="section-label"> Risk & Trade-offs</span></a>
+  </nav>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div id="main">
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1: Customer Journey Map                                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s1" class="section-card trust">
+<div class="section-title">1. Customer Journey Map</div>
+<div class="section-subtitle">Foreign Visitor UX Audit · March 2026 · Live Research + Competitor Benchmarking</div>
+
+<h3>Persona Summary</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Attribute</th><th>Detail</th></tr>
+<tr><td>Primary Persona</td><td>Foreign visitor, 28–42 yrs, mobile-first</td></tr>
+<tr><td>Origin Markets</td><td>India · China · South Korea · Australia</td></tr>
+<tr><td>Booking Window</td><td>2–6 weeks before travel</td></tr>
+<tr><td>Methodology</td><td>Live UX audit Mar 2026, competitor benchmarking across 8 dimensions</td></tr>
+</table>
+</div>
+
+<!-- CHART 1: Competitor UX Radar -->
+<h3>Chart 1 — Competitor UX Radar</h3>
+<div class="chart-wrap">
+<div class="chart-title">8-Dimension UX Benchmark (Score 1–10)</div>
+<svg width="520" height="420" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="420" fill="#0f172a"/>
+  <!-- Grid circles -->
+  <g stroke="#1e293b" stroke-width="1" fill="none">
+    <circle cx="260" cy="210" r="32"/>
+    <circle cx="260" cy="210" r="64"/>
+    <circle cx="260" cy="210" r="96"/>
+    <circle cx="260" cy="210" r="128"/>
+    <circle cx="260" cy="210" r="160"/>
+  </g>
+  <!-- Grid score labels -->
+  <text x="262" y="207" fill="#475569" font-size="9" font-family="sans-serif">2</text>
+  <text x="262" y="175" fill="#475569" font-size="9" font-family="sans-serif">4</text>
+  <text x="262" y="143" fill="#475569" font-size="9" font-family="sans-serif">6</text>
+  <text x="262" y="111" fill="#475569" font-size="9" font-family="sans-serif">8</text>
+  <text x="262" y="79" fill="#475569" font-size="9" font-family="sans-serif">10</text>
+  <!-- 8 Axis lines: angles -90,-45,0,45,90,135,180,225 deg -->
+  <!-- angle_i = -pi/2 + i*(pi/4), cx=260,cy=210,r=160 -->
+  <!-- axis 0: -90deg => (260,50) -->
+  <line x1="260" y1="210" x2="260" y2="50" stroke="#334155" stroke-width="1"/>
+  <!-- axis 1: -45deg => (260+160*cos(-45),210+160*sin(-45))=(260+113.1,210-113.1)=(373.1,96.9) -->
+  <line x1="260" y1="210" x2="373" y2="97" stroke="#334155" stroke-width="1"/>
+  <!-- axis 2: 0deg => (420,210) -->
+  <line x1="260" y1="210" x2="420" y2="210" stroke="#334155" stroke-width="1"/>
+  <!-- axis 3: 45deg => (373,323) -->
+  <line x1="260" y1="210" x2="373" y2="323" stroke="#334155" stroke-width="1"/>
+  <!-- axis 4: 90deg => (260,370) -->
+  <line x1="260" y1="210" x2="260" y2="370" stroke="#334155" stroke-width="1"/>
+  <!-- axis 5: 135deg => (260-113.1,210+113.1)=(146.9,323.1) -->
+  <line x1="260" y1="210" x2="147" y2="323" stroke="#334155" stroke-width="1"/>
+  <!-- axis 6: 180deg => (100,210) -->
+  <line x1="260" y1="210" x2="100" y2="210" stroke="#334155" stroke-width="1"/>
+  <!-- axis 7: 225deg => (260-113.1,210-113.1)=(146.9,96.9) -->
+  <line x1="260" y1="210" x2="147" y2="97" stroke="#334155" stroke-width="1"/>
+
+  <!-- Axis labels at r=175 -->
+  <!-- ax0 top: Catalog Depth -->
+  <text x="260" y="30" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Catalog Depth</text>
+  <!-- ax1 top-right: Search & Filter -->
+  <text x="390" y="80" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="start">Search &amp; Filter</text>
+  <!-- ax2 right: Booking Flow -->
+  <text x="425" y="214" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="start">Booking Flow</text>
+  <!-- ax3 bottom-right: Trust Signals -->
+  <text x="384" y="344" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="start">Trust Signals</text>
+  <!-- ax4 bottom: Localization -->
+  <text x="260" y="392" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Localization</text>
+  <!-- ax5 bottom-left: Mobile UX -->
+  <text x="136" y="344" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="end">Mobile UX</text>
+  <!-- ax6 left: Social Proof -->
+  <text x="92" y="214" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="end">Social Proof</text>
+  <!-- ax7 top-left: Price Transparency -->
+  <text x="134" y="80" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="end">Price Transp.</text>
+
+  <!-- Helper: for score s on axis i: x=260+(s/10)*160*cos(angle_i), y=210+(s/10)*160*sin(angle_i) -->
+  <!-- angles (degrees): 0:-90, 1:-45, 2:0, 3:45, 4:90, 5:135, 6:180, 7:225 -->
+  <!-- cos/sin: 0:(0,-1), 1:(0.707,-0.707), 2:(1,0), 3:(0.707,0.707), 4:(0,1), 5:(-0.707,0.707), 6:(-1,0), 7:(-0.707,-0.707) -->
+
+  <!-- GetYourGuide [9,9,9,9,8,8,9,9] orange #f97316 dashed -->
+  <!-- pts: ax0:9 => (260,210+9/10*160*(-1))=(260,66) -->
+  <!-- ax1:9 => (260+9/10*160*0.707,210+9/10*160*(-0.707))=(260+101.8,210-101.8)=(361.8,108.2) -->
+  <!-- ax2:9 => (260+144,210)=(404,210) -->
+  <!-- ax3:9 => (361.8,311.8) -->
+  <!-- ax4:8 => (260,210+128)=(260,338) -->
+  <!-- ax5:8 => (260-90.5,210+90.5)=(169.5,300.5) -->
+  <!-- ax6:9 => (260-144,210)=(116,210) -->
+  <!-- ax7:9 => (260-101.8,210-101.8)=(158.2,108.2) -->
+  <polygon points="260,66 361.8,108.2 404,210 361.8,311.8 260,338 169.5,300.5 116,210 158.2,108.2"
+    fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- Klook [9,8,8,8,8,8,9,8] blue #2563eb dashed -->
+  <!-- ax0:9=>(260,66), ax1:8=>(260+90.5,210-90.5)=(350.5,119.5), ax2:8=>(388,210), ax3:8=>(350.5,300.5), ax4:8=>(260,338), ax5:8=>(169.5,300.5), ax6:9=>(116,210), ax7:8=>(169.5,119.5) -->
+  <polygon points="260,66 350.5,119.5 388,210 350.5,300.5 260,338 169.5,300.5 116,210 169.5,119.5"
+    fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- KKday [8,7,7,7,8,7,6,7] teal #0891b2 dashed -->
+  <!-- ax0:8=>(260,82), ax1:7=>(260+79.2,210-79.2)=(339.2,130.8), ax2:7=>(372,210), ax3:7=>(339.2,289.2), ax4:8=>(260,338), ax5:7=>(169.5+16,300.5-16)=(185.5-16... -->
+  <!-- ax5:7 => (260+7/10*160*(-0.707), 210+7/10*160*0.707) = (260-79.2,210+79.2)=(180.8,289.2) -->
+  <!-- ax6:6 => (260-96,210)=(164,210) -->
+  <!-- ax7:7 => (260+7/10*160*(-0.707),210+7/10*160*(-0.707))=(180.8,130.8) -->
+  <polygon points="260,82 339.2,130.8 372,210 339.2,289.2 260,338 180.8,289.2 164,210 180.8,130.8"
+    fill="none" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- Trip.com [8,8,7,7,9,8,7,8] red #e11d48 dashed -->
+  <!-- ax0:8=>(260,82), ax1:8=>(350.5,119.5), ax2:7=>(372,210), ax3:7=>(339.2,289.2), ax4:9=>(260,354), ax5:8=>(169.5,300.5), ax6:7=>(148,210), ax7:8=>(169.5,119.5) -->
+  <polygon points="260,82 350.5,119.5 372,210 339.2,289.2 260,354 169.5,300.5 148,210 169.5,119.5"
+    fill="none" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- SatuSatu [4,4,5,4,2,6,3,5] purple #7c3aed solid filled -->
+  <!-- ax0:4=>(260,210+4/10*160*(-1))=(260,146) -->
+  <!-- ax1:4=>(260+45.2,210-45.2)=(305.2,164.8) -->
+  <!-- ax2:5=>(260+80,210)=(340,210) -->
+  <!-- ax3:4=>(305.2,255.2) -->
+  <!-- ax4:2=>(260,210+32)=(260,242) -->
+  <!-- ax5:6=>(260+6/10*160*(-0.707),210+6/10*160*0.707)=(260-67.9,210+67.9)=(192.1,277.9) -->
+  <!-- ax6:3=>(260-48,210)=(212,210) -->
+  <!-- ax7:5=>(260+5/10*160*(-0.707),210+5/10*160*(-0.707))=(260-56.6,210-56.6)=(203.4,153.4) -->
+  <polygon points="260,146 305.2,164.8 340,210 305.2,255.2 260,242 192.1,277.9 212,210 203.4,153.4"
+    fill="#7c3aed" fill-opacity="0.2" stroke="#7c3aed" stroke-width="3" opacity="1"/>
+  <!-- Dots on SatuSatu polygon -->
+  <circle cx="260" cy="146" r="3" fill="#7c3aed"/>
+  <circle cx="305.2" cy="164.8" r="3" fill="#7c3aed"/>
+  <circle cx="340" cy="210" r="3" fill="#7c3aed"/>
+  <circle cx="305.2" cy="255.2" r="3" fill="#7c3aed"/>
+  <circle cx="260" cy="242" r="3" fill="#7c3aed"/>
+  <circle cx="192.1" cy="277.9" r="3" fill="#7c3aed"/>
+  <circle cx="212" cy="210" r="3" fill="#7c3aed"/>
+  <circle cx="203.4" cy="153.4" r="3" fill="#7c3aed"/>
+
+  <!-- Legend -->
+  <rect x="40" y="376" width="10" height="10" fill="#7c3aed"/>
+  <text x="54" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">SatuSatu</text>
+  <rect x="118" y="376" width="10" height="3" fill="#2563eb"/>
+  <text x="132" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">Klook</text>
+  <rect x="178" y="376" width="10" height="3" fill="#0891b2"/>
+  <text x="192" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">KKday</text>
+  <rect x="240" y="376" width="10" height="3" fill="#f97316"/>
+  <text x="254" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">GetYourGuide</text>
+  <rect x="348" y="376" width="10" height="3" fill="#e11d48"/>
+  <text x="362" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">Trip.com</text>
+</svg>
+</div>
+
+<!-- Journey Phases Table -->
+<h3>Journey Phases — 6-Stage Map</h3>
+<div class="table-wrap">
+<table>
+<tr>
+  <th>#</th><th>Stage</th><th>User Action</th><th>User Emotion</th><th>SatuSatu Touchpoint</th><th>Gap / Opportunity</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><strong>Inspiration</strong></td>
+  <td>Scrolls IG/TikTok, reads travel blogs, asks in WhatsApp groups</td>
+  <td>😊 Excited, Inspired <span class="badge badge-p3">8/10</span></td>
+  <td>Minimal — SatuSatu rarely appears in travel content</td>
+  <td>No editorial SEO hub; no creator partnership program; zero brand presence in global travel content</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>Research</strong></td>
+  <td>Googles "best things to do in Bali", compares platforms, reads 10–20 reviews</td>
+  <td>😐 Methodical, slightly overwhelmed <span class="badge badge-p2">6/10</span></td>
+  <td>Platform discovered only if already aware; no SEO ranking for "Bali activities"</td>
+  <td>No destination landing pages; thin review density vs. Klook's 813 activities counter</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>Evaluation</strong></td>
+  <td>Opens SatuSatu, scans for trust signals, Googles "SatuSatu legit"</td>
+  <td>😟 Skeptical, Uncertain <span class="badge badge-p0">3.5/10</span></td>
+  <td>Listing pages, homepage — missing trust scaffolding</td>
+  <td>No operator badge, no social proof counter, no free cancellation badge, no nationality-matched reviews</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>Booking</strong></td>
+  <td>Selects date → forced account creation → sees hidden fees → limited payment</td>
+  <td>😟 Frustrated at fees <span class="badge badge-p0">4/10</span></td>
+  <td>Account creation gate, checkout flow, payment page</td>
+  <td>No guest checkout, platform+service fees revealed late, no Google/Apple Pay</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>Pre-Experience</strong></td>
+  <td>Re-reads confirmation, checks map, contacts support</td>
+  <td>😊 Anticipating, slightly anxious <span class="badge badge-p2">7/10</span></td>
+  <td>Confirmation email, WhatsApp support</td>
+  <td>No T-24h automated reminder, vague meeting point instructions, no multilingual logistics</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>Post-Experience</strong></td>
+  <td>Posts to IG/TikTok, maybe reviews, unlikely to return</td>
+  <td>😐 Happy with activity, indifferent to brand <span class="badge badge-p2">6/10</span></td>
+  <td>Review email, no loyalty hook</td>
+  <td>No loyalty credits, no referral program, no post-stay "you might love this" sequence</td>
+</tr>
+</table>
+</div>
+
+<!-- CHART 2: Customer Emotion Arc -->
+<h3>Chart 2 — Customer Emotion Arc</h3>
+<div class="chart-wrap">
+<div class="chart-title">SatuSatu vs. OTA Benchmark Emotion Scores Across Journey</div>
+<svg width="620" height="300" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="620" height="300" fill="#0f172a"/>
+  <!-- Plot area: x=80 to 580, y=20 to 260 -->
+  <!-- Y: score 1-10, y=260-(score-1)/9*220 -->
+  <!-- score 10 => y=20, score 1 => y=240... let's use y=260-(score-1)/9*220 -->
+  <!-- X positions: 80, 176, 272, 368, 464, 580 -->
+
+  <!-- Y axis labels -->
+  <text x="72" y="24" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">10</text>
+  <text x="72" y="68" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">9</text>
+  <text x="72" y="112" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">7</text>
+  <text x="72" y="156" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">5</text>
+  <text x="72" y="200" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">3</text>
+  <text x="72" y="244" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">1</text>
+
+  <!-- Y grid lines -->
+  <line x1="80" y1="20" x2="580" y2="20" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="64" x2="580" y2="64" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="108" x2="580" y2="108" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="152" x2="580" y2="152" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="196" x2="580" y2="196" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="240" x2="580" y2="240" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- X labels -->
+  <!-- X positions for 6 stages: 80, 176, 272, 368, 464, 580 -->
+  <text x="80" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Inspiration</text>
+  <text x="176" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Research</text>
+  <text x="272" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Evaluation</text>
+  <text x="368" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Booking</text>
+  <text x="464" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Pre-Exp</text>
+  <text x="580" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Post-Exp</text>
+
+  <!-- Y formula: y = 240 - (score-1)/9*220 -->
+  <!-- SatuSatu [8,6,3.5,4,7,6] -->
+  <!-- s=8 => y=240-7/9*220=240-171.1=68.9 -->
+  <!-- s=6 => y=240-5/9*220=240-122.2=117.8 -->
+  <!-- s=3.5 => y=240-2.5/9*220=240-61.1=178.9 -->
+  <!-- s=4 => y=240-3/9*220=240-73.3=166.7 -->
+  <!-- s=7 => y=240-6/9*220=240-146.7=93.3 -->
+  <!-- s=6 => y=117.8 -->
+
+  <!-- OTA [8,7,7,7.5,8,8] -->
+  <!-- s=8=>68.9, s=7=>93.3, s=7=>93.3, s=7.5=>81.1, s=8=>68.9, s=8=>68.9 -->
+
+  <!-- Gap fill polygon (between SatuSatu lower and OTA higher) -->
+  <!-- Vertices: OTA forward then SatuSatu backward -->
+  <polygon points="80,68.9 176,93.3 272,93.3 368,81.1 464,68.9 580,68.9 580,117.8 464,93.3 368,166.7 272,178.9 176,117.8 80,68.9"
+    fill="rgba(254,202,202,0.25)" stroke="none"/>
+
+  <!-- OTA dashed grey -->
+  <polyline points="80,68.9 176,93.3 272,93.3 368,81.1 464,68.9 580,68.9"
+    fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- SatuSatu purple solid -->
+  <polyline points="80,68.9 176,117.8 272,178.9 368,166.7 464,93.3 580,117.8"
+    fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+
+  <!-- SatuSatu dots -->
+  <circle cx="80" cy="68.9" r="5" fill="#7c3aed"/>
+  <circle cx="176" cy="117.8" r="5" fill="#7c3aed"/>
+  <circle cx="272" cy="178.9" r="5" fill="#e11d48"/>
+  <circle cx="368" cy="166.7" r="5" fill="#7c3aed"/>
+  <circle cx="464" cy="93.3" r="5" fill="#7c3aed"/>
+  <circle cx="580" cy="117.8" r="5" fill="#7c3aed"/>
+
+  <!-- Annotation at Evaluation -->
+  <line x1="272" y1="178.9" x2="320" y2="225" stroke="#e11d48" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="290" y="224" width="210" height="30" fill="#450a0a" rx="4"/>
+  <text x="296" y="237" fill="#fca5a5" font-size="9" font-family="sans-serif">Hidden fees + no guest checkout</text>
+  <text x="296" y="249" fill="#fca5a5" font-size="9" font-family="sans-serif">+ weak trust signals</text>
+
+  <!-- Legend -->
+  <rect x="80" y="282" width="12" height="3" fill="#7c3aed"/>
+  <text x="96" y="290" fill="#e2e8f0" font-size="10" font-family="sans-serif">SatuSatu</text>
+  <line x1="160" y1="285" x2="175" y2="285" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="179" y="290" fill="#e2e8f0" font-size="10" font-family="sans-serif">OTA Benchmark</text>
+</svg>
+</div>
+
+<!-- UX Audit Table -->
+<h3>UX Audit Findings — Cross-Referenced to Backlog</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Dimension</th><th>Status</th><th>Key Finding</th><th>Backlog Item</th></tr>
+<tr>
+  <td>Information Architecture</td>
+  <td>⚠️ Partial</td>
+  <td>No destination hub pages; Indonesia-generic hero</td>
+  <td>SEO Destination Pages <span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr>
+  <td>Search &amp; Discovery</td>
+  <td>⚠️ Partial</td>
+  <td>No autocomplete, no price/duration filter</td>
+  <td>Discover Filter &amp; Sort <span class="badge badge-on-dev">On Dev</span>; Autocomplete+Filters <span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr>
+  <td>Attraction Detail Pages</td>
+  <td>⚠️ Partial</td>
+  <td>No "what's included" checklist, no recommendations</td>
+  <td>Package Options; Product Detail Recommended</td>
+</tr>
+<tr>
+  <td>Booking Flow</td>
+  <td>❌ Missing</td>
+  <td>No guest checkout; hidden fees at final step</td>
+  <td>Guest Purchase + My Booking <span class="badge badge-suggested">Suggested</span>; All-inclusive pricing <span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Trust Signals</td>
+  <td>❌ Missing</td>
+  <td>No operator badge, no social proof counter, no cancellation badge</td>
+  <td>SatuSatu Verified Badge <span class="badge badge-now">NOW</span>; Free Cancellation Badge <span class="badge badge-now">NOW</span>; Social Proof Counter <span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Mobile Experience</td>
+  <td>⚠️ Partial</td>
+  <td>No offline ticket/QR optimization</td>
+  <td>My Booking <span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Language &amp; Localization</td>
+  <td>❌ Missing</td>
+  <td>English only; IDR/USD only; no WeChat/UPI/KakaoPay</td>
+  <td>I18n Translations <span class="badge badge-on-dev">On Dev</span>; I18n Payment incl. 2C2P <span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+<tr>
+  <td>Pricing Transparency</td>
+  <td>⚠️ Partial</td>
+  <td>Drip pricing — fees only at checkout</td>
+  <td>All-inclusive upfront pricing <span class="badge badge-p1">P1</span> <span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Support &amp; Post-Booking</td>
+  <td>❌ Missing</td>
+  <td>No post-experience email flow, no loyalty</td>
+  <td>Pre-activity emails <span class="badge badge-now">NOW</span>; Post-experience email <span class="badge badge-next">NEXT</span></td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2: Strategic Framing — Explore vs. Exploit              -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s2" class="section-card strategy">
+<div class="section-title">2. Strategic Framing: Explore vs. Exploit</div>
+<div class="section-subtitle">March (1991) Organizational Learning Model Applied to SatuSatu · March 2026</div>
+
+<p>March's (1991) organizational learning model distinguishes two modes of operation: <strong>exploitation</strong> — refining and extending existing knowledge, processes, and capabilities — and <strong>exploration</strong> — discovering new possibilities, testing hypotheses, and building new capabilities. Neither mode is inherently superior; the strategic question is sequencing and balance. Over-exploitation traps organizations in local optima, unable to adapt when market conditions shift. Over-exploration dissipates resources across unvalidated bets before a proven revenue foundation is established.</p>
+
+<p>For SatuSatu — post-launch with domestic traction but zero proven foreign visitor acquisition — the risk runs in both directions. The platform has accumulated Explore debt (too many experimental features, insufficient UX polish on fundamentals) while simultaneously under-investing in Exploit work that would convert the foreign visitors it already receives. The current estimated ratio of 65% Explore / 35% Exploit is strategically misaligned for a platform at this stage. The recommended rebalancing to 70% Exploit / 30% Explore for the NOW and NEXT horizons reflects the primacy of funnel repair before market expansion.</p>
+
+<!-- CHART 6: Explore vs. Exploit Quadrant -->
+<h3>Chart 6 — Explore vs. Exploit Quadrant Matrix</h3>
+<div class="chart-wrap">
+<svg width="640" height="510" viewBox="0 0 640 510" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="510" fill="#0f172a"/>
+  <!-- Quadrant backgrounds -->
+  <rect x="0" y="0" width="320" height="240" fill="#1d4ed8" fill-opacity="0.07"/>
+  <rect x="320" y="0" width="320" height="240" fill="#16a34a" fill-opacity="0.07"/>
+  <rect x="0" y="240" width="320" height="240" fill="#e11d48" fill-opacity="0.07"/>
+  <rect x="320" y="240" width="320" height="240" fill="#0891b2" fill-opacity="0.07"/>
+  <!-- Dividers -->
+  <line x1="320" y1="0" x2="320" y2="480" stroke="#334155" stroke-width="1.5"/>
+  <line x1="0" y1="240" x2="640" y2="240" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Quadrant labels -->
+  <text x="160" y="22" fill="#60a5fa" font-size="12" font-family="sans-serif" font-weight="700" text-anchor="middle">EXPLORE — Contained Bets</text>
+  <text x="480" y="22" fill="#4ade80" font-size="12" font-family="sans-serif" font-weight="700" text-anchor="middle">EXPLOIT — Fix Now</text>
+  <text x="480" y="262" fill="#22d3ee" font-size="12" font-family="sans-serif" font-weight="700" text-anchor="middle">EXPLOIT — Quick Wins</text>
+  <text x="160" y="262" fill="#fb7185" font-size="12" font-family="sans-serif" font-weight="700" text-anchor="middle">EXPLORE — Avoid Now</text>
+
+  <!-- Axis labels -->
+  <text x="320" y="498" fill="#64748b" font-size="11" font-family="sans-serif" text-anchor="middle">Certainty (Low → High)</text>
+  <text x="10" y="240" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="middle" transform="rotate(-90,10,240)">Strategic Value (Low → High)</text>
+
+  <!-- Legend -->
+  <!-- grey solid = CSV Released/On Dev -->
+  <!-- white solid = CSV To Prioritize/Product Req -->
+  <!-- purple hollow = Suggested Initiative -->
+
+  <!-- EXPLOIT Fix Now (top-right, x>320, y<240) -->
+  <!-- All-inclusive pricing (340, 80) — purple hollow -->
+  <circle cx="340" cy="80" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="350" y="77" fill="#c4b5fd" font-size="9" font-family="sans-serif">All-inclusive pricing</text>
+
+  <!-- Free cancellation badge (400, 100) — purple hollow -->
+  <circle cx="400" cy="100" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="410" y="97" fill="#c4b5fd" font-size="9" font-family="sans-serif">Free cancel badge</text>
+
+  <!-- I18n Translations (360, 120) On Dev — grey solid -->
+  <circle cx="360" cy="120" r="7" fill="#475569"/>
+  <text x="370" y="117" fill="#94a3b8" font-size="9" font-family="sans-serif">I18n Translations (On Dev)</text>
+
+  <!-- I18n Payment 2C2P (380, 140) On Dev — grey solid -->
+  <circle cx="380" cy="140" r="7" fill="#475569"/>
+  <text x="390" y="137" fill="#94a3b8" font-size="9" font-family="sans-serif">I18n Payment 2C2P (On Dev)</text>
+
+  <!-- EXPLOIT Quick Wins (bottom-right, x>320, y>240) -->
+  <!-- Social proof counter (450, 280) — purple hollow -->
+  <circle cx="450" cy="280" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="460" y="277" fill="#c4b5fd" font-size="9" font-family="sans-serif">Social proof counter</text>
+
+  <!-- SSO Phase 1 (470, 300) Testing — grey solid -->
+  <circle cx="470" cy="300" r="7" fill="#475569"/>
+  <text x="480" y="297" fill="#94a3b8" font-size="9" font-family="sans-serif">SSO Phase 1 (Testing)</text>
+
+  <!-- Social Proof in Home Page (430, 320) Product Req — white solid -->
+  <circle cx="430" cy="320" r="7" fill="#e2e8f0"/>
+  <text x="440" y="317" fill="#e2e8f0" font-size="9" font-family="sans-serif">Social Proof HP (Prod Req)</text>
+
+  <!-- Voucher in Home Page (460, 340) Product Req — white solid -->
+  <circle cx="460" cy="340" r="7" fill="#e2e8f0"/>
+  <text x="470" y="337" fill="#e2e8f0" font-size="9" font-family="sans-serif">Voucher HP (Prod Req)</text>
+
+  <!-- Discover Filter & Sort (480, 360) On Dev — grey solid -->
+  <circle cx="480" cy="360" r="7" fill="#475569"/>
+  <text x="490" y="357" fill="#94a3b8" font-size="9" font-family="sans-serif">Discover Filter (On Dev)</text>
+
+  <!-- EXPLORE Contained Bets (top-left, x<320, y<240) -->
+  <!-- SEO Destination Pages (160, 80) — purple hollow -->
+  <circle cx="160" cy="80" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="82" y="77" fill="#c4b5fd" font-size="9" font-family="sans-serif">SEO Dest. Pages</text>
+
+  <!-- SatuSatu Verified Badge (200, 120) — purple hollow -->
+  <circle cx="200" cy="120" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="108" y="117" fill="#c4b5fd" font-size="9" font-family="sans-serif">Verified Badge</text>
+
+  <!-- External Review (180, 140) On Dev — grey solid -->
+  <circle cx="180" cy="140" r="7" fill="#475569"/>
+  <text x="90" y="137" fill="#94a3b8" font-size="9" font-family="sans-serif">External Review (On Dev)</text>
+
+  <!-- Blog Improvements (140, 160) Released — grey solid -->
+  <circle cx="140" cy="160" r="7" fill="#475569"/>
+  <text x="50" y="157" fill="#94a3b8" font-size="9" font-family="sans-serif">Blog Improvements</text>
+
+  <!-- EXPLORE Avoid Now (bottom-left, x<320, y>240) -->
+  <!-- Loyalty Credits (100, 300) — purple hollow -->
+  <circle cx="100" cy="300" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="10" y="297" fill="#c4b5fd" font-size="9" font-family="sans-serif">Loyalty Credits</text>
+
+  <!-- WhatsApp-native booking (120, 320) — purple hollow -->
+  <circle cx="120" cy="320" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="7" y="317" fill="#c4b5fd" font-size="9" font-family="sans-serif">WA-native booking</text>
+
+  <!-- Mandarin Localization (80, 360) — purple hollow -->
+  <circle cx="80" cy="360" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="90" y="357" fill="#c4b5fd" font-size="9" font-family="sans-serif">Mandarin L10n</text>
+
+  <!-- Referral Program (140, 340) — purple hollow -->
+  <circle cx="140" cy="340" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="150" y="337" fill="#c4b5fd" font-size="9" font-family="sans-serif">Referral Program</text>
+
+  <!-- AI Recommendations (100, 380) — purple hollow -->
+  <circle cx="100" cy="380" r="7" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="110" y="377" fill="#c4b5fd" font-size="9" font-family="sans-serif">AI Recommendations</text>
+
+  <!-- Ratio annotation -->
+  <rect x="100" y="486" width="440" height="18" fill="#1e293b" rx="4"/>
+  <text x="320" y="499" fill="#fbbf24" font-size="10" font-family="sans-serif" font-weight="700" text-anchor="middle">Current: 65% Explore / 35% Exploit → Target: 70% Exploit / 30% Explore</text>
+
+  <!-- Legend at bottom -->
+  <circle cx="10" cy="473" r="5" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="18" y="477" fill="#c4b5fd" font-size="9" font-family="sans-serif">Suggested</text>
+  <circle cx="80" cy="473" r="5" fill="#475569"/>
+  <text x="88" y="477" fill="#94a3b8" font-size="9" font-family="sans-serif">CSV Released/On Dev</text>
+  <circle cx="185" cy="473" r="5" fill="#e2e8f0"/>
+  <text x="193" y="477" fill="#e2e8f0" font-size="9" font-family="sans-serif">CSV To Prioritize/Prod Req</text>
+</svg>
+</div>
+
+<!-- Quadrant Narrative Table -->
+<h3>Quadrant Narrative — All Initiatives</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Quadrant</th><th>Initiative</th><th>Source</th><th>Status</th></tr>
+<tr><td><span class="badge badge-now">EXPLOIT High Certainty</span></td><td>All-inclusive upfront pricing</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-now">EXPLOIT High Certainty</span></td><td>Free cancellation badge</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-now">EXPLOIT High Certainty</span></td><td>I18n Translations</td><td>PAYCOM CSV</td><td><span class="badge badge-on-dev">On Dev</span></td></tr>
+<tr><td><span class="badge badge-now">EXPLOIT High Certainty</span></td><td>I18n Payment (incl. 2C2P)</td><td>PAYCOM CSV</td><td><span class="badge badge-on-dev">On Dev</span></td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Platform social proof counter</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Social Proof in Home Page</td><td>PAYCOM CSV</td><td>Product Req</td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>SSO Phase 1</td><td>PAYCOM CSV</td><td><span class="badge badge-testing">Testing</span></td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Guest checkout + Google/Apple SSO</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Google Pay + Apple Pay</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Pre-activity automated emails</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Discover Filter &amp; Sort</td><td>CONTEX CSV</td><td><span class="badge badge-on-dev">On Dev</span></td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Voucher in Home Page</td><td>PAYCOM CSV</td><td>Product Req</td></tr>
+<tr><td><span class="badge badge-next">EXPLOIT Quick Wins</span></td><td>Pop Up without Param</td><td>PAYCOM CSV</td><td>Product Req</td></tr>
+<tr><td><span class="badge badge-later">EXPLORE High Uncertainty</span></td><td>SEO Destination Landing Pages</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-later">EXPLORE High Uncertainty</span></td><td>SatuSatu Verified Operator Badge</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td><span class="badge badge-later">EXPLORE High Uncertainty</span></td><td>External Review integration</td><td>CONTEX CSV</td><td><span class="badge badge-on-dev">On Dev</span></td></tr>
+<tr><td><span class="badge badge-later">EXPLORE High Uncertainty</span></td><td>Blog/Content Hub</td><td>PAYCOM + CONTEX CSV</td><td><span class="badge badge-released">Released</span> / <span class="badge badge-on-dev">On Dev</span></td></tr>
+<tr><td><span class="badge badge-later">EXPLORE High Uncertainty</span></td><td>My Booking (full)</td><td>CONTEX CSV</td><td>To Prioritize</td></tr>
+<tr><td>EXPLORE Strategic Bets</td><td>Loyalty / Credits Program</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td>EXPLORE Strategic Bets</td><td>Referral Program</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td>EXPLORE Strategic Bets</td><td>Korean + Hindi localization</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td>EXPLORE Strategic Bets</td><td>Mandarin localization</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td>EXPLORE Strategic Bets</td><td>WhatsApp-native booking</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td>EXPLORE Strategic Bets</td><td>AI-powered recommendations</td><td>Roadmap</td><td><span class="badge badge-suggested">Suggested</span></td></tr>
+<tr><td>EXPLORE Strategic Bets</td><td>Destination page</td><td>PAYCOM/CONTEX CSV</td><td><span class="badge badge-design">Design</span></td></tr>
+</table>
+</div>
+
+<h3>Recommended Ratio &amp; Sequencing Principle</h3>
+<p>The recommended 70/30 Exploit/Explore ratio for the NOW and NEXT horizons is not an arbitrary constraint — it reflects the empirical finding that platforms at SatuSatu's stage (early product-market fit, sub-500 monthly foreign bookings) overwhelmingly fail due to conversion leakage rather than insufficient product breadth. Klook and GetYourGuide did not win by being the most innovative platforms in 2012 — they won by being the most reliable and frictionless ones.</p>
+<p>Sequencing principle: Exploit initiatives must gate Explore ones. Guest checkout must ship before loyalty credits are meaningful. Free cancellation badge must be accurate before it is displayed. I18n translations must be live before Korean/Hindi localization is worth investing in. Each Explore bet must have a named prerequisite Exploit initiative — if that prerequisite is not validated, the Explore bet stays in the LATER horizon regardless of ICE score.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: Prioritization Framework                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s3" class="section-card conversion">
+<div class="section-title">3. Prioritization Framework</div>
+<div class="section-subtitle">ICE + Kano — Recommended Primary Stack for SatuSatu / TipTip · March 2026</div>
+
+<h3>3.1 Framework Benchmarking</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Framework</th><th>Early-Stage Fit</th><th>Low Data Req</th><th>Exec Speed</th><th>Cold-Start</th><th>Bias Resistance</th><th>Verdict</th></tr>
+<tr>
+  <td><strong>ICE</strong></td>
+  <td>9</td><td>9</td><td>9</td><td>8</td><td>7</td>
+  <td><span style="color:#4ade80">✅ Recommended Primary</span></td>
+</tr>
+<tr>
+  <td><strong>Kano</strong></td>
+  <td>8</td><td>7</td><td>7</td><td>7</td><td>6</td>
+  <td><span style="color:#4ade80">✅ Recommended Secondary</span></td>
+</tr>
+<tr>
+  <td><strong>RICE</strong></td>
+  <td>7</td><td>4</td><td>5</td><td>3</td><td>5</td>
+  <td><span style="color:#fbbf24">⚠️ Premature — needs baseline data</span></td>
+</tr>
+<tr>
+  <td><strong>MoSCoW</strong></td>
+  <td>8</td><td>10</td><td>10</td><td>9</td><td>4</td>
+  <td><span style="color:#94a3b8">ℹ️ Communication tool only</span></td>
+</tr>
+<tr>
+  <td><strong>WSJF</strong></td>
+  <td>3</td><td>2</td><td>3</td><td>2</td><td>4</td>
+  <td><span style="color:#f87171">❌ Enterprise-scale only</span></td>
+</tr>
+<tr>
+  <td><strong>Value/Effort</strong></td>
+  <td>8</td><td>10</td><td>10</td><td>9</td><td>5</td>
+  <td><span style="color:#94a3b8">ℹ️ Workshop pre-filter only</span></td>
+</tr>
+</table>
+</div>
+
+<!-- CHART 3: Framework Suitability Radar -->
+<h3>Chart 3 — Framework Suitability Radar</h3>
+<div class="chart-wrap">
+<div class="chart-title">5-Dimension Framework Suitability (Score 1–10)</div>
+<svg width="520" height="420" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="420" fill="#0f172a"/>
+  <!-- Grid circles -->
+  <g stroke="#1e293b" stroke-width="1" fill="none">
+    <circle cx="260" cy="200" r="32"/>
+    <circle cx="260" cy="200" r="64"/>
+    <circle cx="260" cy="200" r="96"/>
+    <circle cx="260" cy="200" r="128"/>
+    <circle cx="260" cy="200" r="160"/>
+  </g>
+  <!-- Grid score labels -->
+  <text x="262" y="197" fill="#475569" font-size="9" font-family="sans-serif">2</text>
+  <text x="262" y="165" fill="#475569" font-size="9" font-family="sans-serif">4</text>
+  <text x="262" y="133" fill="#475569" font-size="9" font-family="sans-serif">6</text>
+  <text x="262" y="101" fill="#475569" font-size="9" font-family="sans-serif">8</text>
+  <text x="262" y="69" fill="#475569" font-size="9" font-family="sans-serif">10</text>
+
+  <!-- 5 axes: angles start at -90deg (top), then +72deg each -->
+  <!-- angle_i = -pi/2 + i*(2*pi/5) in degrees: -90, -90+72=-18, -90+144=54, -90+216=126, -90+288=198 -->
+  <!-- cos/sin values (degrees to radians): -->
+  <!-- ax0: -90deg => cos=-90=-0,sin=-90=-1 => (0,-1) => endpoint (260,40) -->
+  <!-- ax1: -18deg => cos=-18=0.951,sin=-18=-0.309 => endpoint (260+152.2,200-49.4)=(412.2,150.6) -->
+  <!-- ax2: 54deg => cos=54=0.588,sin=54=0.809 => endpoint (260+94,200+129.4)=(354,329.4) -->
+  <!-- ax3: 126deg => cos=126=-0.588,sin=126=0.809 => endpoint (260-94,200+129.4)=(166,329.4) -->
+  <!-- ax4: 198deg => cos=198=-0.951,sin=198=-0.309 => endpoint (260-152.2,200-49.4)=(107.8,150.6) -->
+  <line x1="260" y1="200" x2="260" y2="40" stroke="#334155" stroke-width="1"/>
+  <line x1="260" y1="200" x2="412" y2="151" stroke="#334155" stroke-width="1"/>
+  <line x1="260" y1="200" x2="354" y2="329" stroke="#334155" stroke-width="1"/>
+  <line x1="260" y1="200" x2="166" y2="329" stroke="#334155" stroke-width="1"/>
+  <line x1="260" y1="200" x2="108" y2="151" stroke="#334155" stroke-width="1"/>
+
+  <!-- Axis labels at r=178 -->
+  <!-- ax0 top: Early-Stage Fit -->
+  <text x="260" y="20" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Early-Stage Fit</text>
+  <!-- ax1 top-right: Low Data Requirements -->
+  <text x="432" y="148" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="start">Low Data Req</text>
+  <!-- ax2 bottom-right: Execution Speed -->
+  <text x="364" y="356" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Exec Speed</text>
+  <!-- ax3 bottom-left: Cold-Start Handling -->
+  <text x="156" y="356" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Cold-Start</text>
+  <!-- ax4 top-left: Bias Resistance -->
+  <text x="88" y="148" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="end">Bias Resistance</text>
+
+  <!-- Helper: for score s on axis i, r=160: -->
+  <!-- x = 260 + (s/10)*160*cos(angle_i), y = 200 + (s/10)*160*sin(angle_i) -->
+  <!-- cos/sin: ax0=(0,-1), ax1=(0.951,-0.309), ax2=(0.588,0.809), ax3=(-0.588,0.809), ax4=(-0.951,-0.309) -->
+
+  <!-- WSJF [3,2,3,2,4] red dashed -->
+  <!-- ax0:3=>(260,200+3/10*160*(-1))=(260,152), ax1:2=>(260+2/10*160*0.951,200+2/10*160*(-0.309))=(260+30.4,200-9.9)=(290.4,190.1) -->
+  <!-- ax2:3=>(260+3/10*160*0.588,200+3/10*160*0.809)=(260+28.2,200+38.8)=(288.2,238.8) -->
+  <!-- ax3:2=>(260+2/10*160*(-0.588),200+2/10*160*0.809)=(260-18.8,200+25.9)=(241.2,225.9) -->
+  <!-- ax4:4=>(260+4/10*160*(-0.951),200+4/10*160*(-0.309))=(260-60.9,200-19.8)=(199.1,180.2) -->
+  <polygon points="260,152 290.4,190.1 288.2,238.8 241.2,225.9 199.1,180.2"
+    fill="none" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- MoSCoW [8,10,10,9,4] yellow dashed -->
+  <!-- ax0:8=>(260,200-128)=(260,72), ax1:10=>(260+152,200-49.4)=(412,150.6), ax2:10=>(260+94.1,200+129.4)=(354.1,329.4) -->
+  <!-- ax3:9=>(260+9/10*160*(-0.588),200+9/10*160*0.809)=(260-84.7,200+116.5)=(175.3,316.5) -->
+  <!-- ax4:4=>(199.1,180.2) -->
+  <polygon points="260,72 412,150.6 354.1,329.4 175.3,316.5 199.1,180.2"
+    fill="none" stroke="#eab308" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Value/Effort [8,10,10,9,5] orange dashed -->
+  <!-- ax0:8=>(260,72), ax1:10=>(412,150.6), ax2:10=>(354.1,329.4), ax3:9=>(175.3,316.5) -->
+  <!-- ax4:5=>(260+5/10*160*(-0.951),200+5/10*160*(-0.309))=(260-76.1,200-24.7)=(183.9,175.3) -->
+  <polygon points="260,72 412,150.6 354.1,329.4 175.3,316.5 183.9,175.3"
+    fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- RICE [7,4,5,3,5] blue dashed -->
+  <!-- ax0:7=>(260,200-112)=(260,88), ax1:4=>(260+4/10*160*0.951,200+4/10*160*(-0.309))=(260+60.9,200-19.8)=(320.9,180.2) -->
+  <!-- ax2:5=>(260+5/10*160*0.588,200+5/10*160*0.809)=(260+47.1,200+64.7)=(307.1,264.7) -->
+  <!-- ax3:3=>(260+3/10*160*(-0.588),200+3/10*160*0.809)=(260-28.2,200+38.8)=(231.8,238.8) -->
+  <!-- ax4:5=>(183.9,175.3) -->
+  <polygon points="260,88 320.9,180.2 307.1,264.7 231.8,238.8 183.9,175.3"
+    fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Kano [8,7,7,7,6] teal filled -->
+  <!-- ax0:8=>(260,72), ax1:7=>(260+7/10*160*0.951,200+7/10*160*(-0.309))=(260+106.4,200-34.6)=(366.4,165.4) -->
+  <!-- ax2:7=>(260+7/10*160*0.588,200+7/10*160*0.809)=(260+65.9,200+90.6)=(325.9,290.6) -->
+  <!-- ax3:7=>(260+7/10*160*(-0.588),200+7/10*160*0.809)=(260-65.9,200+90.6)=(194.1,290.6) -->
+  <!-- ax4:6=>(260+6/10*160*(-0.951),200+6/10*160*(-0.309))=(260-91.3,200-29.7)=(168.7,170.3) -->
+  <polygon points="260,72 366.4,165.4 325.9,290.6 194.1,290.6 168.7,170.3"
+    fill="#0891b2" fill-opacity="0.2" stroke="#0891b2" stroke-width="2"/>
+
+  <!-- ICE [9,9,9,8,7] green filled -->
+  <!-- ax0:9=>(260,200-144)=(260,56), ax1:9=>(260+9/10*160*0.951,200+9/10*160*(-0.309))=(260+136.9,200-44.5)=(396.9,155.5) -->
+  <!-- ax2:9=>(260+9/10*160*0.588,200+9/10*160*0.809)=(260+84.7,200+116.5)=(344.7,316.5) -->
+  <!-- ax3:8=>(260+8/10*160*(-0.588),200+8/10*160*0.809)=(260-75.3,200+103.6)=(184.7,303.6) -->
+  <!-- ax4:7=>(260+7/10*160*(-0.951),200+7/10*160*(-0.309))=(260-106.4,200-34.6)=(153.6,165.4) -->
+  <polygon points="260,56 396.9,155.5 344.7,316.5 184.7,303.6 153.6,165.4"
+    fill="#16a34a" fill-opacity="0.25" stroke="#16a34a" stroke-width="3"/>
+
+  <!-- Legend -->
+  <rect x="30" y="380" width="10" height="10" fill="#16a34a" fill-opacity="0.7"/>
+  <text x="44" y="389" fill="#e2e8f0" font-size="10" font-family="sans-serif">ICE</text>
+  <rect x="80" y="380" width="10" height="10" fill="#0891b2" fill-opacity="0.5"/>
+  <text x="94" y="389" fill="#e2e8f0" font-size="10" font-family="sans-serif">Kano</text>
+  <line x1="140" y1="385" x2="153" y2="385" stroke="#2563eb" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="157" y="389" fill="#e2e8f0" font-size="10" font-family="sans-serif">RICE</text>
+  <line x1="200" y1="385" x2="213" y2="385" stroke="#eab308" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="217" y="389" fill="#e2e8f0" font-size="10" font-family="sans-serif">MoSCoW</text>
+  <line x1="277" y1="385" x2="290" y2="385" stroke="#e11d48" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="294" y="389" fill="#e2e8f0" font-size="10" font-family="sans-serif">WSJF</text>
+  <line x1="330" y1="385" x2="343" y2="385" stroke="#f97316" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="347" y="389" fill="#e2e8f0" font-size="10" font-family="sans-serif">Value/Effort</text>
+</svg>
+</div>
+
+<h3>3.2 Why ICE + Kano for SatuSatu / TipTip</h3>
+
+<p><strong>(a) Cold-Start Problem.</strong> SatuSatu has no baseline data on foreign visitor behaviour — no cohort retention curves, no attributed conversion rates by nationality, no A/B test history. RICE's Reach dimension would require PM teams to fabricate numbers, producing false precision that gives stakeholders unwarranted confidence in prioritization decisions. ICE's Confidence dimension, by contrast, explicitly surfaces epistemic uncertainty: a Confidence score of 5 signals "this is a competitive analogy, not a measured fact," which is an honest and useful piece of information at the pre-data stage.</p>
+
+<p><strong>(b) Team Size &amp; Execution Velocity.</strong> With approximately 10 engineers across PAYCOM and CONTEX squads, SatuSatu's PM team cannot afford the calibration overhead of WSJF Cost of Delay matrices or RICE multi-session scoring workshops. ICE sessions — Impact, Confidence, Ease scored 1–10 with a 3-person panel — take under 30 minutes per sprint cycle. The simplicity is a feature, not a limitation: it keeps the team in the building-and-learning loop rather than the planning-and-documenting loop.</p>
+
+<p><strong>(c) VC Accountability &amp; Stakeholder Communication.</strong> ICE scores are one-sentence-explainable: "we scored this P1 because Impact=9 from Klook guest-checkout uplift data, Confidence=8 because it's a known pattern, and Ease=6 because SSO Phase 1 is already in testing." This defensibility is critical when CPO-level decisions are reviewed by investment committees. WSJF or RICE scores, without calibration history, look rigorous but are not — and they cannot withstand probing questions in the same way.</p>
+
+<p><strong>(d) Kano Enforcement — Preventing Delight Before Basic.</strong> The Kano classification layer serves as a hard gate that ICE alone cannot provide. A Delight feature with ICE=400 must not ship before a Basic feature with ICE=300 — because un-met Basic features cause dissatisfaction (users leave), while un-met Delight features are simply missed opportunities (users don't notice). GetYourGuide, Klook, and KKday have already established customer expectations for free cancellation, guest checkout, and upfront pricing as table-stakes basics. Until SatuSatu matches these, Delight features (loyalty, recommendations, WhatsApp booking) are being built on a foundation that leaks.</p>
+
+<h3>3.3 How to Run an ICE Scoring Session</h3>
+
+<div class="info-box info">
+<strong>Step 1: Kano Classification First.</strong> Before any ICE scoring, classify each initiative as Basic, Performance, or Delight. Basic features are automatically elevated to NOW horizon regardless of ICE score, provided Engineering Ease ≥ 4. The Kano gate must be applied before ICE multiplication.
+</div>
+
+<div class="info-box info">
+<strong>Step 2: ICE Dimensions Definition.</strong> Impact = business outcome magnitude (1–10), anchored by competitor evidence proxies when internal data is unavailable (e.g., "Klook reported 23% checkout conversion uplift post-guest-checkout" = anchor for Impact=9). Confidence = evidence quality (1–10): published data=8–10, competitive analogy=5–7, PM hypothesis=1–4. Ease = inverse of engineering days (10=XS, 8=S, 6=M, 4=L, 2=XL). ICE = Impact × Confidence × Ease.
+</div>
+
+<div class="info-box info">
+<strong>Step 3: Async Scoring.</strong> Product Lead, Engineering Lead, and Commercial Lead each score independently (no anchoring). Average the three scores. If any single dimension diverges by more than 3 points between scorers, the item enters a mandatory 15-minute calibration discussion before the score is finalized. This prevents groupthink without requiring consensus for every item.
+</div>
+
+<div class="info-box warning">
+<strong>Step 4: Explore/Exploit Sanity Check.</strong> After scoring, count the NOW horizon items. If more than 40% of NOW items are classified Explore, force a rebalancing discussion. The product team must explicitly name which Exploit items are being deferred and justify the trade-off to the CPO before the sprint begins.
+</div>
+
+<div class="info-box danger">
+<strong>Step 5: VC Intervention Protocol.</strong> When an initiative is mandated by investors or board with insufficient ICE evidence, label it <span class="badge badge-p0">P0-VC-Mandated</span> and document the opportunity cost — the specific ICE-scored item(s) being displaced from the sprint. This creates accountability and a historical record for post-launch retrospectives.
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: Product Roadmap Construction                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s4" class="section-card">
+<div class="section-title">4. Product Roadmap Construction</div>
+<div class="section-subtitle">Priority Levels · Feature Classification · ICE Scoring · Effort Sizing · Complete Initiative Table</div>
+
+<h3>4.1 Priority Level Definitions</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Level</th><th>Label</th><th>Description</th><th>ICE Floor</th></tr>
+<tr><td><span class="badge badge-p0">P0</span></td><td>Critical / VC-Mandated</td><td>Must ship this sprint. Blocker for all other work. No ICE floor — executive override only.</td><td>N/A</td></tr>
+<tr><td><span class="badge badge-p1">P1</span></td><td>High Priority</td><td>Must ship this horizon. Core to conversion or trust. Includes all Kano Basic features.</td><td>ICE ≥ 280</td></tr>
+<tr><td><span class="badge badge-p2">P2</span></td><td>Standard Priority</td><td>Ship within horizon if capacity allows. Significant performance improvement.</td><td>ICE ≥ 120</td></tr>
+<tr><td><span class="badge badge-p3">P3</span></td><td>Low Priority</td><td>Future horizon. Low ICE or high uncertainty. Requires prerequisite validation.</td><td>ICE &lt; 120</td></tr>
+</table>
+</div>
+
+<h3>4.1b Feature Classification Labels</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Label</th><th>Definition</th><th>Example</th></tr>
+<tr><td>Feature Parity</td><td>Capability that competitors already have; absence causes active user loss</td><td>Guest checkout, free cancellation badge</td></tr>
+<tr><td>Feature Gap</td><td>Capability that would materially improve conversion but is not yet standard</td><td>SEO destination pages, verified badge</td></tr>
+<tr><td>Hygiene</td><td>Technical correctness, operational improvement, or baseline UX quality</td><td>hreflang, OTP signup, locale naming</td></tr>
+<tr><td>Growth</td><td>Initiative designed to expand user base or increase repeat visits</td><td>Referral program, curated guides</td></tr>
+<tr><td>Delight</td><td>Surprise-and-delight feature; satisfiers not dissatisfiers</td><td>AI recommendations, loyalty credits</td></tr>
+</table>
+</div>
+
+<div class="rule-box">
+<div class="rule-box-title">⚡ ICE Floor Rule</div>
+<strong>Kano Basic features override ICE floors.</strong> Any feature classified as Kano Basic is automatically P1 if Engineering Ease ≥ 4, regardless of ICE score. The logic: un-met Basic features cause dissatisfaction (users leave SatuSatu). No ICE calculation can override a structural cause of user exit. All other features must meet their ICE floor to enter the horizon. If a feature fails the ICE floor for its intended horizon, it graduates to the next horizon automatically — it does not get promoted by relationship or seniority.
+</div>
+
+<!-- CHART 4: Effort Scale -->
+<h3>Chart 4 — Effort Size Reference Scale</h3>
+<div class="chart-wrap">
+<svg width="640" height="200" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="200" fill="#0f172a"/>
+  <!-- XS bar: width=16, y=10, h=26 -->
+  <rect x="100" y="10" width="16" height="26" fill="#22c55e" rx="3"/>
+  <text x="100" y="48" fill="#22c55e" font-size="10" font-family="sans-serif" font-weight="700">XS</text>
+  <text x="100" y="60" fill="#94a3b8" font-size="9" font-family="sans-serif">1 day</text>
+  <text x="100" y="72" fill="#64748b" font-size="8.5" font-family="sans-serif">Config tweak, copy change</text>
+
+  <!-- S bar: width=80 -->
+  <rect x="136" y="10" width="80" height="26" fill="#84cc16" rx="3"/>
+  <text x="136" y="48" fill="#84cc16" font-size="10" font-family="sans-serif" font-weight="700">S</text>
+  <text x="136" y="60" fill="#94a3b8" font-size="9" font-family="sans-serif">≤1 week</text>
+  <text x="136" y="72" fill="#64748b" font-size="8.5" font-family="sans-serif">Single feature, clear spec</text>
+
+  <!-- M bar: width=192 -->
+  <rect x="236" y="10" width="192" height="26" fill="#f59e0b" rx="3"/>
+  <text x="236" y="48" fill="#f59e0b" font-size="10" font-family="sans-serif" font-weight="700">M</text>
+  <text x="236" y="60" fill="#94a3b8" font-size="9" font-family="sans-serif">2–3 weeks</text>
+  <text x="236" y="72" fill="#64748b" font-size="8.5" font-family="sans-serif">Multi-component, some API work</text>
+
+  <!-- L bar: show as 352 but cap at 580, so x=100+offset. Let's use a separate y row -->
+  <!-- Redraw with 2 rows for clarity -->
+  <!-- Row 1: XS, S, M side by side -->
+  <!-- Row 2: L, XL -->
+  <!-- L bar: width=352 would overflow, scale to max 500px total. Use proportional: XS=1d,S=5d,M=15d,L=25d,XL=30+ -->
+  <!-- Let's draw L and XL in row 2 -->
+  <rect x="100" y="100" width="220" height="26" fill="#f97316" rx="3"/>
+  <text x="100" y="138" fill="#f97316" font-size="10" font-family="sans-serif" font-weight="700">L</text>
+  <text x="100" y="150" fill="#94a3b8" font-size="9" font-family="sans-serif">4–5 weeks</text>
+  <text x="100" y="162" fill="#64748b" font-size="8.5" font-family="sans-serif">Cross-functional, 3rd-party integration</text>
+
+  <!-- XL bar: width=320 -->
+  <rect x="340" y="100" width="270" height="26" fill="#ef4444" rx="3"/>
+  <text x="340" y="138" fill="#ef4444" font-size="10" font-family="sans-serif" font-weight="700">XL</text>
+  <text x="340" y="150" fill="#94a3b8" font-size="9" font-family="sans-serif">≥6 weeks</text>
+  <text x="340" y="162" fill="#64748b" font-size="8.5" font-family="sans-serif">New platform capability</text>
+
+  <!-- Scale reference -->
+  <text x="100" y="185" fill="#475569" font-size="9" font-family="sans-serif">← Smaller effort · Faster time-to-value ·</text>
+  <text x="490" y="185" fill="#475569" font-size="9" font-family="sans-serif" text-anchor="end">Larger effort →</text>
+</svg>
+</div>
+
+<h3>4.2 VC Intervention Protocol</h3>
+<div class="info-box danger">
+<strong>P0-VC-Mandated Label Procedure:</strong> When an initiative is mandated by investors or board without meeting P1 ICE criteria, the Product Lead must: (1) Apply the <span class="badge badge-p0">P0-VC-Mandated</span> label in the backlog; (2) Document the displaced P1/P2 item(s) with their ICE scores; (3) Present the opportunity cost statement in writing to the CPO within 24 hours of the mandate; (4) Log the decision in the quarterly trade-off register. This process exists not to block mandated work but to create accountability and institutional memory for post-launch attribution.
+</div>
+
+<h3>4.3 Complete Initiative Scoring Table</h3>
+<p style="font-size:12px;color:#64748b">⚠ = inferred value not from original CSV. Scores are team estimates pending calibration session.</p>
+<div class="table-wrap">
+<table>
+<tr>
+  <th>Initiative</th><th>Squad</th><th>Label</th><th>Pillar</th>
+  <th>Kano</th><th>Imp</th><th>Conf</th><th>Ease</th><th>ICE</th>
+  <th>Pri</th><th>Effort</th><th>Status</th><th>Horizon</th>
+</tr>
+<tr>
+  <td>All-inclusive upfront pricing</td><td>Roadmap</td><td>Feature Parity</td><td>Trust</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>9</td><td>9</td><td>8</td><td><strong>648</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Free cancellation badge on listings</td><td>Roadmap</td><td>Feature Parity</td><td>Trust</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>8</td><td>9</td><td>9</td><td><strong>648</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Platform social proof counter</td><td>Roadmap</td><td>Feature Gap</td><td>Trust</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>7</td><td>9</td><td>9</td><td><strong>567</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Implement llms.txt (static)</td><td>PAYCOM</td><td>Hygiene</td><td>Discovery</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>4</td><td>9</td><td>10</td><td><strong>360 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Social Proof in Home Page</td><td>PAYCOM</td><td>Feature Gap</td><td>Trust</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>7</td><td>8</td><td>9</td><td><strong>504 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td>Product Req</td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Standardize locale naming convention</td><td>PAYCOM</td><td>Hygiene</td><td>Localization</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>5</td><td>9</td><td>9</td><td><strong>405 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-on-dev">On Dev</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Pop Up without Param</td><td>PAYCOM</td><td>Hygiene</td><td>Conversion</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>6</td><td>9</td><td>9</td><td><strong>486 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td>Product Req</td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>SSO Phase 1 (Guest/Google login)</td><td>PAYCOM</td><td>Feature Parity</td><td>Conversion</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>9</td><td>8</td><td>6</td><td><strong>432</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-testing">Testing</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Guest checkout + Google/Apple SSO</td><td>Roadmap</td><td>Feature Parity</td><td>Conversion</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>9</td><td>8</td><td>6</td><td><strong>432</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Improve UX booking to signup</td><td>PAYCOM</td><td>Feature Gap</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>7</td><td>7</td><td><strong>343 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td>To Prioritize</td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Google Pay + Apple Pay</td><td>Roadmap</td><td>Feature Parity</td><td>Conversion</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>8</td><td>8</td><td>6</td><td><strong>384</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>SatuSatu Verified operator badge</td><td>Roadmap</td><td>Feature Gap</td><td>Trust</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>8</td><td>7</td><td>7</td><td><strong>392</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Pre-activity automated emails</td><td>Roadmap</td><td>Feature Gap</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>8</td><td>7</td><td><strong>392</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>WhatsApp Notifications</td><td>CONTEX</td><td>Hygiene</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>6</td><td>8</td><td>8</td><td><strong>384 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Home Page Curated Exp Update</td><td>PAYCOM</td><td>Hygiene</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>8</td><td>9</td><td><strong>360 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>I18n Translations</td><td>PAYCOM</td><td>Feature Parity</td><td>Localization</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>8</td><td>7</td><td>5</td><td><strong>280 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>L·4–5w</td><td><span class="badge badge-on-dev">On Dev</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>I18n Payment (incl. 2C2P)</td><td>PAYCOM</td><td>Feature Parity</td><td>Conversion</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>8</td><td>7</td><td>5</td><td><strong>280 ⚠</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>L·4–5w</td><td><span class="badge badge-on-dev">On Dev</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Predefined Form for Visitor</td><td>CONTEX</td><td>Hygiene</td><td>Ops</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>8</td><td>7</td><td><strong>280 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Retool Rating &amp; Total Sold</td><td>CONTEX</td><td>Hygiene</td><td>Ops</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>8</td><td>8</td><td><strong>320 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><span class="badge badge-on-dev">On Dev</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Variant multi merchant</td><td>CONTEX</td><td>Hygiene</td><td>Ops</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>7</td><td>7</td><td><strong>245 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><span class="badge badge-on-dev">On Dev</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Move Sign-up/in CTA to top</td><td>PAYCOM</td><td>Hygiene</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>7</td><td>9</td><td><strong>315 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td>To Prioritize</td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Product Detail Improvements</td><td>CONTEX</td><td>Feature Gap</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>7</td><td>7</td><td><strong>343 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>CS Widget</td><td>CONTEX</td><td>Feature Gap</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>6</td><td>7</td><td>8</td><td><strong>336 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<tr>
+  <td>Discover Filter &amp; Sort</td><td>CONTEX</td><td>Feature Gap</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>7</td><td>6</td><td><strong>294 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-on-dev">On Dev</span></td><td><span class="badge badge-now">NOW</span></td>
+</tr>
+<!-- NEXT horizon -->
+<tr style="background:#0a1628">
+  <td>SEO destination landing pages</td><td>Roadmap</td><td>Feature Gap</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>9</td><td>6</td><td>5</td><td><strong>270</strong></td>
+  <td><span class="badge badge-p1">P1</span></td><td>M·2–3w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Review nationality display</td><td>Roadmap</td><td>Feature Gap</td><td>Trust</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>7</td><td>8</td><td><strong>392</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Implement hreflang on blog</td><td>CONTEX</td><td>Hygiene</td><td>Discovery</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>5</td><td>8</td><td>8</td><td><strong>320 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Analytics in CH</td><td>CONTEX</td><td>Hygiene</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>8</td><td>8</td><td><strong>320 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td>Next Pickup</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Post-experience email + review ask</td><td>Roadmap</td><td>Growth</td><td>Retention</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>7</td><td>7</td><td><strong>343</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>SEO Improvements (general)</td><td>CONTEX</td><td>Feature Gap</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>6</td><td>6</td><td><strong>252 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Voucher in Home Page</td><td>PAYCOM</td><td>Growth</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>6</td><td>6</td><td>7</td><td><strong>252 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td>Product Req</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Package Options</td><td>CONTEX</td><td>Feature Gap</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>6</td><td>6</td><td><strong>252 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td>Next Pickup</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>External Review integration</td><td>CONTEX</td><td>Feature Gap</td><td>Trust</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>6</td><td>7</td><td>6</td><td><strong>252 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-on-dev">On Dev</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Move to OTP-based signup</td><td>PAYCOM</td><td>Feature Gap</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>6</td><td>7</td><td>6</td><td><strong>252 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Product Setup Improvements</td><td>CONTEX</td><td>Hygiene</td><td>Ops</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>8</td><td>7</td><td><strong>280 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td>Next Pickup</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Multiple Image Banners</td><td>PAYCOM</td><td>Hygiene</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>4</td><td>8</td><td>8</td><td><strong>256 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Autocomplete + advanced search filters</td><td>Roadmap</td><td>Feature Gap</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>7</td><td>5</td><td><strong>245</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>My Booking</td><td>CONTEX</td><td>Feature Gap</td><td>Conversion</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>7</td><td>5</td><td><strong>245 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>L·4–5w</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Custom Sections in Homepage</td><td>PAYCOM</td><td>Growth</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>7</td><td>6</td><td><strong>210 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Destination page</td><td>PAYCOM/CONTEX</td><td>Feature Gap</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>7</td><td>6</td><td>5</td><td><strong>210 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-design">Design</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Sort by biggest discount</td><td>PAYCOM</td><td>Feature Gap</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>5</td><td>6</td><td>7</td><td><strong>210 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Blog Improvements (WP inline CTA)</td><td>CONTEX</td><td>Growth</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>6</td><td>6</td><td>6</td><td><strong>216 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-released">Released</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Implement llms.txt (dynamic)</td><td>PAYCOM</td><td>Hygiene</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>4</td><td>8</td><td>6</td><td><strong>192 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>One card per row results</td><td>PAYCOM</td><td>Hygiene</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>4</td><td>6</td><td>8</td><td><strong>192 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Product Detail Recommended Products</td><td>CONTEX</td><td>Feature Gap</td><td>Discovery</td>
+  <td><span class="badge badge-perf">Performance</span></td><td>6</td><td>6</td><td>5</td><td><strong>180 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Guest Purchase + My Booking for Guest</td><td>CONTEX</td><td>Feature Parity</td><td>Conversion</td>
+  <td><span class="badge badge-basic">Basic</span></td><td>9</td><td>7</td><td>3</td><td><strong>189 ⚠</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XL·≥6w</td><td>To Prioritize</td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Curated editorial Bali guides</td><td>Roadmap</td><td>Growth</td><td>Discovery</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>8</td><td>6</td><td>5</td><td><strong>240</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<tr style="background:#0a1628">
+  <td>Referral program</td><td>Roadmap</td><td>Growth</td><td>Retention</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>8</td><td>6</td><td>5</td><td><strong>240</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-next">NEXT</span></td>
+</tr>
+<!-- LATER horizon -->
+<tr style="background:#0d0d1e">
+  <td>Korean + Hindi UI localization</td><td>Roadmap</td><td>Growth</td><td>Localization</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>8</td><td>6</td><td>4</td><td><strong>192</strong></td>
+  <td><span class="badge badge-p2">P2</span></td><td>L·4–5w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-later">LATER</span></td>
+</tr>
+<tr style="background:#0d0d1e">
+  <td>Upsell other recommended attractions</td><td>PAYCOM</td><td>Growth</td><td>Conversion</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>6</td><td>5</td><td>5</td><td><strong>150 ⚠</strong></td>
+  <td><span class="badge badge-p3">P3</span></td><td>M·2–3w</td><td>To Prioritize</td><td><span class="badge badge-later">LATER</span></td>
+</tr>
+<tr style="background:#0d0d1e">
+  <td>Mandarin UI localization</td><td>Roadmap</td><td>Growth</td><td>Localization</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>9</td><td>5</td><td>3</td><td><strong>135</strong></td>
+  <td><span class="badge badge-p3">P3</span></td><td>L·4–5w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-later">LATER</span></td>
+</tr>
+<tr style="background:#0d0d1e">
+  <td>WhatsApp-native booking flow</td><td>Roadmap</td><td>Growth</td><td>Conversion</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>6</td><td>5</td><td>4</td><td><strong>120</strong></td>
+  <td><span class="badge badge-p3">P3</span></td><td>L·4–5w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-later">LATER</span></td>
+</tr>
+<tr style="background:#0d0d1e">
+  <td>Loyalty / credits program</td><td>Roadmap</td><td>Growth</td><td>Retention</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>9</td><td>5</td><td>2</td><td><strong>90</strong></td>
+  <td><span class="badge badge-p3">P3</span></td><td>XL·≥6w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-later">LATER</span></td>
+</tr>
+<tr style="background:#0d0d1e">
+  <td>AI-powered recommendations</td><td>Roadmap</td><td>Growth</td><td>Retention</td>
+  <td><span class="badge badge-delight">Delight</span></td><td>7</td><td>4</td><td>3</td><td><strong>84</strong></td>
+  <td><span class="badge badge-p3">P3</span></td><td>XL·≥6w</td><td><span class="badge badge-suggested">Suggested</span></td><td><span class="badge badge-later">LATER</span></td>
+</tr>
+</table>
+</div>
+
+<!-- CHART 5: ICE Score Waterfall -->
+<h3>Chart 5 — ICE Score Waterfall (Top 30 Initiatives, Ranked)</h3>
+<div class="chart-wrap">
+<svg width="700" height="700" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="700" fill="#0f172a"/>
+  <!-- Plot area: label 0–240px, bars 240–640px, score labels 640+ -->
+  <!-- Sorted by ICE descending (top 30): -->
+  <!-- 1.648 All-inclusive pricing NOW, 2.648 Free cancel badge NOW, 3.567 Social proof counter NOW -->
+  <!-- 4.504 Social Proof HP NOW, 5.486 Pop Up NOW, 6.432 SSO Phase 1 NOW, 7.432 Guest checkout NOW -->
+  <!-- 8.405 Locale naming NOW, 9.392 Verified badge NOW, 10.392 Pre-activity email NOW -->
+  <!-- 11.392 Review nationality NEXT, 12.384 Google/Apple Pay NOW, 13.384 WhatsApp Notif NOW -->
+  <!-- 14.360 HP Curated NOW, 15.360 llms.txt static NOW, 16.343 Improve UX booking NOW -->
+  <!-- 17.343 Product Detail NOW, 18.343 Post-exp email NEXT, 19.336 CS Widget NOW -->
+  <!-- 20.320 Retool Rating NOW, 21.320 hreflang NEXT, 22.320 Analytics CH NEXT -->
+  <!-- 23.315 Move CTA NOW, 24.294 Discover Filter NOW, 25.280 I18n Trans NOW -->
+  <!-- 26.280 I18n Payment NOW, 27.280 Predefined Form NOW, 28.270 SEO Dest NEXT -->
+  <!-- 29.256 Multi Image Banners NEXT, 30.252 SEO Improvements NEXT -->
+
+  <!-- Bar height=14, gap=4, start y=30 -->
+  <!-- x_bar = 240 + (ICE/648)*360 -->
+  <!-- Colors: NOW=#16a34a, NEXT=#2563eb, LATER=#7c3aed -->
+
+  <!-- Row helper macro (y = 30 + row*(14+4)) -->
+  <!-- Row 0: y=30 -->
+
+  <!-- 1. All-inclusive pricing 648 NOW -->
+  <text x="235" y="41" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">All-inclusive upfront pricing</text>
+  <rect x="240" y="30" width="360" height="14" fill="#16a34a" rx="2"/>
+  <text x="604" y="41" fill="#4ade80" font-size="9" font-family="sans-serif">648</text>
+
+  <!-- 2. Free cancel badge 648 NOW -->
+  <text x="235" y="59" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Free cancellation badge</text>
+  <rect x="240" y="48" width="360" height="14" fill="#16a34a" rx="2"/>
+  <text x="604" y="59" fill="#4ade80" font-size="9" font-family="sans-serif">648</text>
+
+  <!-- 3. Social proof counter 567 NOW -->
+  <text x="235" y="77" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Platform social proof counter</text>
+  <rect x="240" y="66" width="315" height="14" fill="#16a34a" rx="2"/>
+  <text x="559" y="77" fill="#4ade80" font-size="9" font-family="sans-serif">567</text>
+
+  <!-- 4. Social Proof HP 504 NOW -->
+  <text x="235" y="95" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Social Proof in Home Page</text>
+  <rect x="240" y="84" width="280" height="14" fill="#16a34a" rx="2"/>
+  <text x="524" y="95" fill="#4ade80" font-size="9" font-family="sans-serif">504 ⚠</text>
+
+  <!-- 5. Pop Up 486 NOW -->
+  <text x="235" y="113" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Pop Up without Param</text>
+  <rect x="240" y="102" width="270" height="14" fill="#16a34a" rx="2"/>
+  <text x="514" y="113" fill="#4ade80" font-size="9" font-family="sans-serif">486 ⚠</text>
+
+  <!-- 6. SSO Phase 1 432 NOW -->
+  <text x="235" y="131" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SSO Phase 1</text>
+  <rect x="240" y="120" width="240" height="14" fill="#16a34a" rx="2"/>
+  <text x="484" y="131" fill="#4ade80" font-size="9" font-family="sans-serif">432</text>
+
+  <!-- 7. Guest checkout 432 NOW -->
+  <text x="235" y="149" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Guest checkout + Google/Apple SSO</text>
+  <rect x="240" y="138" width="240" height="14" fill="#16a34a" rx="2"/>
+  <text x="484" y="149" fill="#4ade80" font-size="9" font-family="sans-serif">432</text>
+
+  <!-- 8. Locale naming 405 NOW -->
+  <text x="235" y="167" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Standardize locale naming</text>
+  <rect x="240" y="156" width="225" height="14" fill="#16a34a" rx="2"/>
+  <text x="469" y="167" fill="#4ade80" font-size="9" font-family="sans-serif">405 ⚠</text>
+
+  <!-- 9. Verified badge 392 NOW -->
+  <text x="235" y="185" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SatuSatu Verified badge</text>
+  <rect x="240" y="174" width="218" height="14" fill="#16a34a" rx="2"/>
+  <text x="462" y="185" fill="#4ade80" font-size="9" font-family="sans-serif">392</text>
+
+  <!-- 10. Pre-activity email 392 NOW -->
+  <text x="235" y="203" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Pre-activity automated emails</text>
+  <rect x="240" y="192" width="218" height="14" fill="#16a34a" rx="2"/>
+  <text x="462" y="203" fill="#4ade80" font-size="9" font-family="sans-serif">392</text>
+
+  <!-- 11. Review nationality 392 NEXT -->
+  <text x="235" y="221" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Review nationality display</text>
+  <rect x="240" y="210" width="218" height="14" fill="#2563eb" rx="2"/>
+  <text x="462" y="221" fill="#93c5fd" font-size="9" font-family="sans-serif">392</text>
+
+  <!-- 12. Google/Apple Pay 384 NOW -->
+  <text x="235" y="239" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Google Pay + Apple Pay</text>
+  <rect x="240" y="228" width="213" height="14" fill="#16a34a" rx="2"/>
+  <text x="457" y="239" fill="#4ade80" font-size="9" font-family="sans-serif">384</text>
+
+  <!-- 13. WhatsApp Notif 384 NOW -->
+  <text x="235" y="257" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">WhatsApp Notifications</text>
+  <rect x="240" y="246" width="213" height="14" fill="#16a34a" rx="2"/>
+  <text x="457" y="257" fill="#4ade80" font-size="9" font-family="sans-serif">384 ⚠</text>
+
+  <!-- 14. HP Curated 360 NOW -->
+  <text x="235" y="275" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Home Page Curated Exp Update</text>
+  <rect x="240" y="264" width="200" height="14" fill="#16a34a" rx="2"/>
+  <text x="444" y="275" fill="#4ade80" font-size="9" font-family="sans-serif">360 ⚠</text>
+
+  <!-- 15. llms.txt static 360 NOW -->
+  <text x="235" y="293" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Implement llms.txt (static)</text>
+  <rect x="240" y="282" width="200" height="14" fill="#16a34a" rx="2"/>
+  <text x="444" y="293" fill="#4ade80" font-size="9" font-family="sans-serif">360 ⚠</text>
+
+  <!-- 16. Improve UX booking 343 NOW -->
+  <text x="235" y="311" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Improve UX booking to signup</text>
+  <rect x="240" y="300" width="190" height="14" fill="#16a34a" rx="2"/>
+  <text x="434" y="311" fill="#4ade80" font-size="9" font-family="sans-serif">343 ⚠</text>
+
+  <!-- 17. Product Detail 343 NOW -->
+  <text x="235" y="329" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Product Detail Improvements</text>
+  <rect x="240" y="318" width="190" height="14" fill="#16a34a" rx="2"/>
+  <text x="434" y="329" fill="#4ade80" font-size="9" font-family="sans-serif">343 ⚠</text>
+
+  <!-- 18. Post-exp email 343 NEXT -->
+  <text x="235" y="347" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Post-experience email + review ask</text>
+  <rect x="240" y="336" width="190" height="14" fill="#2563eb" rx="2"/>
+  <text x="434" y="347" fill="#93c5fd" font-size="9" font-family="sans-serif">343</text>
+
+  <!-- 19. CS Widget 336 NOW -->
+  <text x="235" y="365" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">CS Widget</text>
+  <rect x="240" y="354" width="187" height="14" fill="#16a34a" rx="2"/>
+  <text x="431" y="365" fill="#4ade80" font-size="9" font-family="sans-serif">336 ⚠</text>
+
+  <!-- 20. Retool Rating 320 NOW -->
+  <text x="235" y="383" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Retool Rating &amp; Total Sold</text>
+  <rect x="240" y="372" width="178" height="14" fill="#16a34a" rx="2"/>
+  <text x="422" y="383" fill="#4ade80" font-size="9" font-family="sans-serif">320 ⚠</text>
+
+  <!-- 21. hreflang 320 NEXT -->
+  <text x="235" y="401" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Implement hreflang on blog</text>
+  <rect x="240" y="390" width="178" height="14" fill="#2563eb" rx="2"/>
+  <text x="422" y="401" fill="#93c5fd" font-size="9" font-family="sans-serif">320 ⚠</text>
+
+  <!-- 22. Analytics CH 320 NEXT -->
+  <text x="235" y="419" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Analytics in CH</text>
+  <rect x="240" y="408" width="178" height="14" fill="#2563eb" rx="2"/>
+  <text x="422" y="419" fill="#93c5fd" font-size="9" font-family="sans-serif">320 ⚠</text>
+
+  <!-- 23. Move CTA 315 NOW -->
+  <text x="235" y="437" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Move Sign-up/in CTA to top</text>
+  <rect x="240" y="426" width="175" height="14" fill="#16a34a" rx="2"/>
+  <text x="419" y="437" fill="#4ade80" font-size="9" font-family="sans-serif">315 ⚠</text>
+
+  <!-- 24. Discover Filter 294 NOW -->
+  <text x="235" y="455" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Discover Filter &amp; Sort</text>
+  <rect x="240" y="444" width="163" height="14" fill="#16a34a" rx="2"/>
+  <text x="407" y="455" fill="#4ade80" font-size="9" font-family="sans-serif">294 ⚠</text>
+
+  <!-- 25. I18n Trans 280 NOW -->
+  <text x="235" y="473" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">I18n Translations</text>
+  <rect x="240" y="462" width="155" height="14" fill="#16a34a" rx="2"/>
+  <text x="399" y="473" fill="#4ade80" font-size="9" font-family="sans-serif">280 ⚠</text>
+
+  <!-- 26. I18n Payment 280 NOW -->
+  <text x="235" y="491" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">I18n Payment (incl. 2C2P)</text>
+  <rect x="240" y="480" width="155" height="14" fill="#16a34a" rx="2"/>
+  <text x="399" y="491" fill="#4ade80" font-size="9" font-family="sans-serif">280 ⚠</text>
+
+  <!-- 27. Predefined Form 280 NOW -->
+  <text x="235" y="509" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Predefined Form for Visitor</text>
+  <rect x="240" y="498" width="155" height="14" fill="#16a34a" rx="2"/>
+  <text x="399" y="509" fill="#4ade80" font-size="9" font-family="sans-serif">280 ⚠</text>
+
+  <!-- 28. SEO Dest 270 NEXT -->
+  <text x="235" y="527" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SEO destination landing pages</text>
+  <rect x="240" y="516" width="150" height="14" fill="#2563eb" rx="2"/>
+  <text x="394" y="527" fill="#93c5fd" font-size="9" font-family="sans-serif">270</text>
+
+  <!-- 29. Multi Image Banners 256 NEXT -->
+  <text x="235" y="545" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Multiple Image Banners</text>
+  <rect x="240" y="534" width="142" height="14" fill="#2563eb" rx="2"/>
+  <text x="386" y="545" fill="#93c5fd" font-size="9" font-family="sans-serif">256 ⚠</text>
+
+  <!-- 30. SEO Improvements 252 NEXT -->
+  <text x="235" y="563" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SEO Improvements (general)</text>
+  <rect x="240" y="552" width="140" height="14" fill="#2563eb" rx="2"/>
+  <text x="384" y="563" fill="#93c5fd" font-size="9" font-family="sans-serif">252 ⚠</text>
+
+  <!-- Nice-to-have threshold line at ICE=120 => x = 240 + (120/648)*360 = 240+66.7 = 307 -->
+  <line x1="307" y1="20" x2="307" y2="575" stroke="#e11d48" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="310" y="580" fill="#e11d48" font-size="9" font-family="sans-serif">Nice-to-Have Threshold (ICE=120)</text>
+
+  <!-- Legend -->
+  <rect x="240" y="600" width="12" height="10" fill="#16a34a"/>
+  <text x="256" y="609" fill="#e2e8f0" font-size="10" font-family="sans-serif">NOW</text>
+  <rect x="305" y="600" width="12" height="10" fill="#2563eb"/>
+  <text x="321" y="609" fill="#e2e8f0" font-size="10" font-family="sans-serif">NEXT</text>
+  <rect x="370" y="600" width="12" height="10" fill="#7c3aed"/>
+  <text x="386" y="609" fill="#e2e8f0" font-size="10" font-family="sans-serif">LATER</text>
+  <text x="450" y="609" fill="#64748b" font-size="9" font-family="sans-serif">⚠ = inferred ICE score</text>
+</svg>
+</div>
+
+<h3>4.4 Effort × Priority Decision Matrix</h3>
+<div class="table-wrap">
+<table>
+<tr>
+  <th>Effort / Priority</th>
+  <th><span class="badge badge-p0">P0</span> Critical</th>
+  <th><span class="badge badge-p1">P1</span> High</th>
+  <th><span class="badge badge-p2">P2</span> Standard</th>
+  <th><span class="badge badge-p3">P3</span> Low</th>
+</tr>
+<tr>
+  <td><strong>XS · 1d</strong></td>
+  <td style="color:#4ade80">Ship same sprint</td>
+  <td style="color:#4ade80">Ship this sprint</td>
+  <td style="color:#93c5fd">Ship if capacity</td>
+  <td style="color:#64748b">Backlog</td>
+</tr>
+<tr>
+  <td><strong>S · ≤1w</strong></td>
+  <td style="color:#4ade80">Ship this sprint</td>
+  <td style="color:#4ade80">Ship this horizon</td>
+  <td style="color:#93c5fd">Ship next horizon</td>
+  <td style="color:#64748b">Backlog — re-evaluate</td>
+</tr>
+<tr>
+  <td><strong>M · 2–3w</strong></td>
+  <td style="color:#fbbf24">Start this sprint</td>
+  <td style="color:#93c5fd">Ship this horizon</td>
+  <td style="color:#c4b5fd">Ship next horizon</td>
+  <td style="color:#64748b">Defer to LATER</td>
+</tr>
+<tr>
+  <td><strong>L · 4–5w</strong></td>
+  <td style="color:#fbbf24">Plan immediately</td>
+  <td style="color:#93c5fd">Start NEXT horizon</td>
+  <td style="color:#c4b5fd">Defer to LATER</td>
+  <td style="color:#64748b">Kill or descope</td>
+</tr>
+<tr>
+  <td><strong>XL · ≥6w</strong></td>
+  <td style="color:#f87171">Escalate &amp; descope</td>
+  <td style="color:#fbbf24">Start NEXT — plan spike</td>
+  <td style="color:#c4b5fd">LATER only</td>
+  <td style="color:#64748b">Kill unless strategic</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5: Now / Next / Later Roadmap                           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s5" class="section-card discovery">
+<div class="section-title">5. Now / Next / Later Roadmap</div>
+<div class="section-subtitle">Initiatives sorted by ICE score descending within each horizon · Reassessed at each sprint review</div>
+
+<div class="info-box info">
+<strong>Horizon Graduation Rule:</strong> Horizons are reassessed at each sprint review. Graduation from LATER to NEXT requires prerequisite validation, not a calendar date. An initiative cannot advance horizons unless its named prerequisite Exploit item has shipped and its key assumption has been tested.
+</div>
+
+<!-- NOW Horizon -->
+<h3><span class="badge badge-now">NOW</span> 0–3 Months — Fix the Funnel</h3>
+<p>Strategic intent: Remove every identified reason a foreign visitor would leave SatuSatu and book on Klook instead. Focus on Basic feature parity, trust scaffolding, and checkout friction elimination. No new surface areas — deepen and repair existing ones.</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Initiative</th><th>Label</th><th>Kano</th><th>Priority</th><th>Effort</th><th>ICE</th><th>Squad</th><th>Status</th></tr>
+<tr>
+  <td>All-inclusive upfront pricing</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><strong>648</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Free cancellation badge on listings</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><strong>648</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Platform social proof counter</td><td>Feature Gap</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><strong>567</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Social Proof in Home Page</td><td>Feature Gap</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>504 ⚠</strong></td><td>PAYCOM</td>
+  <td>Product Req</td>
+</tr>
+<tr>
+  <td>Pop Up without Param</td><td>Hygiene</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><strong>486 ⚠</strong></td><td>PAYCOM</td>
+  <td>Product Req</td>
+</tr>
+<tr>
+  <td>SSO Phase 1 (Guest/Google login)</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>432</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-testing">Testing</span></td>
+</tr>
+<tr>
+  <td>Guest checkout + Google/Apple SSO</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>432</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Standardize locale naming convention</td><td>Hygiene</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>405 ⚠</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+<tr>
+  <td>SatuSatu Verified operator badge</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>392</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Pre-activity automated emails</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>392</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Google Pay + Apple Pay</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>384</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>WhatsApp Notifications</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>384 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>Home Page Curated Exp Update</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>360 ⚠</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>Implement llms.txt (static)</td><td>Hygiene</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>XS·1d</td><td><strong>360 ⚠</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>Improve UX booking to signup</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>S·≤1w</td><td><strong>343 ⚠</strong></td><td>PAYCOM</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Product Detail Improvements</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>343 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>CS Widget</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>336 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>Retool Rating &amp; Total Sold</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>320 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+<tr>
+  <td>Move Sign-up/in CTA to top</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td><strong>315 ⚠</strong></td><td>PAYCOM</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Discover Filter &amp; Sort</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>294 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+<tr>
+  <td>Predefined Form for Visitor</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>280 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>I18n Translations</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>L·4–5w</td><td><strong>280 ⚠</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+<tr>
+  <td>I18n Payment (incl. 2C2P)</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>L·4–5w</td><td><strong>280 ⚠</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+<tr>
+  <td>Variant multi merchant</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>245 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+</table>
+</div>
+
+<!-- NEXT Horizon -->
+<h3><span class="badge badge-next">NEXT</span> 3–6 Months — Grow and Differentiate</h3>
+<p>Strategic intent: With funnel basics repaired, acquire new traffic segments through SEO and build differentiation through superior post-booking experience. Deepen the discovery and evaluation layers. Begin light Explore bets with clear validation gates.</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Initiative</th><th>Label</th><th>Kano</th><th>Priority</th><th>Effort</th><th>ICE</th><th>Squad</th><th>Status</th></tr>
+<tr>
+  <td>Review nationality display</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td><strong>392</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Post-experience email + review ask</td><td>Growth</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>343</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Implement hreflang on blog</td><td>Hygiene</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>320 ⚠</strong></td><td>CONTEX</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Analytics in CH</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>320 ⚠</strong></td><td>CONTEX</td>
+  <td>Next Pickup</td>
+</tr>
+<tr>
+  <td>Product Setup Improvements</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>280 ⚠</strong></td><td>CONTEX</td>
+  <td>Next Pickup</td>
+</tr>
+<tr>
+  <td>SEO destination landing pages</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p1">P1</span></td><td>M·2–3w</td><td><strong>270</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Multiple Image Banners</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>256 ⚠</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>SEO Improvements (general)</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>252 ⚠</strong></td><td>CONTEX</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Voucher in Home Page</td><td>Growth</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>252 ⚠</strong></td><td>PAYCOM</td>
+  <td>Product Req</td>
+</tr>
+<tr>
+  <td>Package Options</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>252 ⚠</strong></td><td>CONTEX</td>
+  <td>Next Pickup</td>
+</tr>
+<tr>
+  <td>External Review integration</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>252 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-on-dev">On Dev</span></td>
+</tr>
+<tr>
+  <td>Move to OTP-based signup</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>252 ⚠</strong></td><td>PAYCOM</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Curated editorial Bali guides</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>240</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Referral program</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>240</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Autocomplete + advanced search filters</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>245</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>My Booking</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>L·4–5w</td><td><strong>245 ⚠</strong></td><td>CONTEX</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Custom Sections in Homepage</td><td>Growth</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>210 ⚠</strong></td><td>PAYCOM</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>Destination page</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>210 ⚠</strong></td><td>PAYCOM/CONTEX</td>
+  <td><span class="badge badge-design">Design</span></td>
+</tr>
+<tr>
+  <td>Sort by biggest discount</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td><strong>210 ⚠</strong></td><td>PAYCOM</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Blog Improvements (WP inline CTA)</td><td>Growth</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>216 ⚠</strong></td><td>CONTEX</td>
+  <td><span class="badge badge-released">Released</span></td>
+</tr>
+<tr>
+  <td>Implement llms.txt (dynamic)</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>S·≤1w</td><td><strong>192 ⚠</strong></td><td>PAYCOM</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>One card per row results</td><td>Hygiene</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XS·1d</td><td><strong>192 ⚠</strong></td><td>PAYCOM</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Product Detail Recommended Products</td><td>Feature Gap</td>
+  <td><span class="badge badge-perf">Performance</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>M·2–3w</td><td><strong>180 ⚠</strong></td><td>CONTEX</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Guest Purchase + My Booking for Guest</td><td>Feature Parity</td>
+  <td><span class="badge badge-basic">Basic</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>XL·≥6w</td><td><strong>189 ⚠</strong></td><td>CONTEX</td>
+  <td>To Prioritize</td>
+</tr>
+</table>
+</div>
+
+<!-- LATER Horizon -->
+<h3><span class="badge badge-later">LATER</span> 6–12 Months — Market Expansion</h3>
+<p>Strategic intent: Once conversion fundamentals and SEO foundation are proven (target: 500+ monthly foreign bookings), unlock new market segments through full localization, loyalty mechanics, and AI-powered personalization. These bets are high-reward but high-uncertainty — validate them with lightweight proxies before full investment.</p>
+
+<div class="table-wrap">
+<table>
+<tr><th>Initiative</th><th>Label</th><th>Kano</th><th>Priority</th><th>Effort</th><th>ICE</th><th>Squad</th><th>Status</th></tr>
+<tr>
+  <td>Korean + Hindi UI localization</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p2">P2</span></td><td>L·4–5w</td><td><strong>192</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Upsell other recommended attractions</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p3">P3</span></td><td>M·2–3w</td><td><strong>150 ⚠</strong></td><td>PAYCOM</td>
+  <td>To Prioritize</td>
+</tr>
+<tr>
+  <td>Mandarin UI localization</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p3">P3</span></td><td>L·4–5w</td><td><strong>135</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>WhatsApp-native booking flow</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p3">P3</span></td><td>L·4–5w</td><td><strong>120</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>Loyalty / credits program</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p3">P3</span></td><td>XL·≥6w</td><td><strong>90</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+<tr>
+  <td>AI-powered recommendations</td><td>Growth</td>
+  <td><span class="badge badge-delight">Delight</span></td>
+  <td><span class="badge badge-p3">P3</span></td><td>XL·≥6w</td><td><strong>84</strong></td><td>Roadmap</td>
+  <td><span class="badge badge-suggested">Suggested</span></td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6: Dependency Graph & Sequencing Rationale              -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s6" class="section-card trust">
+<div class="section-title">6. Dependency Graph &amp; Sequencing Rationale</div>
+<div class="section-subtitle">Three initiative chains — each node must ship before the next can deliver full value</div>
+
+<!-- Chain 1: Trust Chain -->
+<h3>Chain 1 — Trust Chain</h3>
+<div class="chart-wrap">
+<svg width="700" height="110" viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="110" fill="#0f172a"/>
+  <!-- Node boxes: 5 nodes, each ~120px wide, spaced with arrows -->
+  <!-- Node 1: Operator Vetting (Ops) - grey -->
+  <rect x="10" y="35" width="110" height="40" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+  <text x="65" y="52" fill="#cbd5e1" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Operator Vetting</text>
+  <text x="65" y="64" fill="#94a3b8" font-size="8" font-family="sans-serif" text-anchor="middle">(Ops)</text>
+  <!-- Arrow -->
+  <line x1="120" y1="55" x2="138" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Node 2: Verified Badge (Eng) - teal -->
+  <rect x="140" y="35" width="110" height="40" rx="6" fill="#0c2233" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="195" y="52" fill="#67e8f9" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Verified Badge</text>
+  <text x="195" y="64" fill="#0891b2" font-size="8" font-family="sans-serif" text-anchor="middle">(Eng · Suggested)</text>
+  <!-- Arrow -->
+  <line x1="250" y1="55" x2="268" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Node 3: Cancel Policy Audit - grey -->
+  <rect x="270" y="35" width="110" height="40" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+  <text x="325" y="52" fill="#cbd5e1" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Cancel Policy</text>
+  <text x="325" y="64" fill="#94a3b8" font-size="8" font-family="sans-serif" text-anchor="middle">Audit (Ops)</text>
+  <!-- Arrow -->
+  <line x1="380" y1="55" x2="398" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Node 4: Free Cancel Badge - purple outline -->
+  <rect x="400" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="460" y="52" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Free Cancel Badge</text>
+  <text x="460" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">(Suggested)</text>
+  <!-- Arrow -->
+  <line x1="520" y1="55" x2="538" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Node 5: Review Nationality - purple outline -->
+  <rect x="540" y="35" width="140" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="610" y="52" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Review Nationality</text>
+  <text x="610" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">Display (Suggested)</text>
+  <!-- Arrow marker def -->
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <marker id="arr-red" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#e11d48"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <!-- Legend -->
+  <rect x="10" y="88" width="8" height="8" fill="#334155" stroke="#475569" stroke-width="1"/>
+  <text x="22" y="96" fill="#94a3b8" font-size="8" font-family="sans-serif">Ops prerequisite</text>
+  <rect x="120" y="88" width="8" height="8" fill="#0c2233" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="132" y="96" fill="#94a3b8" font-size="8" font-family="sans-serif">Eng task</text>
+  <rect x="195" y="88" width="8" height="8" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="207" y="96" fill="#94a3b8" font-size="8" font-family="sans-serif">Suggested initiative</text>
+</svg>
+</div>
+
+<!-- Chain 2: Conversion Chain -->
+<h3>Chain 2 — Conversion Chain</h3>
+<div class="chart-wrap">
+<svg width="700" height="170" viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="170" fill="#0f172a"/>
+  <defs>
+    <marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <!-- Node 1: SSO Phase 1 (Testing) - grey with check -->
+  <rect x="10" y="65" width="100" height="40" rx="6" fill="#1a2e1a" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="60" y="82" fill="#86efac" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">SSO Phase 1 ✓</text>
+  <text x="60" y="94" fill="#4ade80" font-size="8" font-family="sans-serif" text-anchor="middle">(Testing)</text>
+  <!-- Arrow -->
+  <line x1="110" y1="85" x2="128" y2="85" stroke="#475569" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Node 2: Guest Checkout - purple -->
+  <rect x="130" y="65" width="100" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="82" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Guest Checkout</text>
+  <text x="180" y="94" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">+ Apple/Google SSO</text>
+  <!-- Arrow -->
+  <line x1="230" y1="85" x2="248" y2="85" stroke="#475569" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Node 3: Google/Apple Pay - purple -->
+  <rect x="250" y="65" width="100" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="300" y="82" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Google Pay</text>
+  <text x="300" y="94" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">+ Apple Pay</text>
+  <!-- Arrow -->
+  <line x1="350" y1="85" x2="368" y2="85" stroke="#475569" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Node 4: Upfront Pricing - purple -->
+  <rect x="370" y="65" width="100" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="420" y="82" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Upfront Pricing</text>
+  <text x="420" y="94" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">(All-inclusive)</text>
+  <!-- Arrow -->
+  <line x1="470" y1="85" x2="488" y2="85" stroke="#475569" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Node 5: Post-Exp Email - purple -->
+  <rect x="490" y="65" width="100" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="540" y="82" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Post-Exp Email</text>
+  <text x="540" y="94" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">+ Review Ask</text>
+  <!-- Arrow -->
+  <line x1="590" y1="85" x2="608" y2="85" stroke="#475569" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Node 6: Loyalty Credits - purple -->
+  <rect x="610" y="65" width="80" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="650" y="82" fill="#9f7aea" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Loyalty</text>
+  <text x="650" y="94" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">Credits</text>
+
+  <!-- Labels below chain -->
+  <text x="60" y="125" fill="#64748b" font-size="8" font-family="sans-serif" text-anchor="middle">NOW</text>
+  <text x="180" y="125" fill="#64748b" font-size="8" font-family="sans-serif" text-anchor="middle">NOW</text>
+  <text x="300" y="125" fill="#64748b" font-size="8" font-family="sans-serif" text-anchor="middle">NOW</text>
+  <text x="420" y="125" fill="#64748b" font-size="8" font-family="sans-serif" text-anchor="middle">NOW</text>
+  <text x="540" y="125" fill="#2563eb" font-size="8" font-family="sans-serif" text-anchor="middle">NEXT</text>
+  <text x="650" y="125" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">LATER</text>
+
+  <!-- Annotation -->
+  <text x="350" y="150" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Each node unlocks the revenue potential of the next — sequence cannot be reversed</text>
+</svg>
+</div>
+
+<!-- Chain 3: Discovery Chain -->
+<h3>Chain 3 — Discovery &amp; SEO Chain</h3>
+<div class="chart-wrap">
+<svg width="700" height="110" viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="110" fill="#0f172a"/>
+  <defs>
+    <marker id="arr3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <!-- Node 1: hreflang Blog - teal -->
+  <rect x="10" y="35" width="110" height="40" rx="6" fill="#0c2233" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="65" y="52" fill="#67e8f9" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">hreflang Blog</text>
+  <text x="65" y="64" fill="#0891b2" font-size="8" font-family="sans-serif" text-anchor="middle">(NEXT)</text>
+  <!-- Arrow -->
+  <line x1="120" y1="55" x2="138" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 2: Destination Landing Pages - purple -->
+  <rect x="140" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="200" y="52" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Destination Pages</text>
+  <text x="200" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">(NEXT)</text>
+  <!-- Arrow -->
+  <line x1="260" y1="55" x2="278" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 3: Editorial Guides - purple -->
+  <rect x="280" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="340" y="52" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Curated Editorial</text>
+  <text x="340" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">Guides (NEXT)</text>
+  <!-- Arrow -->
+  <line x1="400" y1="55" x2="418" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 4: Korean/Hindi - purple dashed -->
+  <rect x="420" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="480" y="52" fill="#9f7aea" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Korean + Hindi</text>
+  <text x="480" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">i18n (LATER)</text>
+  <!-- Arrow -->
+  <line x1="540" y1="55" x2="558" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 5: Mandarin - purple dashed -->
+  <rect x="560" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="620" y="52" fill="#9f7aea" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Mandarin</text>
+  <text x="620" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">i18n (LATER)</text>
+</svg>
+</div>
+
+<div class="info-box warning">
+<strong>Localization Sequencing Principle:</strong> Localization is a terminal node — build the funnel first, then pour new traffic in. A Korean-speaking user on a page that still has hidden fees and no cancellation policy will bounce at the same rate as an English-speaking user. The Discovery Chain must advance from hreflang through destination pages before localization creates any incremental retention value. Investing in Korean i18n before guest checkout is shipped is spending money to acquire users into a leaking funnel.
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 7: Metrics Tree & Full Funnel Hierarchy                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s7" class="section-card metrics">
+<div class="section-title">7. Metrics Tree &amp; Full Funnel Hierarchy</div>
+<div class="section-subtitle">North Star · Funnel Baseline · Causal Metrics Map · GTM Implementation Specs</div>
+
+<h3>7.1 North Star Metric</h3>
+<div class="info-box purple">
+<strong>Primary NSM (Roadmap):</strong> Monthly Foreign Visitor Bookings Completed<br>
+<code>COUNT(booking_id WHERE visitor_type='foreign' AND status='confirmed' AND activity_date &lt; NOW())</code><br><br>
+<strong>Why not GBV:</strong> A single high-value tour skews GBV without proving PMF<br>
+<strong>Why not Revenue:</strong> Lags too far behind product decisions to inform sprint choices<br>
+<strong>Why not Total Bookings:</strong> Bundles domestic and foreign, hides the foreign visitor growth thesis<br>
+<strong>Graduation trigger:</strong> → Foreign Visitor GBV/Month when volume exceeds 500 bookings/month
+</div>
+
+<div class="info-box info">
+<strong>Aligned NSM (Metrics Framework):</strong> Weekly Qualified Bookings Completed<br>
+<code>COUNT(booking_id WHERE status='confirmed' AND NOT cancelled_within_24h=true)</code> — rolling 7-day<br>
+<strong>Rationale:</strong> 24h filter removes gaming; weekly cadence matches sprint rhythm
+</div>
+
+<div class="info-box success">
+<strong>Synthesis:</strong> Use both concurrently. Weekly Qualified Bookings is the <em>operational sprint metric</em> — reviewed every Monday morning. Monthly Foreign Visitor Bookings Completed is the <em>strategic North Star</em> — reported to leadership monthly and tracked against VC milestones. When the two diverge (weekly up, monthly flat), the team investigates foreign visitor session quality and conversion path specifically.
+</div>
+
+<h3>7.2 Metrics Audit — Existing Stack</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Metric</th><th>Owner</th><th>Type</th><th>Reveals Well</th><th>Blind Spots</th><th>PM Co-Own?</th><th>Gap Tool</th></tr>
+<tr>
+  <td><strong>ROAS</strong></td><td>Marketing</td><td>Efficiency</td>
+  <td>Paid channel ROI</td>
+  <td>Attribution window; organic halo; brand search lift</td>
+  <td>Yes — paid → landing page conversion</td>
+  <td>GA4 + Search Console</td>
+</tr>
+<tr>
+  <td><strong>Ad Impressions</strong></td><td>Marketing</td><td>Reach</td>
+  <td>Campaign scale</td>
+  <td>Quality of audience; irrelevant foreign impressions</td>
+  <td>No</td>
+  <td>Meta Ads Manager</td>
+</tr>
+<tr>
+  <td><strong>Ad Clicks / CTR</strong></td><td>Marketing</td><td>Engagement</td>
+  <td>Creative relevance</td>
+  <td>Post-click behaviour invisible</td>
+  <td>Partial — landing page quality</td>
+  <td>GA4 landing page report</td>
+</tr>
+<tr>
+  <td><strong>Landing Page Views</strong></td><td>Marketing</td><td>Acquisition</td>
+  <td>Traffic volume</td>
+  <td>Bounce rate; session nationality; scroll depth</td>
+  <td>Yes — page quality, not ad quality</td>
+  <td>OpenPanel scroll_depth event</td>
+</tr>
+<tr>
+  <td><strong>Visit Home</strong></td><td>Marketing/Eng</td><td>Engagement</td>
+  <td>Homepage traffic</td>
+  <td>Entry source; new vs. return; activation depth</td>
+  <td>Yes — homepage content quality</td>
+  <td>OpenPanel session_enriched</td>
+</tr>
+<tr>
+  <td><strong>Catalog Detail Views</strong></td><td>Product</td><td>Consideration</td>
+  <td>Discovery intent</td>
+  <td>Time on page; photo views; review scroll; exit rate</td>
+  <td>Yes — detail page quality</td>
+  <td>OpenPanel listing_viewed with photo_count, review_count</td>
+</tr>
+<tr>
+  <td><strong>Initiate Payment</strong></td><td>Product</td><td>Intent</td>
+  <td>Booking funnel entry</td>
+  <td>Auth wall drop; fee shock; per-step abandonment</td>
+  <td>Yes — checkout friction</td>
+  <td>OpenPanel checkout_step per step</td>
+</tr>
+<tr>
+  <td><strong>Paid</strong></td><td>Product/Finance</td><td>Conversion</td>
+  <td>Raw transaction count</td>
+  <td>Guest vs. authenticated; foreign vs. domestic split</td>
+  <td>Yes — conversion quality</td>
+  <td>Internal DB + visitor_type segment</td>
+</tr>
+<tr>
+  <td><strong>Revenue</strong></td><td>Finance</td><td>Lagging</td>
+  <td>Business health</td>
+  <td>Lags 4–8 weeks; not actionable for sprint decisions</td>
+  <td>Partial — GBV proxy only</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>Basket Size</strong></td><td>Product/Finance</td><td>Value</td>
+  <td>Average order value</td>
+  <td>Tour category mix distortion; single high-value skew</td>
+  <td>Yes — upsell and pricing</td>
+  <td>Internal DB with category filter</td>
+</tr>
+<tr>
+  <td><strong>DAU/MAU</strong></td><td>Product</td><td>Retention</td>
+  <td>Platform stickiness</td>
+  <td>Tourism platform seasonal bias; foreign vs. domestic</td>
+  <td>Yes — engagement quality</td>
+  <td>OpenPanel with visitor_type</td>
+</tr>
+</table>
+</div>
+
+<h4>Critical Visibility Gaps</h4>
+<div class="info-box danger">
+<strong>⚠ Critical: Activation Black Box</strong><br>
+No event fires between homepage visit and product detail page for first-time users. The team cannot distinguish a user who found what they wanted from one who bounced immediately.<br>
+<strong>Fix:</strong> OpenPanel <code>listing_viewed</code> + <code>checkout_initiated</code> filtered to <code>session_number=1</code>
+</div>
+<div class="info-box danger">
+<strong>⚠ Critical: Search Behaviour Void</strong><br>
+Zero instrumentation on internal search. The team does not know what foreign visitors search for, what returns zero results, or whether search converts better than browse.<br>
+<strong>Fix:</strong> OpenPanel + GA4 <code>search_performed</code> event with <code>query</code>, <code>results_count</code>, <code>zero_results</code> boolean
+</div>
+<div class="info-box warning">
+<strong>⚠ High: Checkout Micro-Friction</strong><br>
+Initiate Payment fires at top of funnel; no per-step events exist. Auth wall drop-off is invisible in current stack.<br>
+<strong>Fix:</strong> OpenPanel per-step checkout events + <code>payment_error</code> event with error_code
+</div>
+<div class="info-box warning">
+<strong>⚠ High: OOH Attribution Dark Matter</strong><br>
+No branded search volume tracking. Cannot measure whether trust-building initiatives (verified badge, editorial guides) drive branded intent uplift.<br>
+<strong>Fix:</strong> GA4 + Search Console branded search volume delta as proxy metric; track weekly
+</div>
+
+<!-- CHART 8: Must-Have Metric Coverage -->
+<h3>Chart 8 — Must-Have Metric Coverage by Tool &amp; Signal Area</h3>
+<div class="chart-wrap">
+<svg width="620" height="290" viewBox="0 0 620 290" xmlns="http://www.w3.org/2000/svg">
+  <rect width="620" height="290" fill="#0f172a"/>
+  <!-- Plot area: x=80 to 580, y=20 to 220 -->
+  <!-- 6 groups: Acquisition, Conversion, Discovery, Retention, Brand/OOH, Supply Quality -->
+  <!-- Group positions (centers): 100, 200, 300, 380, 460, 550 -->
+  <!-- Bar width: 12px each tool, 2px gap -->
+  <!-- Y scale: 0-5, plot height=200, each unit=40px -->
+  <!-- y = 220 - count*40 -->
+
+  <!-- Y axis -->
+  <line x1="75" y1="20" x2="75" y2="225" stroke="#334155" stroke-width="1"/>
+  <text x="70" y="225" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="end">0</text>
+  <text x="70" y="185" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="end">1</text>
+  <text x="70" y="145" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="end">2</text>
+  <text x="70" y="105" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="end">3</text>
+  <text x="70" y="65" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="end">4</text>
+  <text x="70" y="25" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="end">5</text>
+  <line x1="75" y1="225" x2="590" y2="225" stroke="#334155" stroke-width="1"/>
+
+  <!-- Grid lines -->
+  <line x1="75" y1="185" x2="590" y2="185" stroke="#1e293b" stroke-width="1"/>
+  <line x1="75" y1="145" x2="590" y2="145" stroke="#1e293b" stroke-width="1"/>
+  <line x1="75" y1="105" x2="590" y2="105" stroke="#1e293b" stroke-width="1"/>
+  <line x1="75" y1="65" x2="590" y2="65" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Colors: OpenPanel=#2563eb, GA4=#f97316, SearchConsole=#16a34a, PayGateway=#0891b2, InternalDB=#64748b -->
+
+  <!-- Group 1: Acquisition (center ~100) OpenPanel=1, GA4=1 -->
+  <rect x="82" y="185" width="12" height="40" fill="#2563eb" rx="2"/>
+  <rect x="96" y="185" width="12" height="40" fill="#f97316" rx="2"/>
+  <text x="96" y="242" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Acquisition</text>
+
+  <!-- Group 2: Conversion (center ~200) OpenPanel=3, GA4=2, PayGateway=1 -->
+  <rect x="180" y="105" width="12" height="120" fill="#2563eb" rx="2"/>
+  <rect x="194" y="145" width="12" height="80" fill="#f97316" rx="2"/>
+  <rect x="208" y="185" width="12" height="40" fill="#0891b2" rx="2"/>
+  <text x="198" y="242" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Conversion</text>
+
+  <!-- Group 3: Discovery OpenPanel=2, GA4=1 -->
+  <rect x="286" y="145" width="12" height="80" fill="#2563eb" rx="2"/>
+  <rect x="300" y="185" width="12" height="40" fill="#f97316" rx="2"/>
+  <text x="296" y="242" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Discovery</text>
+
+  <!-- Group 4: Retention OpenPanel=1 -->
+  <rect x="382" y="185" width="12" height="40" fill="#2563eb" rx="2"/>
+  <text x="388" y="242" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Retention</text>
+
+  <!-- Group 5: Brand/OOH GA4=1, SearchConsole=1 -->
+  <rect x="468" y="185" width="12" height="40" fill="#f97316" rx="2"/>
+  <rect x="482" y="185" width="12" height="40" fill="#16a34a" rx="2"/>
+  <text x="478" y="242" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Brand/OOH</text>
+
+  <!-- Group 6: Supply Quality — 0 coverage -->
+  <rect x="546" y="215" width="60" height="10" fill="#e11d48" fill-opacity="0.3" rx="2"/>
+  <text x="576" y="223" fill="#e11d48" font-size="8" font-family="sans-serif" text-anchor="middle">⚠ No Coverage</text>
+  <text x="576" y="242" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Supply Quality</text>
+
+  <!-- Legend -->
+  <rect x="80" y="260" width="10" height="10" fill="#2563eb"/>
+  <text x="94" y="269" fill="#e2e8f0" font-size="9" font-family="sans-serif">OpenPanel</text>
+  <rect x="165" y="260" width="10" height="10" fill="#f97316"/>
+  <text x="179" y="269" fill="#e2e8f0" font-size="9" font-family="sans-serif">GA4</text>
+  <rect x="210" y="260" width="10" height="10" fill="#16a34a"/>
+  <text x="224" y="269" fill="#e2e8f0" font-size="9" font-family="sans-serif">Search Console</text>
+  <rect x="320" y="260" width="10" height="10" fill="#0891b2"/>
+  <text x="334" y="269" fill="#e2e8f0" font-size="9" font-family="sans-serif">Payment Gateway</text>
+  <rect x="440" y="260" width="10" height="10" fill="#64748b"/>
+  <text x="454" y="269" fill="#e2e8f0" font-size="9" font-family="sans-serif">Internal DB</text>
+</svg>
+</div>
+
+<h3>7.3 Conversion Funnel Baseline</h3>
+<div class="chart-wrap">
+<div class="chart-title">SatuSatu vs. OTA Benchmark — Illustrative Funnel Rates</div>
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" fill="#0f172a"/>
+  <defs>
+    <linearGradient id="ss-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="ota-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arr-red2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#e11d48"/>
+    </marker>
+  </defs>
+
+  <!-- Stage labels -->
+  <text x="10" y="40" fill="#94a3b8" font-size="10" font-family="sans-serif" font-weight="600">Stage</text>
+  <text x="10" y="60" fill="#64748b" font-size="9" font-family="sans-serif">1. Sessions</text>
+  <text x="10" y="115" fill="#64748b" font-size="9" font-family="sans-serif">2. Product View</text>
+  <text x="10" y="170" fill="#64748b" font-size="9" font-family="sans-serif">3. Checkout Init</text>
+  <text x="10" y="225" fill="#64748b" font-size="9" font-family="sans-serif">4. Auth/Payment</text>
+  <text x="10" y="280" fill="#64748b" font-size="9" font-family="sans-serif">5. Pay Initiated</text>
+  <text x="10" y="335" fill="#64748b" font-size="9" font-family="sans-serif">6. Booking Done</text>
+
+  <!-- SatuSatu funnel (left side x=130-250): rates 100,45,18,8,5,3 -->
+  <!-- Widths scaled to max 100px: 100,45,18,8,5,3 => *1px each -->
+  <!-- Center x=190, half-widths: 50,22.5,9,4,2.5,1.5 -->
+  <text x="190" y="20" fill="#a78bfa" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="700">SatuSatu</text>
+  <!-- Stage 1: full width 100px, y=45-95 -->
+  <polygon points="140,45 240,45 240,95 140,95" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="74" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="600">100%</text>
+  <!-- Stage 2: 45%, half=22.5 => 190±22.5=167.5-212.5, y=100-145 -->
+  <polygon points="140,95 240,95 212.5,145 167.5,145" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="128" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">45%</text>
+  <!-- Stage 3: 18%, half=9 => 181-199, y=150-195 -->
+  <polygon points="167.5,145 212.5,145 199,195 181,195" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="178" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">18%</text>
+  <!-- Stage 4: 8%, half=4 => 186-194, y=200-245 -->
+  <polygon points="181,195 199,195 194,245 186,245" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="226" fill="#fca5a5" font-size="10" font-family="sans-serif" text-anchor="middle">8%</text>
+  <!-- Stage 5: 5%, half=2.5 => 187.5-192.5, y=250-295 -->
+  <polygon points="186,245 194,245 192.5,295 187.5,295" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="278" fill="#fca5a5" font-size="10" font-family="sans-serif" text-anchor="middle">5%</text>
+  <!-- Stage 6: 3%, half=1.5 => 188.5-191.5, y=300-345 -->
+  <polygon points="187.5,295 192.5,295 191.5,340 188.5,340" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="360" fill="#fca5a5" font-size="10" font-family="sans-serif" text-anchor="middle">3%</text>
+
+  <!-- OTA Benchmark (right side x=390-510): rates 100,60,35,30,25,18 -->
+  <!-- Center x=450, half-widths: 50,30,17.5,15,12.5,9 -->
+  <text x="450" y="20" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="700">OTA Benchmark</text>
+  <!-- Stage 1: full 100px -->
+  <polygon points="400,45 500,45 500,95 400,95" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="74" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="600">100%</text>
+  <!-- Stage 2: 60%, half=30 => 420-480 -->
+  <polygon points="400,95 500,95 480,145 420,145" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="128" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">60%</text>
+  <!-- Stage 3: 35%, half=17.5 => 432.5-467.5 -->
+  <polygon points="420,145 480,145 467.5,195 432.5,195" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="178" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">35%</text>
+  <!-- Stage 4: 30%, half=15 => 435-465 -->
+  <polygon points="432.5,195 467.5,195 465,245 435,245" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="226" fill="#e2e8f0" font-size="10" font-family="sans-serif" text-anchor="middle">30%</text>
+  <!-- Stage 5: 25%, half=12.5 => 437.5-462.5 -->
+  <polygon points="435,245 465,245 462.5,295 437.5,295" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="278" fill="#e2e8f0" font-size="10" font-family="sans-serif" text-anchor="middle">25%</text>
+  <!-- Stage 6: 18%, half=9 => 441-459 -->
+  <polygon points="437.5,295 462.5,295 459,340 441,340" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="360" fill="#e2e8f0" font-size="10" font-family="sans-serif" text-anchor="middle">18%</text>
+
+  <!-- Red annotations for auth step and payment gap -->
+  <line x1="199" y1="220" x2="300" y2="215" stroke="#e11d48" stroke-width="1" marker-end="url(#arr-red2)"/>
+  <rect x="300" y="205" width="140" height="20" fill="#450a0a" rx="3"/>
+  <text x="307" y="218" fill="#fca5a5" font-size="8.5" font-family="sans-serif">Auth wall — largest single gap</text>
+
+  <line x1="192" y1="270" x2="300" y2="265" stroke="#e11d48" stroke-width="1" marker-end="url(#arr-red2)"/>
+  <rect x="300" y="255" width="120" height="20" fill="#450a0a" rx="3"/>
+  <text x="307" y="268" fill="#fca5a5" font-size="8.5" font-family="sans-serif">Payment friction gap</text>
+
+  <!-- Note -->
+  <text x="320" y="385" fill="#475569" font-size="9" font-family="sans-serif" text-anchor="middle">Note: SatuSatu numbers are illustrative — configure OpenPanel per Section 7.5 GTM specs</text>
+</svg>
+</div>
+
+<h3>7.4 Metrics Tree — Causal Relationship Map</h3>
+<div class="chart-wrap" style="overflow-x:auto">
+<svg width="960" height="540" viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="540" fill="#0f172a"/>
+  <defs>
+    <marker id="arr-flow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <marker id="arr-dash" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#334155"/>
+    </marker>
+    <marker id="arr-red3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#e11d48"/>
+    </marker>
+  </defs>
+
+  <!-- Layer backgrounds (light bands) -->
+  <rect x="0" y="0" width="130" height="540" fill="#64748b" fill-opacity="0.03"/>
+  <rect x="132" y="0" width="150" height="540" fill="#1d4ed8" fill-opacity="0.04"/>
+  <rect x="284" y="0" width="155" height="540" fill="#b45309" fill-opacity="0.04"/>
+  <rect x="441" y="0" width="155" height="540" fill="#15803d" fill-opacity="0.04"/>
+  <rect x="598" y="0" width="155" height="540" fill="#6d28d9" fill-opacity="0.04"/>
+  <rect x="755" y="0" width="100" height="540" fill="#d97706" fill-opacity="0.06"/>
+  <rect x="857" y="0" width="103" height="540" fill="#64748b" fill-opacity="0.03"/>
+
+  <!-- Layer headers -->
+  <text x="65" y="15" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">INPUTS</text>
+  <text x="207" y="15" fill="#1d4ed8" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">ACQUISITION</text>
+  <text x="361" y="15" fill="#b45309" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">EVAL/TRUST</text>
+  <text x="518" y="15" fill="#15803d" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">CONVERSION</text>
+  <text x="675" y="15" fill="#6d28d9" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">RETENTION</text>
+  <text x="805" y="15" fill="#d97706" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">NORTH STAR</text>
+  <text x="908" y="15" fill="#64748b" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">LAGGING</text>
+
+  <!-- Layer 1: Inputs -->
+  <rect x="10" y="240" width="110" height="34" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="65" y="258" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">ICE-Prioritized</text>
+  <text x="65" y="269" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Initiatives</text>
+
+  <!-- Layer 2: Acquisition -->
+  <rect x="140" y="80" width="134" height="28" rx="4" fill="#1e3a8a" stroke="#2563eb" stroke-width="1"/>
+  <text x="207" y="92" fill="#93c5fd" font-size="9" font-family="sans-serif" text-anchor="middle">Foreign Sessions/wk</text>
+  <text x="207" y="102" fill="#60a5fa" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Marketing+Eng</text>
+
+  <rect x="140" y="180" width="134" height="28" rx="4" fill="#1e3a8a" stroke="#2563eb" stroke-width="1"/>
+  <text x="207" y="192" fill="#93c5fd" font-size="9" font-family="sans-serif" text-anchor="middle">Organic Search Impressions</text>
+  <text x="207" y="202" fill="#60a5fa" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Marketing</text>
+
+  <rect x="140" y="280" width="134" height="28" rx="4" fill="#1e3a8a" stroke="#2563eb" stroke-width="1"/>
+  <text x="207" y="292" fill="#93c5fd" font-size="9" font-family="sans-serif" text-anchor="middle">% Traffic IN/AU/KR/CN</text>
+  <text x="207" y="302" fill="#60a5fa" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Marketing</text>
+
+  <!-- Layer 3: Eval/Trust -->
+  <rect x="292" y="80" width="138" height="28" rx="4" fill="#292524" stroke="#b45309" stroke-width="1"/>
+  <text x="361" y="92" fill="#fde68a" font-size="9" font-family="sans-serif" text-anchor="middle">Listing Trust Score</text>
+  <text x="361" y="102" fill="#d97706" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product</text>
+
+  <rect x="292" y="190" width="138" height="28" rx="4" fill="#292524" stroke="#b45309" stroke-width="1"/>
+  <text x="361" y="202" fill="#fde68a" font-size="9" font-family="sans-serif" text-anchor="middle">Avg Review Count</text>
+  <text x="361" y="212" fill="#d97706" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product/Ops</text>
+
+  <rect x="292" y="300" width="138" height="28" rx="4" fill="#292524" stroke="#b45309" stroke-width="1"/>
+  <text x="361" y="312" fill="#fde68a" font-size="9" font-family="sans-serif" text-anchor="middle">Detail Dwell Time</text>
+  <text x="361" y="322" fill="#d97706" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product/Eng</text>
+
+  <!-- Layer 4: Conversion -->
+  <rect x="449" y="80" width="140" height="28" rx="4" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+  <text x="519" y="92" fill="#86efac" font-size="9" font-family="sans-serif" text-anchor="middle">Checkout Drop-off Rate</text>
+  <text x="519" y="102" fill="#4ade80" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product</text>
+
+  <rect x="449" y="190" width="140" height="28" rx="4" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+  <text x="519" y="202" fill="#86efac" font-size="9" font-family="sans-serif" text-anchor="middle">Account Exit Rate</text>
+  <text x="519" y="212" fill="#4ade80" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product</text>
+
+  <rect x="449" y="300" width="140" height="28" rx="4" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+  <text x="519" y="312" fill="#86efac" font-size="9" font-family="sans-serif" text-anchor="middle">Payment Success Rate</text>
+  <text x="519" y="322" fill="#4ade80" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product/Eng</text>
+
+  <!-- Layer 5: Retention -->
+  <rect x="605" y="120" width="138" height="28" rx="4" fill="#1a0533" stroke="#6d28d9" stroke-width="1"/>
+  <text x="674" y="132" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle">Post-Exp Review Rate</text>
+  <text x="674" y="142" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product</text>
+
+  <rect x="605" y="220" width="138" height="28" rx="4" fill="#1a0533" stroke="#6d28d9" stroke-width="1"/>
+  <text x="674" y="232" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle">Referral Share Rate</text>
+  <text x="674" y="242" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product/Marketing</text>
+
+  <rect x="605" y="320" width="138" height="28" rx="4" fill="#1a0533" stroke="#6d28d9" stroke-width="1"/>
+  <text x="674" y="332" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle">Return Visit Rate</text>
+  <text x="674" y="342" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">Owner: Product</text>
+
+  <!-- Layer 6: North Star -->
+  <rect x="760" y="200" width="90" height="50" rx="6" fill="#451a03" stroke="#d97706" stroke-width="2"/>
+  <text x="805" y="220" fill="#fde68a" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="700">⭐ Foreign</text>
+  <text x="805" y="233" fill="#fde68a" font-size="9" font-family="sans-serif" text-anchor="middle">Bookings/Month</text>
+  <text x="805" y="244" fill="#d97706" font-size="8" font-family="sans-serif" text-anchor="middle">(NSM)</text>
+
+  <!-- Layer 7: Lagging -->
+  <rect x="862" y="80" width="85" height="28" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="904" y="98" fill="#64748b" font-size="8.5" font-family="sans-serif" text-anchor="middle">Foreign GBV</text>
+
+  <rect x="862" y="160" width="85" height="28" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="904" y="178" fill="#64748b" font-size="8.5" font-family="sans-serif" text-anchor="middle">Net Revenue</text>
+
+  <rect x="862" y="240" width="85" height="28" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="904" y="258" fill="#64748b" font-size="8.5" font-family="sans-serif" text-anchor="middle">NPS</text>
+
+  <rect x="862" y="320" width="85" height="28" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="904" y="338" fill="#64748b" font-size="8.5" font-family="sans-serif" text-anchor="middle">LTV:CAC</text>
+
+  <!-- Flow arrows L1→L2 -->
+  <line x1="120" y1="257" x2="138" y2="200" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="120" y1="257" x2="138" y2="294" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+
+  <!-- L2→L3 -->
+  <line x1="274" y1="94" x2="290" y2="94" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="274" y1="294" x2="290" y2="310" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+
+  <!-- L3→L4 -->
+  <line x1="430" y1="94" x2="447" y2="94" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="430" y1="204" x2="447" y2="204" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="430" y1="314" x2="447" y2="314" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+
+  <!-- L4→L5 -->
+  <line x1="589" y1="100" x2="603" y2="130" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="589" y1="204" x2="603" y2="232" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="589" y1="314" x2="603" y2="330" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+
+  <!-- L5→NSM -->
+  <line x1="743" y1="134" x2="758" y2="215" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="743" y1="234" x2="758" y2="230" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+  <line x1="743" y1="334" x2="758" y2="245" stroke="#475569" stroke-width="1" marker-end="url(#arr-flow)"/>
+
+  <!-- NSM→Lagging dashed -->
+  <line x1="850" y1="210" x2="860" y2="94" stroke="#334155" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arr-dash)"/>
+  <line x1="850" y1="220" x2="860" y2="174" stroke="#334155" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arr-dash)"/>
+  <line x1="850" y1="230" x2="860" y2="254" stroke="#334155" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arr-dash)"/>
+  <line x1="850" y1="240" x2="860" y2="334" stroke="#334155" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arr-dash)"/>
+
+  <!-- Red feedback arrow from Checkout Drop-off -->
+  <path d="M519,80 Q519,60 480,50 Q440,40 440,70 Q440,90 449,90" stroke="#e11d48" stroke-width="1" fill="none" stroke-dasharray="3,2" marker-end="url(#arr-red3)"/>
+  <text x="470" y="45" fill="#e11d48" font-size="8" font-family="sans-serif">-Drip pricing</text>
+  <text x="470" y="56" fill="#e11d48" font-size="8" font-family="sans-serif">-Account gate</text>
+</svg>
+</div>
+
+<h3>7.5 GTM Implementation Specs</h3>
+<h4>booking_completed (NSM)</h4>
+<pre>// dataLayer push — fire on order confirmation page
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: 'booking_completed',
+  booking_id: '{{booking_id}}',
+  visitor_type: '{{visitor_type}}',  // 'foreign' | 'domestic'
+  activity_category: '{{category}}',
+  booking_value: {{booking_value_usd}},
+  payment_method: '{{payment_method}}',
+  currency: '{{currency}}'
+});
+// OpenPanel event
+openPanel.track('booking_completed', { booking_id, visitor_type, booking_value });
+// Meta Pixel
+fbq('track', 'Purchase', { value: {{booking_value_usd}}, currency: 'USD' });</pre>
+
+<h4>checkout_initiated</h4>
+<pre>window.dataLayer.push({
+  event: 'checkout_initiated',
+  product_id: '{{product_id}}',
+  product_name: '{{product_name}}',
+  selected_date: '{{selected_date}}',
+  price_displayed: {{price_usd}}
+});</pre>
+
+<h4>checkout_step (per step funnel)</h4>
+<pre>window.dataLayer.push({
+  event: 'checkout_step',
+  step: {{step_number}},  // 1=date, 2=auth_prompt, 3=details, 4=payment, 5=confirm
+  step_name: '{{step_name}}',
+  is_guest: {{is_guest_boolean}}
+});</pre>
+
+<h4>search_performed</h4>
+<pre>openPanel.track('search_performed', {
+  query: '{{search_query}}',
+  results_count: {{results_count}},
+  zero_results: {{results_count}} === 0,
+  source: 'header_search' | 'home_search' | 'category_filter'
+});</pre>
+
+<h4>listing_viewed</h4>
+<pre>openPanel.track('listing_viewed', {
+  product_id: '{{product_id}}',
+  product_name: '{{product_name}}',
+  photo_count: {{photo_count}},
+  review_count: {{review_count}},
+  has_verified_badge: {{has_badge}},
+  source: 'search' | 'home' | 'category' | 'recommendation'
+});</pre>
+
+<h4>session_enriched (visitor segmentation)</h4>
+<pre>// Fire on all pages for foreign visitor segmentation
+openPanel.identify({
+  visitor_type: {{is_foreign}} ? 'foreign' : 'domestic',
+  country_code: '{{ip_country_code}}',
+  language: navigator.language
+});</pre>
+
+<h3>7.6 Why These Metrics Matter for SatuSatu</h3>
+
+<p><strong>Acquisition:</strong> SatuSatu currently has zero organic rank for "Bali activities" — every new foreign session is a hard-won asset that must be tracked to justify SEO investment and paid channel efficiency. Without foreign session segmentation, any aggregate growth metric could be entirely domestic uplift, which would not validate the foreign visitor thesis.</p>
+
+<p><strong>Evaluation/Trust:</strong> The trust deficit (score 3.5/10 vs. OTA 7/10 at Evaluation) is the single biggest leakage point identified in the UX audit. Listing trust score (composite: has badge + review count + has cancellation policy) and detail dwell time are the earliest detectable signals of trust recovery — they will move before booking numbers move, giving the team a 2–4 week leading indicator.</p>
+
+<p><strong>Conversion:</strong> The auth exit rate, estimated above 60% for foreign visitors, represents the largest single recoverable revenue pool in the NOW horizon. Each percentage point of improvement in account exit rate at the auth wall is directly translatable to a measurable increase in booking revenue. This metric alone justifies the entire guest checkout initiative.</p>
+
+<p><strong>Retention:</strong> Foreign visitors book Bali trips infrequently — annual or biannual at best. A 12% D30 return rate target is ambitious but critical: each returning user is proof of brand preference over Klook and GetYourGuide, not just price discovery. Post-experience review rate is the earliest proxy for whether the experience loop closes — a user who leaves a review is 3x more likely to book again than one who does not.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 8: Leading Indicators                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s8" class="section-card conversion">
+<div class="section-title">8. Leading Indicators: What PM Reviews Weekly</div>
+<div class="section-subtitle">18 leading metrics reviewed at 4 cadences — sprint through quarterly</div>
+
+<div class="table-wrap">
+<table>
+<tr>
+  <th>#</th><th>Metric</th><th>Definition</th><th>Funnel Stage</th>
+  <th>Roadmap Driver</th><th>Target / Alert</th><th>Cadence</th><th>Tool</th><th>Owner</th>
+</tr>
+<tr>
+  <td>1</td><td>Foreign Session Volume</td>
+  <td>Weekly unique sessions from IN/AU/KR/CN countries</td>
+  <td>Acquisition</td>
+  <td>SEO Dest. Pages, I18n Translations</td>
+  <td>+10%/wk; alert if &lt;-15%</td>
+  <td>Weekly</td><td>OpenPanel + GA4</td><td>Marketing</td>
+</tr>
+<tr>
+  <td>2</td><td>Organic Search Impressions</td>
+  <td>Weekly GSC impressions for non-branded Bali/activity queries</td>
+  <td>Acquisition</td>
+  <td>SEO Destination Pages, hreflang</td>
+  <td>+5%/wk rolling 4wk</td>
+  <td>Weekly</td><td>Search Console</td><td>Marketing</td>
+</tr>
+<tr>
+  <td>3</td><td>Branded Search Volume</td>
+  <td>Weekly GSC impressions for "satusatu" query variants</td>
+  <td>Acquisition / Brand</td>
+  <td>Verified Badge, Editorial Guides</td>
+  <td>Baseline +20% by M3</td>
+  <td>Weekly</td><td>Search Console</td><td>Marketing</td>
+</tr>
+<tr>
+  <td>4</td><td>Listing Trust Score</td>
+  <td>Composite: has_badge + review_count≥5 + has_cancel_policy (0–3 scale)</td>
+  <td>Evaluation</td>
+  <td>Verified Badge, Free Cancel Badge, External Review</td>
+  <td>Avg score ≥2.0 by M2</td>
+  <td>Weekly</td><td>Internal DB</td><td>Product</td>
+</tr>
+<tr>
+  <td>5</td><td>Avg Review Count per Listing</td>
+  <td>Mean review count across all active listings</td>
+  <td>Evaluation</td>
+  <td>Post-Exp Email, External Review integration</td>
+  <td>≥8 reviews/listing by M6</td>
+  <td>Weekly</td><td>Internal DB</td><td>Product/Ops</td>
+</tr>
+<tr>
+  <td>6</td><td>Detail Page Dwell Time</td>
+  <td>Median time on product detail page (seconds)</td>
+  <td>Evaluation</td>
+  <td>Product Detail Improvements, Package Options</td>
+  <td>≥90s median; alert if &lt;60s</td>
+  <td>Weekly</td><td>OpenPanel</td><td>Product</td>
+</tr>
+<tr>
+  <td>7</td><td>Search Zero-Result Rate</td>
+  <td>% of search_performed events where results_count=0</td>
+  <td>Discovery</td>
+  <td>Discover Filter &amp; Sort, Autocomplete</td>
+  <td>&lt;15%; alert if &gt;25%</td>
+  <td>Weekly</td><td>OpenPanel</td><td>Product</td>
+</tr>
+<tr>
+  <td>8</td><td>Search-to-Detail CTR</td>
+  <td>% of search sessions where user clicks a result</td>
+  <td>Discovery</td>
+  <td>Discover Filter &amp; Sort, SEO Improvements</td>
+  <td>≥55%; alert if &lt;40%</td>
+  <td>Weekly</td><td>OpenPanel</td><td>Product</td>
+</tr>
+<tr>
+  <td>9</td><td>Checkout Initiation Rate</td>
+  <td>% of listing_viewed sessions that fire checkout_initiated</td>
+  <td>Conversion</td>
+  <td>Upfront Pricing, Trust Badges</td>
+  <td>≥12%; alert if &lt;8%</td>
+  <td>Weekly</td><td>OpenPanel</td><td>Product</td>
+</tr>
+<tr>
+  <td>10</td><td>Auth Wall Exit Rate</td>
+  <td>% of checkout step 2 (auth prompt) that exit without completing auth</td>
+  <td>Conversion</td>
+  <td>Guest Checkout + SSO, SSO Phase 1</td>
+  <td>&lt;40%; alert if &gt;60%</td>
+  <td>Weekly</td><td>OpenPanel checkout_step</td><td>Product</td>
+</tr>
+<tr>
+  <td>11</td><td>Checkout Drop-off Rate</td>
+  <td>% of checkout_initiated that do not reach booking_completed</td>
+  <td>Conversion</td>
+  <td>Guest Checkout, Upfront Pricing, Google Pay</td>
+  <td>&lt;70%; alert if &gt;85%</td>
+  <td>Weekly</td><td>OpenPanel</td><td>Product</td>
+</tr>
+<tr>
+  <td>12</td><td>Payment Success Rate</td>
+  <td>% of payment_initiated that result in payment_confirmed</td>
+  <td>Conversion</td>
+  <td>I18n Payment 2C2P, Google/Apple Pay</td>
+  <td>≥92%; alert if &lt;88%</td>
+  <td>Weekly</td><td>Payment Gateway</td><td>Product/Eng</td>
+</tr>
+<tr>
+  <td>13</td><td>Foreign Booking Share</td>
+  <td>% of weekly bookings where visitor_type='foreign'</td>
+  <td>Conversion</td>
+  <td>All NOW initiatives</td>
+  <td>≥15% by M3; ≥30% by M6</td>
+  <td>Weekly</td><td>Internal DB + OpenPanel</td><td>Product</td>
+</tr>
+<tr>
+  <td>14</td><td>Post-Experience Review Submission Rate</td>
+  <td>% of completed bookings that submit a review within 7 days</td>
+  <td>Retention</td>
+  <td>Post-Exp Email + Review Ask</td>
+  <td>≥20%; alert if &lt;10%</td>
+  <td>Weekly</td><td>Internal DB</td><td>Product</td>
+</tr>
+<tr>
+  <td>15</td><td>Pre-Activity Email Open Rate</td>
+  <td>% of T-24h reminder emails opened</td>
+  <td>Pre-Experience</td>
+  <td>Pre-Activity Automated Emails</td>
+  <td>≥55%; alert if &lt;40%</td>
+  <td>Weekly</td><td>Email provider (Brevo/SendGrid)</td><td>Product</td>
+</tr>
+<tr>
+  <td>16</td><td>Support Ticket Rate</td>
+  <td>Support tickets per 100 bookings (logged to CS Widget)</td>
+  <td>Post-Experience</td>
+  <td>CS Widget, Pre-Activity Emails</td>
+  <td>&lt;5/100; alert if &gt;10/100</td>
+  <td>Weekly</td><td>CS Tool (Crisp/Intercom)</td><td>Ops/Product</td>
+</tr>
+<tr>
+  <td>17</td><td>Operator Verified Ratio</td>
+  <td>% of active listings with SatuSatu Verified badge</td>
+  <td>Trust Infrastructure</td>
+  <td>Verified Operator Badge</td>
+  <td>≥60% by M2; ≥90% by M6</td>
+  <td>Weekly</td><td>Internal DB</td><td>Ops/Product</td>
+</tr>
+<tr>
+  <td>18</td><td>Weekly Qualified Bookings</td>
+  <td>booking_completed WHERE NOT cancelled_within_24h, rolling 7-day</td>
+  <td>Conversion (NSM)</td>
+  <td>All conversion initiatives</td>
+  <td>+15%/wk; alert if flat for 2 wks</td>
+  <td>Weekly</td><td>Internal DB</td><td>CPO/Product</td>
+</tr>
+</table>
+</div>
+
+<h3>PM Review Ritual — 4 Cadences</h3>
+
+<div class="info-box success">
+<strong>Monday Morning · 15 Minutes — Leading Indicator Pulse</strong><br>
+Review metrics 1 (Foreign Session Volume), 10 (Auth Wall Exit Rate), 11 (Checkout Drop-off), 13 (Foreign Booking Share), 18 (Weekly Qualified Bookings). Flag any metric that hit its alert threshold. No slide deck — verbal standup or async Notion comment. Focus: are we in trend or in trouble?
+</div>
+
+<div class="info-box info">
+<strong>Sprint Review · Bi-Weekly — Initiative Impact Check</strong><br>
+For each initiative shipped in the sprint, compare before/after on its primary metric (from the Roadmap Driver column). Use 7-day pre/post windows minimum. Record the delta in the initiative's Notion page. Celebrate green arrows; investigate flat lines — do not accept "it's too early to tell" for more than one sprint cycle.
+</div>
+
+<div class="info-box purple">
+<strong>Monthly · 1 Hour — North Star + Lagging Narrative</strong><br>
+Report format: (1) "Monthly Foreign Visitor Bookings Completed: [N] — [+X%/−X%] vs. last month." (2) "Three leading indicators that will affect next month: [metric name, current value, trajectory]." (3) "One initiative shipping next month and its expected metric impact." Three sentences only — force the team to prioritise signal over noise.
+</div>
+
+<div class="info-box warning">
+<strong>Quarterly · Half Day — Metrics Audit + Retirement</strong><br>
+Review the full 18-metric stack. Retire any metric where: (a) it has been green for 3 consecutive months (graduated to baseline), (b) the initiative it was tracking has shipped and stabilised, or (c) the tool collecting it has proven unreliable. Add new metrics only if a new initiative introduces a new causal hypothesis not covered by existing metrics.
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 9: Lagging Indicators                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s9" class="section-card">
+<div class="section-title">9. Lagging Indicators: What Leadership Reviews Monthly / Quarterly</div>
+<div class="section-subtitle">9 outcome metrics — reviewed at leadership level, not in sprint cycles</div>
+
+<div class="info-box info">
+<strong>Interpretive Note:</strong> When a lagging metric is off-track, the PM investigates leading indicators to find the cause. A lagging metric cannot be actioned directly — it points you to a layer of the funnel or retention loop that needs a product intervention. Never optimise for a lagging metric directly; optimise for the leading indicators that drive it.
+</div>
+
+<div class="table-wrap">
+<table>
+<tr>
+  <th>#</th><th>Metric</th><th>Definition &amp; Formula</th><th>Cadence</th>
+  <th>M12 Target</th><th>Leading Indicators That Drive It</th><th>Alert Signal</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Monthly Foreign Visitor Bookings Completed</td>
+  <td><code>COUNT(booking_id WHERE visitor_type='foreign' AND status='confirmed')</code> — calendar month</td>
+  <td>Monthly</td>
+  <td>500+ bookings/month</td>
+  <td>Foreign Session Volume; Checkout Drop-off; Auth Wall Exit Rate</td>
+  <td>2 consecutive months below target → immediate CPO review</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>Foreign Visitor GBV</td>
+  <td><code>SUM(booking_value_usd WHERE visitor_type='foreign' AND status='confirmed')</code></td>
+  <td>Monthly</td>
+  <td>USD 50K/month by M12</td>
+  <td>Foreign Booking Share; Basket Size; Payment Success Rate</td>
+  <td>GBV flat while booking count grows → pricing/mix issue</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Net Revenue from Foreign Visitors</td>
+  <td><code>SUM(platform_fee + service_fee WHERE visitor_type='foreign')</code></td>
+  <td>Monthly</td>
+  <td>USD 5K/month by M12</td>
+  <td>Foreign Visitor GBV; Fee capture rate</td>
+  <td>Revenue below 10% of GBV → fee structure review</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Repeat Foreign Booking Rate (D90)</td>
+  <td>% of foreign bookers in cohort month who complete a second booking within 90 days</td>
+  <td>Quarterly</td>
+  <td>≥8% D90 repeat rate</td>
+  <td>Post-Exp Review Rate; Return Visit Rate; Pre-Activity Email Open Rate</td>
+  <td>&lt;3% D90 → loyalty/email program becomes urgent P1</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>Platform NPS (Foreign Visitors)</td>
+  <td>Net Promoter Score from post-experience survey — foreign visitor cohort only</td>
+  <td>Quarterly</td>
+  <td>NPS ≥ 40</td>
+  <td>Listing Trust Score; Detail Dwell Time; Support Ticket Rate</td>
+  <td>NPS &lt; 20 → qualitative research session mandatory</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>Organic Traffic Share</td>
+  <td>% of total foreign sessions attributed to organic search (Google/Bing)</td>
+  <td>Monthly</td>
+  <td>≥35% organic share by M12</td>
+  <td>Organic Search Impressions; Search-to-Detail CTR; hreflang implementation</td>
+  <td>&lt;15% by M6 → SEO sprint acceleration required</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>Operator Supply Quality Score</td>
+  <td>% of bookings for operators with: verified badge + ≥5 reviews + ≤5% dispute rate</td>
+  <td>Monthly</td>
+  <td>≥80% of bookings on quality operators</td>
+  <td>Operator Verified Ratio; Avg Review Count; Dispute Rate</td>
+  <td>&lt;50% → Ops intervention on operator onboarding</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>LTV:CAC Ratio (Foreign Visitors)</td>
+  <td>12-month LTV (revenue per foreign visitor) ÷ blended CAC (paid + organic attributed cost)</td>
+  <td>Quarterly</td>
+  <td>LTV:CAC ≥ 2.0 by M12</td>
+  <td>Repeat Foreign Booking Rate; ROAS; Foreign Visitor GBV</td>
+  <td>&lt;1.0 → paid acquisition moratorium until conversion fixes ship</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>Checkout Completion Rate (Foreign Visitors)</td>
+  <td>% of foreign visitor checkout_initiated sessions that result in booking_completed</td>
+  <td>Monthly</td>
+  <td>≥25% by M6; ≥35% by M12</td>
+  <td>Auth Wall Exit Rate; Payment Success Rate; Checkout Drop-off Rate</td>
+  <td>&lt;10% at M3 → guest checkout and upfront pricing escalated to P0</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 10: Counter-Metrics                                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s10" class="section-card risk">
+<div class="section-title">10. Counter-Metrics: Preventing Gaming</div>
+<div class="section-subtitle">Every primary metric paired with a counter-metric to detect perverse incentives</div>
+
+<div class="info-box warning">
+<strong>Why Counter-Metrics Matter:</strong> Every metric that feeds a PM's performance evaluation or a team's sprint velocity will eventually be gamed — not necessarily with malicious intent, but through unconscious optimisation toward the measured variable. Counter-metrics are not punitive; they are the second instrument in a stereo system. You need both channels to hear the full picture. For a pre-PMF platform like SatuSatu, undetected gaming can produce months of false positive signals before the funnel collapse becomes visible in lagging indicators.
+</div>
+
+<h3>Counter-Metric 1: Checkout Conversion Rate ↑</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Primary Metric</th><th>Gaming Risk</th><th>Counter-Metric</th><th>Alert Threshold</th></tr>
+<tr>
+  <td>Checkout Conversion Rate</td>
+  <td>Dark patterns: pre-ticked add-ons, misleading "last spot" urgency, hidden required fields that simplify to a single click only after re-design removes important user choice</td>
+  <td>Dispute Rate (chargebacks + complaints per 100 bookings) + 24h Cancellation Rate</td>
+  <td>If conversion ↑ and dispute rate &gt;3% or cancel-within-24h &gt;8% → dark pattern review mandatory</td>
+</tr>
+</table>
+</div>
+
+<h3>Counter-Metric 2: Review Count per Listing ↑</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Primary Metric</th><th>Gaming Risk</th><th>Counter-Metric</th><th>Alert Threshold</th></tr>
+<tr>
+  <td>Avg Review Count per Listing</td>
+  <td>Incentivised reviews (free add-on in exchange for 5-star), operator-submitted reviews, bulk review import from other platforms with no authenticity signal</td>
+  <td>Avg Review Length (words) + Post-Experience NPS (from separate survey channel)</td>
+  <td>If review count ↑ but avg length &lt;15 words or NPS &lt;30 → review quality audit required</td>
+</tr>
+</table>
+</div>
+
+<h3>Counter-Metric 3: Foreign Session Volume ↑</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Primary Metric</th><th>Gaming Risk</th><th>Counter-Metric</th><th>Alert Threshold</th></tr>
+<tr>
+  <td>Foreign Session Volume</td>
+  <td>Low-intent paid traffic (broad geo-targeted ads), bot traffic from traffic-boosting services, incentivised clicks from affiliate networks with no conversion intent</td>
+  <td>Session-to-Detail-Page Rate (foreign sessions that view ≥1 listing page)</td>
+  <td>If foreign sessions ↑ but session-to-detail-page rate &lt;20% → traffic quality investigation; pause paid campaigns</td>
+</tr>
+</table>
+</div>
+
+<h3>Counter-Metric 4: Referral Share Rate ↑</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Primary Metric</th><th>Gaming Risk</th><th>Counter-Metric</th><th>Alert Threshold</th></tr>
+<tr>
+  <td>Referral Share Rate</td>
+  <td>Referral fraud: single user creating multiple accounts to self-refer; coordinated ring of fake referrals; referral credits accumulated without intent to book</td>
+  <td>Referred Booking Completion Rate (% of referred users who complete a booking within 30 days)</td>
+  <td>If referral share ↑ but referred booking completion rate &lt;40% → fraud detection review; pause referral credits</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 11: Risk & Trade-off Analysis                           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section id="s11" class="section-card strategy">
+<div class="section-title">11. Risk &amp; Trade-off Analysis (Per Initiative)</div>
+<div class="section-subtitle">Why-before-PRD framework — each initiative's assumptions, risks, and RACI before engineering begins</div>
+
+<h3>11.1 Why Before PRD</h3>
+<div class="info-box purple">
+<strong>Why document risks before writing the PRD?</strong>
+<ul style="margin-top:8px;padding-left:16px;line-height:2">
+  <li>Unchecked assumptions in a PRD become unchecked assumptions in code — the later they surface, the more expensive the rework</li>
+  <li>Explicit risk documentation creates a psychological permission structure for engineers to raise concerns before sprint start, not during it</li>
+  <li>When an initiative fails or underperforms, the pre-documented risk register distinguishes "we knew this was a risk and accepted it" from "we didn't know" — the former is a learning, the latter is a process failure</li>
+  <li>VC and board reviews of product decisions are substantially more credible when the team can demonstrate that trade-offs were consciously evaluated, not discovered post-launch</li>
+</ul>
+</div>
+
+<h3>11.2 Risk Register Template &amp; RACI Format</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Description</th><th>Format</th></tr>
+<tr><td>Initiative</td><td>Name + ICE score + Priority + Horizon</td><td>Text</td></tr>
+<tr><td>Key Assumption</td><td>The single most important belief that must be true for this initiative to deliver its expected impact</td><td>1 sentence</td></tr>
+<tr><td>Risk</td><td>What could go wrong; operational, technical, or market risk</td><td>1–2 sentences</td></tr>
+<tr><td>Validation Method</td><td>How to test the key assumption before or during implementation</td><td>Specific event/metric + timeframe</td></tr>
+<tr><td>Trade-off</td><td>What is being deprioritised or made harder by shipping this initiative</td><td>Named item + reason</td></tr>
+<tr><td>RACI</td><td>R=Responsible (does the work), A=Accountable (signs off), C=Consulted, I=Informed</td><td>Role names only</td></tr>
+</table>
+</div>
+
+<div class="table-wrap">
+<table>
+<tr><th>Role</th><th>Description</th><th>Example</th></tr>
+<tr><td><strong>R — Responsible</strong></td><td>Does the actual work. Can be multiple people.</td><td>Eng squad, Designer</td></tr>
+<tr><td><strong>A — Accountable</strong></td><td>Single point of ownership. Signs off on completion.</td><td>Product Lead, CPO</td></tr>
+<tr><td><strong>C — Consulted</strong></td><td>Two-way input before decisions are made.</td><td>Marketing, Ops, Design Lead</td></tr>
+<tr><td><strong>I — Informed</strong></td><td>Notified when done. One-way communication only.</td><td>Finance, CS Team, Investors</td></tr>
+</table>
+</div>
+
+<h3>11.3 Individual Initiative Analyses</h3>
+
+<!-- Initiative 1: All-inclusive pricing -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#16a34a">
+<h4>1. All-inclusive Upfront Pricing <span class="badge badge-p1">P1</span> <span class="badge badge-now">NOW</span> <span style="color:#94a3b8;font-size:11px">ICE 648 · XS·1d</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>The primary reason foreign visitors abandon checkout is discovering platform + service fees at the final payment step, not the base price itself</td></tr>
+<tr><td>Risk</td><td>Displaying all-inclusive pricing may reduce click-through from listing pages if the total price appears high vs. competitor headline prices; operators may resist if their listed price appears higher than Klook</td></tr>
+<tr><td>Validation</td><td>Measure checkout_step 4 (payment page) drop-off rate before and after; target reduction from estimated 45% to &lt;30% within 2 sprints of deployment</td></tr>
+<tr><td>Trade-off</td><td>Headline price on search results will appear higher than competitors showing base price; acceptable given that checkout abandonment is a larger loss than click-through reduction</td></tr>
+<tr><td>RACI</td><td>R=Eng (frontend price display) · A=Product Lead · C=Finance (fee structure), Ops (operator communication) · I=Marketing, CS</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 2: Guest Checkout -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#16a34a">
+<h4>2. Guest Checkout + Google/Apple SSO <span class="badge badge-p1">P1</span> <span class="badge badge-now">NOW</span> <span style="color:#94a3b8;font-size:11px">ICE 432 · S·≤1w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>Forced account creation before checkout is the single largest conversion barrier for foreign visitors, estimated to cause &gt;60% exit at the auth wall</td></tr>
+<tr><td>Risk</td><td>Guest checkout reduces email capture rate, undermining post-experience email sequence; email marketing ROI decreases short-term even as conversion improves</td></tr>
+<tr><td>Validation</td><td>Auth Wall Exit Rate (metric #10) before/after SSO Phase 1 release (currently in Testing); target reduction from estimated 60%+ to &lt;35% within M1 of full release</td></tr>
+<tr><td>Trade-off</td><td>Reduced email capture in short term; mitigated by post-booking email collection (offer 10% next-booking discount to create an account). SSO Phase 1 (PAYCOM, Testing) is the prerequisite — do not ship full guest checkout before SSO Phase 1 is stable</td></tr>
+<tr><td>RACI</td><td>R=Eng/PAYCOM · A=Product Lead · C=Marketing (email capture strategy), Security (OAuth scope) · I=Ops, CS, Finance</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 3: Verified Badge -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#0891b2">
+<h4>3. SatuSatu Verified Operator Badge <span class="badge badge-p1">P1</span> <span class="badge badge-now">NOW</span> <span style="color:#94a3b8;font-size:11px">ICE 392 · S·≤1w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>A visible operator verification signal on listing pages directly increases conversion by reducing the "is SatuSatu legit?" doubt expressed by foreign visitors in UX research</td></tr>
+<tr><td>Risk</td><td>Operator vetting process (Ops prerequisite in Trust Chain) may be slow — if badge is displayed before operators are actually vetted, it creates a trust liability rather than a trust asset; also, badge inflation (too many operators verified too quickly) reduces signal value</td></tr>
+<tr><td>Validation</td><td>Listing Trust Score (metric #4) — track weekly from badge deploy. Detail page dwell time should increase by &gt;15% for badged listings vs. unbadged. Pilot: badge top 20 operators first, measure conversion delta over 4 weeks before full rollout</td></tr>
+<tr><td>Trade-off</td><td>Ops must complete vetting criteria before Eng ships badge display; if Ops is slow, this creates engineering work that cannot be released. Consider: ship the badge display code behind a feature flag; release only when Ops confirms first 20 vetted operators</td></tr>
+<tr><td>RACI</td><td>R=Eng (badge display), Ops (vetting criteria and operator outreach) · A=Product Lead · C=Design/Gita (badge visual design), Marketing (operator comms) · I=CS, Investors</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 4: SEO Destination Pages -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#2563eb">
+<h4>4. SEO Destination Landing Pages <span class="badge badge-p1">P1</span> <span class="badge badge-next">NEXT</span> <span style="color:#94a3b8;font-size:11px">ICE 270 · M·2–3w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>SatuSatu can rank in the top 10 for medium-competition long-tail queries ("best water activities Bali", "Ubud cooking class booking") within 6 months given its domain authority and structured data advantages</td></tr>
+<tr><td>Risk</td><td>Domain authority gap vs. Klook, GetYourGuide, Viator — these platforms have 10+ years of backlink equity. Long-tail ranking is achievable but short-head ("things to do in Bali") is not realistic in the NEXT horizon. SEO teams consistently overestimate ranking speed on competitive destination terms</td></tr>
+<tr><td>Validation</td><td>3-page pilot: 3 long-tail destination pages with structured data, internal linking, and editorial content. Measure Search Console impressions at 30, 60, and 90 days. Gate full rollout on ≥1,000 impressions on at least 1 page by day 60</td></tr>
+<tr><td>Trade-off</td><td>M·2–3w effort for engineering + significant content creation time from Marketing; defers other NEXT items. Prerequisite: hreflang on blog must ship first to establish language signal for Google</td></tr>
+<tr><td>RACI</td><td>R=Eng (page templates, schema markup), Marketing (content writing) · A=Product Lead · C=SEO specialist (keyword research), Design · I=Ops, Investors</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 5: Korean + Hindi Localization -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#7c3aed">
+<h4>5. Korean + Hindi UI Localization <span class="badge badge-p2">P2</span> <span class="badge badge-later">LATER</span> <span style="color:#94a3b8;font-size:11px">ICE 192 · L·4–5w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>Language barrier is a significant (not the primary) conversion barrier for Korean and Indian visitors — but only after the English funnel is proven. At sub-100 monthly foreign bookings, the language barrier is secondary to the auth wall and pricing transparency issues</td></tr>
+<tr><td>Risk</td><td>Translation quality maintenance is an ongoing operational cost. Poor machine translation (e.g., Google Translate misaligned with activity tourism vocabulary) can damage trust more than English-only. Also, Korean visitors are highly price-sensitive and comparison-heavy — localization alone may not shift conversion without KakaoPay integration</td></tr>
+<tr><td>Validation</td><td>Prerequisite: English funnel must achieve ≥25% checkout completion rate (Lagging metric #9) before localization investment is justified. Proxy test: run Korean-language Google Ads campaigns in M4-5 pointing to English pages — measure CTR and bounce. If bounce &gt;80%, language is confirmed as the barrier and localization ROI is validated</td></tr>
+<tr><td>Trade-off</td><td>L·4–5w blocks PAYCOM squad from 1–2 other NEXT items during that period. Do not start until Exploit conversion fixes (NOW horizon) are confirmed stable in production</td></tr>
+<tr><td>RACI</td><td>R=Eng (i18n framework), Marketing (translation vendor management) · A=CPO · C=Product Lead, Ops (operator name localization) · I=Finance, Investors</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 6: I18n Translations -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#0891b2">
+<h4>6. I18n Translations <span class="badge badge-p1">P1</span> <span class="badge badge-now">NOW</span> <span class="badge badge-on-dev">On Dev</span> <span style="color:#94a3b8;font-size:11px">ICE 280 · L·4–5w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>Language is a primary barrier for foreign conversion — a visitor who cannot read product details, booking instructions, or safety information in their language will not book regardless of price or trust signals</td></tr>
+<tr><td>Risk</td><td>Translation ops cost is ongoing — every new product listing, policy update, or UI string requires retranslation. Without a translation pipeline (CMS integration + vendor workflow), translated pages will become stale within 1–2 months of launch</td></tr>
+<tr><td>Validation</td><td>Use Weglot or similar as a 4-week proxy test before committing to full custom i18n implementation. Measure foreign visitor session-to-checkout-initiation rate on translated pages vs. English. Gate full i18n build on ≥30% improvement in that ratio</td></tr>
+<tr><td>Trade-off</td><td>L·4–5w blocks PAYCOM squad significantly. SSO Phase 1 is a prerequisite from a quality standpoint — auth error messages must be correctly translated before i18n launches to a foreign audience</td></tr>
+<tr><td>RACI</td><td>R=Eng · A=Product · C=Marketing/translation vendor, Ops · I=CS, Finance</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 7: Discover Filter & Sort -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#0891b2">
+<h4>7. Discover Filter &amp; Sort <span class="badge badge-p2">P2</span> <span class="badge badge-now">NOW</span> <span class="badge badge-on-dev">On Dev</span> <span style="color:#94a3b8;font-size:11px">ICE 294 · M·2–3w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>Search filter gaps (no price range, no duration filter, no activity type) cause foreign visitors to abandon the discovery page without finding a relevant product, even when suitable products exist in the catalog</td></tr>
+<tr><td>Risk</td><td>Filter options may not match catalog depth — if only 5% of listings have duration metadata filled, a duration filter shows mostly empty or inaccurate results and damages trust more than no filter at all</td></tr>
+<tr><td>Validation</td><td>Measure search zero-result rate (metric #7) and search-to-CTR (metric #8) before and after filter launch. Prerequisite: product metadata audit — ensure ≥80% of active listings have price, duration, and activity type populated before filter UI ships</td></tr>
+<tr><td>Trade-off</td><td>Discover Filter is already On Dev (CONTEX squad) — the primary risk is in data quality, not engineering time. Delaying for metadata completeness is the right trade-off over shipping filters that return poor results</td></tr>
+<tr><td>RACI</td><td>R=Eng/Faisal · A=Product · C=Design/Faisal, Ops (metadata quality) · I=Marketing</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 8: My Booking -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#2563eb">
+<h4>8. My Booking <span class="badge badge-p2">P2</span> <span class="badge badge-next">NEXT</span> <span style="color:#94a3b8;font-size:11px">ICE 245 · L·4–5w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>Giving users access to their booking details (QR code, meeting point, operator contact) in a mobile-first My Booking view directly reduces support ticket volume and increases pre-experience confidence</td></tr>
+<tr><td>Risk</td><td>Guest checkout (item 2) undermines account-based My Booking — if guests book without an account, My Booking is only accessible via a booking confirmation link, which creates a separate development path and increases complexity. Building My Booking before guest checkout is architecturally premature</td></tr>
+<tr><td>Validation</td><td>Implement only after SSO Phase 1 is stable in production (&gt;2 sprints of clean metrics). Measure support ticket rate (metric #16) before/after My Booking launch; target &lt;3 tickets per 100 bookings within 30 days of release</td></tr>
+<tr><td>Trade-off</td><td>XL-level effort if built to include guest access path. Recommend: ship account-only My Booking first (L·4–5w), then add guest access token path in next sprint. Pair with CONTEX Guest Purchase work to align on the authentication model</td></tr>
+<tr><td>RACI</td><td>R=Eng/Faisal · A=Product · C=Design/Gita, Ops/CS (booking info requirements) · I=Finance, Marketing</td></tr>
+</table>
+</div>
+</div>
+
+<!-- Initiative 9: SEO Improvements -->
+<div class="section-card" style="margin-bottom:16px;padding:20px;border-left-color:#2563eb">
+<h4>9. SEO Improvements (General) <span class="badge badge-p2">P2</span> <span class="badge badge-next">NEXT</span> <span style="color:#94a3b8;font-size:11px">ICE 252 · M·2–3w</span></h4>
+<div class="table-wrap">
+<table>
+<tr><th>Field</th><th>Analysis</th></tr>
+<tr><td>Key Assumption</td><td>Long-tail Bali activity keywords are achievable within 6 months given domain authority, and structured data improvements to existing pages will materially increase click-through rate from existing SERP impressions</td></tr>
+<tr><td>Risk</td><td>Domain authority gap vs. Klook (DA 65+) and GetYourGuide (DA 70+) makes competitive keywords unrealistic. SatuSatu's SEO investment must be surgical — focus on queries where large platforms do not have optimised landing pages (hyper-local, niche categories)</td></tr>
+<tr><td>Validation</td><td>3 long-tail pages pilot (per item 4 above). Additionally: measure organic CTR improvement from adding star ratings structured data to existing listing pages — benchmark before/after within 30 days of deploy using Search Console CTR report</td></tr>
+<tr><td>Trade-off</td><td>SEO Improvements (general) and SEO Destination Landing Pages (item 4) should be sequenced together — general technical improvements first (hreflang, schema, page speed), then content landing pages. Splitting them into separate sprints without coordination creates inconsistent results</td></tr>
+<tr><td>RACI</td><td>R=Marketing (content), Eng (structured data, Core Web Vitals) · A=Product · C=SEO specialist, Design · I=Ops, Investors</td></tr>
+</table>
+</div>
+</div>
+
+<div class="info-box danger">
+<strong>Central Trade-off Statement:</strong> Every initiative in the NOW horizon delays something in the NEXT horizon. The highest-leverage trade-off in this roadmap is the decision to invest 40% of PAYCOM engineering capacity in auth/payment fundamentals (Guest Checkout, I18n Payment, SSO) rather than in discovery and growth features. This is correct. A platform that doubles its foreign session count but still has an 85% checkout drop-off rate will show flat booking numbers — and will exhaust its paid acquisition budget acquiring users into a leaking funnel. Fix the funnel first. Then fill it.
+</div>
+</section>
+
+</div><!-- end #main -->
+
+<!-- FOOTER -->
+<div id="footer">
+  <div style="margin-bottom:6px">
+    <strong>SatuSatu — CPO Product Management Team Guideline</strong> &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp;
+    <span style="color:#e11d48;font-weight:600">Confidential — Internal Use Only</span>
+  </div>
+  <div>
+    Sources: UX Research (Mar 2026) &nbsp;·&nbsp; Product Roadmap (Mar 2026) &nbsp;·&nbsp;
+    Metrics Framework (Mar 2026) &nbsp;·&nbsp; Product Pipeline CSV (PAYCOM + CONTEX squads)
+  </div>
+  <div style="margin-top:8px;color:#334155;font-size:11px">
+    A TipTip Company &nbsp;·&nbsp; SatuSatu.com &nbsp;·&nbsp;
+    Frameworks: ICE + Kano · March (1991) Explore/Exploit · GTM via OpenPanel + GA4 + Meta Pixel
+  </div>
+</div>
+
+</body>
+</html>

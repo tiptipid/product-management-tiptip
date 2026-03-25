@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="620" height="300" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="620" height="300" fill="#0f172a"/>
+  <!-- Plot area: x=80 to 580, y=20 to 260 -->
+  <!-- Y: score 1-10, y=260-(score-1)/9*220 -->
+  <!-- score 10 => y=20, score 1 => y=240... let's use y=260-(score-1)/9*220 -->
+  <!-- X positions: 80, 176, 272, 368, 464, 580 -->
+
+  <!-- Y axis labels -->
+  <text x="72" y="24" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">10</text>
+  <text x="72" y="68" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">9</text>
+  <text x="72" y="112" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">7</text>
+  <text x="72" y="156" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">5</text>
+  <text x="72" y="200" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">3</text>
+  <text x="72" y="244" fill="#64748b" font-size="10" font-family="sans-serif" text-anchor="end">1</text>
+
+  <!-- Y grid lines -->
+  <line x1="80" y1="20" x2="580" y2="20" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="64" x2="580" y2="64" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="108" x2="580" y2="108" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="152" x2="580" y2="152" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="196" x2="580" y2="196" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="240" x2="580" y2="240" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- X labels -->
+  <!-- X positions for 6 stages: 80, 176, 272, 368, 464, 580 -->
+  <text x="80" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Inspiration</text>
+  <text x="176" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Research</text>
+  <text x="272" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Evaluation</text>
+  <text x="368" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Booking</text>
+  <text x="464" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Pre-Exp</text>
+  <text x="580" y="270" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="middle">Post-Exp</text>
+
+  <!-- Y formula: y = 240 - (score-1)/9*220 -->
+  <!-- SatuSatu [8,6,3.5,4,7,6] -->
+  <!-- s=8 => y=240-7/9*220=240-171.1=68.9 -->
+  <!-- s=6 => y=240-5/9*220=240-122.2=117.8 -->
+  <!-- s=3.5 => y=240-2.5/9*220=240-61.1=178.9 -->
+  <!-- s=4 => y=240-3/9*220=240-73.3=166.7 -->
+  <!-- s=7 => y=240-6/9*220=240-146.7=93.3 -->
+  <!-- s=6 => y=117.8 -->
+
+  <!-- OTA [8,7,7,7.5,8,8] -->
+  <!-- s=8=>68.9, s=7=>93.3, s=7=>93.3, s=7.5=>81.1, s=8=>68.9, s=8=>68.9 -->
+
+  <!-- Gap fill polygon (between SatuSatu lower and OTA higher) -->
+  <!-- Vertices: OTA forward then SatuSatu backward -->
+  <polygon points="80,68.9 176,93.3 272,93.3 368,81.1 464,68.9 580,68.9 580,117.8 464,93.3 368,166.7 272,178.9 176,117.8 80,68.9"
+    fill="rgba(254,202,202,0.25)" stroke="none"/>
+
+  <!-- OTA dashed grey -->
+  <polyline points="80,68.9 176,93.3 272,93.3 368,81.1 464,68.9 580,68.9"
+    fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- SatuSatu purple solid -->
+  <polyline points="80,68.9 176,117.8 272,178.9 368,166.7 464,93.3 580,117.8"
+    fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+
+  <!-- SatuSatu dots -->
+  <circle cx="80" cy="68.9" r="5" fill="#7c3aed"/>
+  <circle cx="176" cy="117.8" r="5" fill="#7c3aed"/>
+  <circle cx="272" cy="178.9" r="5" fill="#e11d48"/>
+  <circle cx="368" cy="166.7" r="5" fill="#7c3aed"/>
+  <circle cx="464" cy="93.3" r="5" fill="#7c3aed"/>
+  <circle cx="580" cy="117.8" r="5" fill="#7c3aed"/>
+
+  <!-- Annotation at Evaluation -->
+  <line x1="272" y1="178.9" x2="320" y2="225" stroke="#e11d48" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="290" y="224" width="210" height="30" fill="#450a0a" rx="4"/>
+  <text x="296" y="237" fill="#fca5a5" font-size="9" font-family="sans-serif">Hidden fees + no guest checkout</text>
+  <text x="296" y="249" fill="#fca5a5" font-size="9" font-family="sans-serif">+ weak trust signals</text>
+
+  <!-- Legend -->
+  <rect x="80" y="282" width="12" height="3" fill="#7c3aed"/>
+  <text x="96" y="290" fill="#e2e8f0" font-size="10" font-family="sans-serif">SatuSatu</text>
+  <line x1="160" y1="285" x2="175" y2="285" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="179" y="290" fill="#e2e8f0" font-size="10" font-family="sans-serif">OTA Benchmark</text>
+</svg>

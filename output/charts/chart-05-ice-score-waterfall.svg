@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="700" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="700" fill="#0f172a"/>
+  <!-- Plot area: label 0–240px, bars 240–640px, score labels 640+ -->
+  <!-- Sorted by ICE descending (top 30): -->
+  <!-- 1.648 All-inclusive pricing NOW, 2.648 Free cancel badge NOW, 3.567 Social proof counter NOW -->
+  <!-- 4.504 Social Proof HP NOW, 5.486 Pop Up NOW, 6.432 SSO Phase 1 NOW, 7.432 Guest checkout NOW -->
+  <!-- 8.405 Locale naming NOW, 9.392 Verified badge NOW, 10.392 Pre-activity email NOW -->
+  <!-- 11.392 Review nationality NEXT, 12.384 Google/Apple Pay NOW, 13.384 WhatsApp Notif NOW -->
+  <!-- 14.360 HP Curated NOW, 15.360 llms.txt static NOW, 16.343 Improve UX booking NOW -->
+  <!-- 17.343 Product Detail NOW, 18.343 Post-exp email NEXT, 19.336 CS Widget NOW -->
+  <!-- 20.320 Retool Rating NOW, 21.320 hreflang NEXT, 22.320 Analytics CH NEXT -->
+  <!-- 23.315 Move CTA NOW, 24.294 Discover Filter NOW, 25.280 I18n Trans NOW -->
+  <!-- 26.280 I18n Payment NOW, 27.280 Predefined Form NOW, 28.270 SEO Dest NEXT -->
+  <!-- 29.256 Multi Image Banners NEXT, 30.252 SEO Improvements NEXT -->
+
+  <!-- Bar height=14, gap=4, start y=30 -->
+  <!-- x_bar = 240 + (ICE/648)*360 -->
+  <!-- Colors: NOW=#16a34a, NEXT=#2563eb, LATER=#7c3aed -->
+
+  <!-- Row helper macro (y = 30 + row*(14+4)) -->
+  <!-- Row 0: y=30 -->
+
+  <!-- 1. All-inclusive pricing 648 NOW -->
+  <text x="235" y="41" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">All-inclusive upfront pricing</text>
+  <rect x="240" y="30" width="360" height="14" fill="#16a34a" rx="2"/>
+  <text x="604" y="41" fill="#4ade80" font-size="9" font-family="sans-serif">648</text>
+
+  <!-- 2. Free cancel badge 648 NOW -->
+  <text x="235" y="59" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Free cancellation badge</text>
+  <rect x="240" y="48" width="360" height="14" fill="#16a34a" rx="2"/>
+  <text x="604" y="59" fill="#4ade80" font-size="9" font-family="sans-serif">648</text>
+
+  <!-- 3. Social proof counter 567 NOW -->
+  <text x="235" y="77" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Platform social proof counter</text>
+  <rect x="240" y="66" width="315" height="14" fill="#16a34a" rx="2"/>
+  <text x="559" y="77" fill="#4ade80" font-size="9" font-family="sans-serif">567</text>
+
+  <!-- 4. Social Proof HP 504 NOW -->
+  <text x="235" y="95" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Social Proof in Home Page</text>
+  <rect x="240" y="84" width="280" height="14" fill="#16a34a" rx="2"/>
+  <text x="524" y="95" fill="#4ade80" font-size="9" font-family="sans-serif">504 ⚠</text>
+
+  <!-- 5. Pop Up 486 NOW -->
+  <text x="235" y="113" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Pop Up without Param</text>
+  <rect x="240" y="102" width="270" height="14" fill="#16a34a" rx="2"/>
+  <text x="514" y="113" fill="#4ade80" font-size="9" font-family="sans-serif">486 ⚠</text>
+
+  <!-- 6. SSO Phase 1 432 NOW -->
+  <text x="235" y="131" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SSO Phase 1</text>
+  <rect x="240" y="120" width="240" height="14" fill="#16a34a" rx="2"/>
+  <text x="484" y="131" fill="#4ade80" font-size="9" font-family="sans-serif">432</text>
+
+  <!-- 7. Guest checkout 432 NOW -->
+  <text x="235" y="149" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Guest checkout + Google/Apple SSO</text>
+  <rect x="240" y="138" width="240" height="14" fill="#16a34a" rx="2"/>
+  <text x="484" y="149" fill="#4ade80" font-size="9" font-family="sans-serif">432</text>
+
+  <!-- 8. Locale naming 405 NOW -->
+  <text x="235" y="167" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Standardize locale naming</text>
+  <rect x="240" y="156" width="225" height="14" fill="#16a34a" rx="2"/>
+  <text x="469" y="167" fill="#4ade80" font-size="9" font-family="sans-serif">405 ⚠</text>
+
+  <!-- 9. Verified badge 392 NOW -->
+  <text x="235" y="185" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SatuSatu Verified badge</text>
+  <rect x="240" y="174" width="218" height="14" fill="#16a34a" rx="2"/>
+  <text x="462" y="185" fill="#4ade80" font-size="9" font-family="sans-serif">392</text>
+
+  <!-- 10. Pre-activity email 392 NOW -->
+  <text x="235" y="203" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Pre-activity automated emails</text>
+  <rect x="240" y="192" width="218" height="14" fill="#16a34a" rx="2"/>
+  <text x="462" y="203" fill="#4ade80" font-size="9" font-family="sans-serif">392</text>
+
+  <!-- 11. Review nationality 392 NEXT -->
+  <text x="235" y="221" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Review nationality display</text>
+  <rect x="240" y="210" width="218" height="14" fill="#2563eb" rx="2"/>
+  <text x="462" y="221" fill="#93c5fd" font-size="9" font-family="sans-serif">392</text>
+
+  <!-- 12. Google/Apple Pay 384 NOW -->
+  <text x="235" y="239" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Google Pay + Apple Pay</text>
+  <rect x="240" y="228" width="213" height="14" fill="#16a34a" rx="2"/>
+  <text x="457" y="239" fill="#4ade80" font-size="9" font-family="sans-serif">384</text>
+
+  <!-- 13. WhatsApp Notif 384 NOW -->
+  <text x="235" y="257" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">WhatsApp Notifications</text>
+  <rect x="240" y="246" width="213" height="14" fill="#16a34a" rx="2"/>
+  <text x="457" y="257" fill="#4ade80" font-size="9" font-family="sans-serif">384 ⚠</text>
+
+  <!-- 14. HP Curated 360 NOW -->
+  <text x="235" y="275" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Home Page Curated Exp Update</text>
+  <rect x="240" y="264" width="200" height="14" fill="#16a34a" rx="2"/>
+  <text x="444" y="275" fill="#4ade80" font-size="9" font-family="sans-serif">360 ⚠</text>
+
+  <!-- 15. llms.txt static 360 NOW -->
+  <text x="235" y="293" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Implement llms.txt (static)</text>
+  <rect x="240" y="282" width="200" height="14" fill="#16a34a" rx="2"/>
+  <text x="444" y="293" fill="#4ade80" font-size="9" font-family="sans-serif">360 ⚠</text>
+
+  <!-- 16. Improve UX booking 343 NOW -->
+  <text x="235" y="311" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Improve UX booking to signup</text>
+  <rect x="240" y="300" width="190" height="14" fill="#16a34a" rx="2"/>
+  <text x="434" y="311" fill="#4ade80" font-size="9" font-family="sans-serif">343 ⚠</text>
+
+  <!-- 17. Product Detail 343 NOW -->
+  <text x="235" y="329" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Product Detail Improvements</text>
+  <rect x="240" y="318" width="190" height="14" fill="#16a34a" rx="2"/>
+  <text x="434" y="329" fill="#4ade80" font-size="9" font-family="sans-serif">343 ⚠</text>
+
+  <!-- 18. Post-exp email 343 NEXT -->
+  <text x="235" y="347" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Post-experience email + review ask</text>
+  <rect x="240" y="336" width="190" height="14" fill="#2563eb" rx="2"/>
+  <text x="434" y="347" fill="#93c5fd" font-size="9" font-family="sans-serif">343</text>
+
+  <!-- 19. CS Widget 336 NOW -->
+  <text x="235" y="365" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">CS Widget</text>
+  <rect x="240" y="354" width="187" height="14" fill="#16a34a" rx="2"/>
+  <text x="431" y="365" fill="#4ade80" font-size="9" font-family="sans-serif">336 ⚠</text>
+
+  <!-- 20. Retool Rating 320 NOW -->
+  <text x="235" y="383" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Retool Rating &amp; Total Sold</text>
+  <rect x="240" y="372" width="178" height="14" fill="#16a34a" rx="2"/>
+  <text x="422" y="383" fill="#4ade80" font-size="9" font-family="sans-serif">320 ⚠</text>
+
+  <!-- 21. hreflang 320 NEXT -->
+  <text x="235" y="401" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Implement hreflang on blog</text>
+  <rect x="240" y="390" width="178" height="14" fill="#2563eb" rx="2"/>
+  <text x="422" y="401" fill="#93c5fd" font-size="9" font-family="sans-serif">320 ⚠</text>
+
+  <!-- 22. Analytics CH 320 NEXT -->
+  <text x="235" y="419" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Analytics in CH</text>
+  <rect x="240" y="408" width="178" height="14" fill="#2563eb" rx="2"/>
+  <text x="422" y="419" fill="#93c5fd" font-size="9" font-family="sans-serif">320 ⚠</text>
+
+  <!-- 23. Move CTA 315 NOW -->
+  <text x="235" y="437" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Move Sign-up/in CTA to top</text>
+  <rect x="240" y="426" width="175" height="14" fill="#16a34a" rx="2"/>
+  <text x="419" y="437" fill="#4ade80" font-size="9" font-family="sans-serif">315 ⚠</text>
+
+  <!-- 24. Discover Filter 294 NOW -->
+  <text x="235" y="455" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Discover Filter &amp; Sort</text>
+  <rect x="240" y="444" width="163" height="14" fill="#16a34a" rx="2"/>
+  <text x="407" y="455" fill="#4ade80" font-size="9" font-family="sans-serif">294 ⚠</text>
+
+  <!-- 25. I18n Trans 280 NOW -->
+  <text x="235" y="473" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">I18n Translations</text>
+  <rect x="240" y="462" width="155" height="14" fill="#16a34a" rx="2"/>
+  <text x="399" y="473" fill="#4ade80" font-size="9" font-family="sans-serif">280 ⚠</text>
+
+  <!-- 26. I18n Payment 280 NOW -->
+  <text x="235" y="491" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">I18n Payment (incl. 2C2P)</text>
+  <rect x="240" y="480" width="155" height="14" fill="#16a34a" rx="2"/>
+  <text x="399" y="491" fill="#4ade80" font-size="9" font-family="sans-serif">280 ⚠</text>
+
+  <!-- 27. Predefined Form 280 NOW -->
+  <text x="235" y="509" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Predefined Form for Visitor</text>
+  <rect x="240" y="498" width="155" height="14" fill="#16a34a" rx="2"/>
+  <text x="399" y="509" fill="#4ade80" font-size="9" font-family="sans-serif">280 ⚠</text>
+
+  <!-- 28. SEO Dest 270 NEXT -->
+  <text x="235" y="527" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SEO destination landing pages</text>
+  <rect x="240" y="516" width="150" height="14" fill="#2563eb" rx="2"/>
+  <text x="394" y="527" fill="#93c5fd" font-size="9" font-family="sans-serif">270</text>
+
+  <!-- 29. Multi Image Banners 256 NEXT -->
+  <text x="235" y="545" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">Multiple Image Banners</text>
+  <rect x="240" y="534" width="142" height="14" fill="#2563eb" rx="2"/>
+  <text x="386" y="545" fill="#93c5fd" font-size="9" font-family="sans-serif">256 ⚠</text>
+
+  <!-- 30. SEO Improvements 252 NEXT -->
+  <text x="235" y="563" fill="#94a3b8" font-size="9" font-family="sans-serif" text-anchor="end">SEO Improvements (general)</text>
+  <rect x="240" y="552" width="140" height="14" fill="#2563eb" rx="2"/>
+  <text x="384" y="563" fill="#93c5fd" font-size="9" font-family="sans-serif">252 ⚠</text>
+
+  <!-- Nice-to-have threshold line at ICE=120 => x = 240 + (120/648)*360 = 240+66.7 = 307 -->
+  <line x1="307" y1="20" x2="307" y2="575" stroke="#e11d48" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="310" y="580" fill="#e11d48" font-size="9" font-family="sans-serif">Nice-to-Have Threshold (ICE=120)</text>
+
+  <!-- Legend -->
+  <rect x="240" y="600" width="12" height="10" fill="#16a34a"/>
+  <text x="256" y="609" fill="#e2e8f0" font-size="10" font-family="sans-serif">NOW</text>
+  <rect x="305" y="600" width="12" height="10" fill="#2563eb"/>
+  <text x="321" y="609" fill="#e2e8f0" font-size="10" font-family="sans-serif">NEXT</text>
+  <rect x="370" y="600" width="12" height="10" fill="#7c3aed"/>
+  <text x="386" y="609" fill="#e2e8f0" font-size="10" font-family="sans-serif">LATER</text>
+  <text x="450" y="609" fill="#64748b" font-size="9" font-family="sans-serif">⚠ = inferred ICE score</text>
+</svg>

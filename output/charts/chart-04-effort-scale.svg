@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="200" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="200" fill="#0f172a"/>
+  <!-- XS bar: width=16, y=10, h=26 -->
+  <rect x="100" y="10" width="16" height="26" fill="#22c55e" rx="3"/>
+  <text x="100" y="48" fill="#22c55e" font-size="10" font-family="sans-serif" font-weight="700">XS</text>
+  <text x="100" y="60" fill="#94a3b8" font-size="9" font-family="sans-serif">1 day</text>
+  <text x="100" y="72" fill="#64748b" font-size="8.5" font-family="sans-serif">Config tweak, copy change</text>
+
+  <!-- S bar: width=80 -->
+  <rect x="136" y="10" width="80" height="26" fill="#84cc16" rx="3"/>
+  <text x="136" y="48" fill="#84cc16" font-size="10" font-family="sans-serif" font-weight="700">S</text>
+  <text x="136" y="60" fill="#94a3b8" font-size="9" font-family="sans-serif">≤1 week</text>
+  <text x="136" y="72" fill="#64748b" font-size="8.5" font-family="sans-serif">Single feature, clear spec</text>
+
+  <!-- M bar: width=192 -->
+  <rect x="236" y="10" width="192" height="26" fill="#f59e0b" rx="3"/>
+  <text x="236" y="48" fill="#f59e0b" font-size="10" font-family="sans-serif" font-weight="700">M</text>
+  <text x="236" y="60" fill="#94a3b8" font-size="9" font-family="sans-serif">2–3 weeks</text>
+  <text x="236" y="72" fill="#64748b" font-size="8.5" font-family="sans-serif">Multi-component, some API work</text>
+
+  <!-- L bar: show as 352 but cap at 580, so x=100+offset. Let's use a separate y row -->
+  <!-- Redraw with 2 rows for clarity -->
+  <!-- Row 1: XS, S, M side by side -->
+  <!-- Row 2: L, XL -->
+  <!-- L bar: width=352 would overflow, scale to max 500px total. Use proportional: XS=1d,S=5d,M=15d,L=25d,XL=30+ -->
+  <!-- Let's draw L and XL in row 2 -->
+  <rect x="100" y="100" width="220" height="26" fill="#f97316" rx="3"/>
+  <text x="100" y="138" fill="#f97316" font-size="10" font-family="sans-serif" font-weight="700">L</text>
+  <text x="100" y="150" fill="#94a3b8" font-size="9" font-family="sans-serif">4–5 weeks</text>
+  <text x="100" y="162" fill="#64748b" font-size="8.5" font-family="sans-serif">Cross-functional, 3rd-party integration</text>
+
+  <!-- XL bar: width=320 -->
+  <rect x="340" y="100" width="270" height="26" fill="#ef4444" rx="3"/>
+  <text x="340" y="138" fill="#ef4444" font-size="10" font-family="sans-serif" font-weight="700">XL</text>
+  <text x="340" y="150" fill="#94a3b8" font-size="9" font-family="sans-serif">≥6 weeks</text>
+  <text x="340" y="162" fill="#64748b" font-size="8.5" font-family="sans-serif">New platform capability</text>
+
+  <!-- Scale reference -->
+  <text x="100" y="185" fill="#475569" font-size="9" font-family="sans-serif">← Smaller effort · Faster time-to-value ·</text>
+  <text x="490" y="185" fill="#475569" font-size="9" font-family="sans-serif" text-anchor="end">Larger effort →</text>
+</svg>

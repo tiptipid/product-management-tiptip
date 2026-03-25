@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="520" height="420" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="420" fill="#0f172a"/>
+  <!-- Grid circles -->
+  <g stroke="#1e293b" stroke-width="1" fill="none">
+    <circle cx="260" cy="210" r="32"/>
+    <circle cx="260" cy="210" r="64"/>
+    <circle cx="260" cy="210" r="96"/>
+    <circle cx="260" cy="210" r="128"/>
+    <circle cx="260" cy="210" r="160"/>
+  </g>
+  <!-- Grid score labels -->
+  <text x="262" y="207" fill="#475569" font-size="9" font-family="sans-serif">2</text>
+  <text x="262" y="175" fill="#475569" font-size="9" font-family="sans-serif">4</text>
+  <text x="262" y="143" fill="#475569" font-size="9" font-family="sans-serif">6</text>
+  <text x="262" y="111" fill="#475569" font-size="9" font-family="sans-serif">8</text>
+  <text x="262" y="79" fill="#475569" font-size="9" font-family="sans-serif">10</text>
+  <!-- 8 Axis lines: angles -90,-45,0,45,90,135,180,225 deg -->
+  <!-- angle_i = -pi/2 + i*(pi/4), cx=260,cy=210,r=160 -->
+  <!-- axis 0: -90deg => (260,50) -->
+  <line x1="260" y1="210" x2="260" y2="50" stroke="#334155" stroke-width="1"/>
+  <!-- axis 1: -45deg => (260+160*cos(-45),210+160*sin(-45))=(260+113.1,210-113.1)=(373.1,96.9) -->
+  <line x1="260" y1="210" x2="373" y2="97" stroke="#334155" stroke-width="1"/>
+  <!-- axis 2: 0deg => (420,210) -->
+  <line x1="260" y1="210" x2="420" y2="210" stroke="#334155" stroke-width="1"/>
+  <!-- axis 3: 45deg => (373,323) -->
+  <line x1="260" y1="210" x2="373" y2="323" stroke="#334155" stroke-width="1"/>
+  <!-- axis 4: 90deg => (260,370) -->
+  <line x1="260" y1="210" x2="260" y2="370" stroke="#334155" stroke-width="1"/>
+  <!-- axis 5: 135deg => (260-113.1,210+113.1)=(146.9,323.1) -->
+  <line x1="260" y1="210" x2="147" y2="323" stroke="#334155" stroke-width="1"/>
+  <!-- axis 6: 180deg => (100,210) -->
+  <line x1="260" y1="210" x2="100" y2="210" stroke="#334155" stroke-width="1"/>
+  <!-- axis 7: 225deg => (260-113.1,210-113.1)=(146.9,96.9) -->
+  <line x1="260" y1="210" x2="147" y2="97" stroke="#334155" stroke-width="1"/>
+
+  <!-- Axis labels at r=175 -->
+  <!-- ax0 top: Catalog Depth -->
+  <text x="260" y="30" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Catalog Depth</text>
+  <!-- ax1 top-right: Search & Filter -->
+  <text x="390" y="80" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="start">Search &amp; Filter</text>
+  <!-- ax2 right: Booking Flow -->
+  <text x="425" y="214" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="start">Booking Flow</text>
+  <!-- ax3 bottom-right: Trust Signals -->
+  <text x="384" y="344" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="start">Trust Signals</text>
+  <!-- ax4 bottom: Localization -->
+  <text x="260" y="392" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle">Localization</text>
+  <!-- ax5 bottom-left: Mobile UX -->
+  <text x="136" y="344" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="end">Mobile UX</text>
+  <!-- ax6 left: Social Proof -->
+  <text x="92" y="214" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="end">Social Proof</text>
+  <!-- ax7 top-left: Price Transparency -->
+  <text x="134" y="80" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="end">Price Transp.</text>
+
+  <!-- Helper: for score s on axis i: x=260+(s/10)*160*cos(angle_i), y=210+(s/10)*160*sin(angle_i) -->
+  <!-- angles (degrees): 0:-90, 1:-45, 2:0, 3:45, 4:90, 5:135, 6:180, 7:225 -->
+  <!-- cos/sin: 0:(0,-1), 1:(0.707,-0.707), 2:(1,0), 3:(0.707,0.707), 4:(0,1), 5:(-0.707,0.707), 6:(-1,0), 7:(-0.707,-0.707) -->
+
+  <!-- GetYourGuide [9,9,9,9,8,8,9,9] orange #f97316 dashed -->
+  <!-- pts: ax0:9 => (260,210+9/10*160*(-1))=(260,66) -->
+  <!-- ax1:9 => (260+9/10*160*0.707,210+9/10*160*(-0.707))=(260+101.8,210-101.8)=(361.8,108.2) -->
+  <!-- ax2:9 => (260+144,210)=(404,210) -->
+  <!-- ax3:9 => (361.8,311.8) -->
+  <!-- ax4:8 => (260,210+128)=(260,338) -->
+  <!-- ax5:8 => (260-90.5,210+90.5)=(169.5,300.5) -->
+  <!-- ax6:9 => (260-144,210)=(116,210) -->
+  <!-- ax7:9 => (260-101.8,210-101.8)=(158.2,108.2) -->
+  <polygon points="260,66 361.8,108.2 404,210 361.8,311.8 260,338 169.5,300.5 116,210 158.2,108.2"
+    fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- Klook [9,8,8,8,8,8,9,8] blue #2563eb dashed -->
+  <!-- ax0:9=>(260,66), ax1:8=>(260+90.5,210-90.5)=(350.5,119.5), ax2:8=>(388,210), ax3:8=>(350.5,300.5), ax4:8=>(260,338), ax5:8=>(169.5,300.5), ax6:9=>(116,210), ax7:8=>(169.5,119.5) -->
+  <polygon points="260,66 350.5,119.5 388,210 350.5,300.5 260,338 169.5,300.5 116,210 169.5,119.5"
+    fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- KKday [8,7,7,7,8,7,6,7] teal #0891b2 dashed -->
+  <!-- ax0:8=>(260,82), ax1:7=>(260+79.2,210-79.2)=(339.2,130.8), ax2:7=>(372,210), ax3:7=>(339.2,289.2), ax4:8=>(260,338), ax5:7=>(169.5+16,300.5-16)=(185.5-16... -->
+  <!-- ax5:7 => (260+7/10*160*(-0.707), 210+7/10*160*0.707) = (260-79.2,210+79.2)=(180.8,289.2) -->
+  <!-- ax6:6 => (260-96,210)=(164,210) -->
+  <!-- ax7:7 => (260+7/10*160*(-0.707),210+7/10*160*(-0.707))=(180.8,130.8) -->
+  <polygon points="260,82 339.2,130.8 372,210 339.2,289.2 260,338 180.8,289.2 164,210 180.8,130.8"
+    fill="none" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- Trip.com [8,8,7,7,9,8,7,8] red #e11d48 dashed -->
+  <!-- ax0:8=>(260,82), ax1:8=>(350.5,119.5), ax2:7=>(372,210), ax3:7=>(339.2,289.2), ax4:9=>(260,354), ax5:8=>(169.5,300.5), ax6:7=>(148,210), ax7:8=>(169.5,119.5) -->
+  <polygon points="260,82 350.5,119.5 372,210 339.2,289.2 260,354 169.5,300.5 148,210 169.5,119.5"
+    fill="none" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.9"/>
+
+  <!-- SatuSatu [4,4,5,4,2,6,3,5] purple #7c3aed solid filled -->
+  <!-- ax0:4=>(260,210+4/10*160*(-1))=(260,146) -->
+  <!-- ax1:4=>(260+45.2,210-45.2)=(305.2,164.8) -->
+  <!-- ax2:5=>(260+80,210)=(340,210) -->
+  <!-- ax3:4=>(305.2,255.2) -->
+  <!-- ax4:2=>(260,210+32)=(260,242) -->
+  <!-- ax5:6=>(260+6/10*160*(-0.707),210+6/10*160*0.707)=(260-67.9,210+67.9)=(192.1,277.9) -->
+  <!-- ax6:3=>(260-48,210)=(212,210) -->
+  <!-- ax7:5=>(260+5/10*160*(-0.707),210+5/10*160*(-0.707))=(260-56.6,210-56.6)=(203.4,153.4) -->
+  <polygon points="260,146 305.2,164.8 340,210 305.2,255.2 260,242 192.1,277.9 212,210 203.4,153.4"
+    fill="#7c3aed" fill-opacity="0.2" stroke="#7c3aed" stroke-width="3" opacity="1"/>
+  <!-- Dots on SatuSatu polygon -->
+  <circle cx="260" cy="146" r="3" fill="#7c3aed"/>
+  <circle cx="305.2" cy="164.8" r="3" fill="#7c3aed"/>
+  <circle cx="340" cy="210" r="3" fill="#7c3aed"/>
+  <circle cx="305.2" cy="255.2" r="3" fill="#7c3aed"/>
+  <circle cx="260" cy="242" r="3" fill="#7c3aed"/>
+  <circle cx="192.1" cy="277.9" r="3" fill="#7c3aed"/>
+  <circle cx="212" cy="210" r="3" fill="#7c3aed"/>
+  <circle cx="203.4" cy="153.4" r="3" fill="#7c3aed"/>
+
+  <!-- Legend -->
+  <rect x="40" y="376" width="10" height="10" fill="#7c3aed"/>
+  <text x="54" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">SatuSatu</text>
+  <rect x="118" y="376" width="10" height="3" fill="#2563eb"/>
+  <text x="132" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">Klook</text>
+  <rect x="178" y="376" width="10" height="3" fill="#0891b2"/>
+  <text x="192" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">KKday</text>
+  <rect x="240" y="376" width="10" height="3" fill="#f97316"/>
+  <text x="254" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">GetYourGuide</text>
+  <rect x="348" y="376" width="10" height="3" fill="#e11d48"/>
+  <text x="362" y="385" fill="#e2e8f0" font-size="10" font-family="sans-serif">Trip.com</text>
+</svg>

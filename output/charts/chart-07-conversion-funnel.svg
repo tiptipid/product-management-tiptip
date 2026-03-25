@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" fill="#0f172a"/>
+  <defs>
+    <linearGradient id="ss-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="ota-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arr-red2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#e11d48"/>
+    </marker>
+  </defs>
+
+  <!-- Stage labels -->
+  <text x="10" y="40" fill="#94a3b8" font-size="10" font-family="sans-serif" font-weight="600">Stage</text>
+  <text x="10" y="60" fill="#64748b" font-size="9" font-family="sans-serif">1. Sessions</text>
+  <text x="10" y="115" fill="#64748b" font-size="9" font-family="sans-serif">2. Product View</text>
+  <text x="10" y="170" fill="#64748b" font-size="9" font-family="sans-serif">3. Checkout Init</text>
+  <text x="10" y="225" fill="#64748b" font-size="9" font-family="sans-serif">4. Auth/Payment</text>
+  <text x="10" y="280" fill="#64748b" font-size="9" font-family="sans-serif">5. Pay Initiated</text>
+  <text x="10" y="335" fill="#64748b" font-size="9" font-family="sans-serif">6. Booking Done</text>
+
+  <!-- SatuSatu funnel (left side x=130-250): rates 100,45,18,8,5,3 -->
+  <!-- Widths scaled to max 100px: 100,45,18,8,5,3 => *1px each -->
+  <!-- Center x=190, half-widths: 50,22.5,9,4,2.5,1.5 -->
+  <text x="190" y="20" fill="#a78bfa" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="700">SatuSatu</text>
+  <!-- Stage 1: full width 100px, y=45-95 -->
+  <polygon points="140,45 240,45 240,95 140,95" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="74" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="600">100%</text>
+  <!-- Stage 2: 45%, half=22.5 => 190±22.5=167.5-212.5, y=100-145 -->
+  <polygon points="140,95 240,95 212.5,145 167.5,145" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="128" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">45%</text>
+  <!-- Stage 3: 18%, half=9 => 181-199, y=150-195 -->
+  <polygon points="167.5,145 212.5,145 199,195 181,195" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="178" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">18%</text>
+  <!-- Stage 4: 8%, half=4 => 186-194, y=200-245 -->
+  <polygon points="181,195 199,195 194,245 186,245" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="226" fill="#fca5a5" font-size="10" font-family="sans-serif" text-anchor="middle">8%</text>
+  <!-- Stage 5: 5%, half=2.5 => 187.5-192.5, y=250-295 -->
+  <polygon points="186,245 194,245 192.5,295 187.5,295" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="278" fill="#fca5a5" font-size="10" font-family="sans-serif" text-anchor="middle">5%</text>
+  <!-- Stage 6: 3%, half=1.5 => 188.5-191.5, y=300-345 -->
+  <polygon points="187.5,295 192.5,295 191.5,340 188.5,340" fill="url(#ss-grad)" opacity="0.8"/>
+  <text x="190" y="360" fill="#fca5a5" font-size="10" font-family="sans-serif" text-anchor="middle">3%</text>
+
+  <!-- OTA Benchmark (right side x=390-510): rates 100,60,35,30,25,18 -->
+  <!-- Center x=450, half-widths: 50,30,17.5,15,12.5,9 -->
+  <text x="450" y="20" fill="#94a3b8" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="700">OTA Benchmark</text>
+  <!-- Stage 1: full 100px -->
+  <polygon points="400,45 500,45 500,95 400,95" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="74" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle" font-weight="600">100%</text>
+  <!-- Stage 2: 60%, half=30 => 420-480 -->
+  <polygon points="400,95 500,95 480,145 420,145" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="128" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">60%</text>
+  <!-- Stage 3: 35%, half=17.5 => 432.5-467.5 -->
+  <polygon points="420,145 480,145 467.5,195 432.5,195" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="178" fill="#fff" font-size="10" font-family="sans-serif" text-anchor="middle">35%</text>
+  <!-- Stage 4: 30%, half=15 => 435-465 -->
+  <polygon points="432.5,195 467.5,195 465,245 435,245" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="226" fill="#e2e8f0" font-size="10" font-family="sans-serif" text-anchor="middle">30%</text>
+  <!-- Stage 5: 25%, half=12.5 => 437.5-462.5 -->
+  <polygon points="435,245 465,245 462.5,295 437.5,295" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="278" fill="#e2e8f0" font-size="10" font-family="sans-serif" text-anchor="middle">25%</text>
+  <!-- Stage 6: 18%, half=9 => 441-459 -->
+  <polygon points="437.5,295 462.5,295 459,340 441,340" fill="url(#ota-grad)" opacity="0.8"/>
+  <text x="450" y="360" fill="#e2e8f0" font-size="10" font-family="sans-serif" text-anchor="middle">18%</text>
+
+  <!-- Red annotations for auth step and payment gap -->
+  <line x1="199" y1="220" x2="300" y2="215" stroke="#e11d48" stroke-width="1" marker-end="url(#arr-red2)"/>
+  <rect x="300" y="205" width="140" height="20" fill="#450a0a" rx="3"/>
+  <text x="307" y="218" fill="#fca5a5" font-size="8.5" font-family="sans-serif">Auth wall — largest single gap</text>
+
+  <line x1="192" y1="270" x2="300" y2="265" stroke="#e11d48" stroke-width="1" marker-end="url(#arr-red2)"/>
+  <rect x="300" y="255" width="120" height="20" fill="#450a0a" rx="3"/>
+  <text x="307" y="268" fill="#fca5a5" font-size="8.5" font-family="sans-serif">Payment friction gap</text>
+
+  <!-- Note -->
+  <text x="320" y="385" fill="#475569" font-size="9" font-family="sans-serif" text-anchor="middle">Note: SatuSatu numbers are illustrative — configure OpenPanel per Section 7.5 GTM specs</text>
+</svg>

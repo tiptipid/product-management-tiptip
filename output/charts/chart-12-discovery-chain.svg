@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="110" viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="110" fill="#0f172a"/>
+  <defs>
+    <marker id="arr3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <!-- Node 1: hreflang Blog - teal -->
+  <rect x="10" y="35" width="110" height="40" rx="6" fill="#0c2233" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="65" y="52" fill="#67e8f9" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">hreflang Blog</text>
+  <text x="65" y="64" fill="#0891b2" font-size="8" font-family="sans-serif" text-anchor="middle">(NEXT)</text>
+  <!-- Arrow -->
+  <line x1="120" y1="55" x2="138" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 2: Destination Landing Pages - purple -->
+  <rect x="140" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="200" y="52" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Destination Pages</text>
+  <text x="200" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">(NEXT)</text>
+  <!-- Arrow -->
+  <line x1="260" y1="55" x2="278" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 3: Editorial Guides - purple -->
+  <rect x="280" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="340" y="52" fill="#c4b5fd" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Curated Editorial</text>
+  <text x="340" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">Guides (NEXT)</text>
+  <!-- Arrow -->
+  <line x1="400" y1="55" x2="418" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 4: Korean/Hindi - purple dashed -->
+  <rect x="420" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="480" y="52" fill="#9f7aea" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Korean + Hindi</text>
+  <text x="480" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">i18n (LATER)</text>
+  <!-- Arrow -->
+  <line x1="540" y1="55" x2="558" y2="55" stroke="#475569" stroke-width="1.5" marker-end="url(#arr3)"/>
+  <!-- Node 5: Mandarin - purple dashed -->
+  <rect x="560" y="35" width="120" height="40" rx="6" fill="#1a0533" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="620" y="52" fill="#9f7aea" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="600">Mandarin</text>
+  <text x="620" y="64" fill="#7c3aed" font-size="8" font-family="sans-serif" text-anchor="middle">i18n (LATER)</text>
+</svg>
