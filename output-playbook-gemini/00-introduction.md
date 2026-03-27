@@ -59,7 +59,6 @@ This is the product operating system for SatuSatu. It codifies how the product t
 
 | Abbreviation | Definition |
 |---|---|
-
 | **NSM** | North Star Metric — Weekly Qualified Bookings Completed (see Page 05) |
 | **ABV** | Average Booking Value — mean IDR per confirmed transaction |
 | **CVR** | Conversion Rate — typically visit-to-booking unless otherwise specified |

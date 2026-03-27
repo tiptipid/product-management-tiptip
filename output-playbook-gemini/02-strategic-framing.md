@@ -34,43 +34,43 @@ Competitors have already validated these. Absence is a competitive liability, no
 
 | Initiative                          | Source  | Squad  | Pillar     | Kano        | Status                |
 | ----------------------------------- | ------- | ------ | ---------- | ----------- | --------------------- |
-| Free cancellation badge on listings | K2      | —      | Trust      | Basic       | NOW                   |
-| Platform social proof counter       | K2 + K4 | PAYCOM | Trust      | Basic       | Product Requirement   |
-| Guest checkout + Google/Apple SSO   | K2 + K4 | PAYCOM | Conversion | Basic       | Testing (SSO phase 1) |
-| Google Pay + Apple Pay integration  | K2      | —      | Conversion | Basic       | NOW                   |
-| Locally Curated badge enhancement   | K2      | —      | Trust      | Performance | NOW                   |
-| Pre-activity automated emails       | K2      | —      | Conversion | Performance | NOW                   |
-| Review nationality display          | K2      | —      | Trust      | Performance | NEXT                  |
-| Product Detail Improvements         | K4      | CONTEX | Conversion | Performance | Released              |
-| External Review                     | K4      | CONTEX | Trust      | Performance | On Dev                |
-| CS Widget                           | K4      | CONTEX | Conversion | Performance | Released              |
-| WhatsApp Notifications              | K4      | CONTEX | Conversion | Performance | Released              |
-| Package Options                     | K4      | CONTEX | Conversion | Performance | Next Pickup           |
-| My Booking                          | K4      | CONTEX | Conversion | Performance | To Prioritize         |
+| Free cancellation badge on listings | Roadmap  | —      | Trust      | Basic       | NOW                   |
+| Platform social proof counter       | Both     | PAYCOM | Trust      | Basic       | Product Requirement   |
+| Guest checkout + Google/Apple SSO   | Both     | PAYCOM | Conversion | Basic       | Testing (SSO phase 1) |
+| Google Pay + Apple Pay integration  | Roadmap  | —      | Conversion | Basic       | NOW                   |
+| Locally Curated badge enhancement   | Roadmap  | —      | Trust      | Performance | NOW                   |
+| Pre-activity automated emails       | Roadmap  | —      | Conversion | Performance | NOW                   |
+| Review nationality display          | Roadmap  | —      | Trust      | Performance | NEXT                  |
+| Product Detail Improvements         | Pipeline | CONTEX | Conversion | Performance | Released              |
+| External Review                     | Pipeline | CONTEX | Trust      | Performance | On Dev                |
+| CS Widget                           | Pipeline | CONTEX | Conversion | Performance | Released              |
+| WhatsApp Notifications              | Pipeline | CONTEX | Conversion | Performance | Released              |
+| Package Options                     | Pipeline | CONTEX | Conversion | Performance | Next Pickup           |
+| My Booking                          | Pipeline | CONTEX | Conversion | Performance | To Prioritize         |
 
 ### EXPLOIT — Quick Wins (Small Effort, Known Value)
 
 | Initiative                           | Source | Squad  | Pillar      | Status              |
 | ------------------------------------ | ------ | ------ | ----------- | ------------------- |
-| Home Page Curated Exp Update         | K4     | PAYCOM | Discovery   | Released            |
-| Multiple Image Banners               | K4     | PAYCOM | Discovery   | Released            |
-| Custom Sections                      | K4     | PAYCOM | Discovery   | Released            |
-| Voucher in Home Page                 | K4     | PAYCOM | Conversion  | Product Requirement |
-| Pop Up without Param                 | K4     | PAYCOM | Conversion  | Product Requirement |
-| Move Sign up/in CTA to top           | K4     | PAYCOM | Conversion  | —                   |
-| Move from email pass to OTP based    | K4     | PAYCOM | Conversion  | —                   |
-| Improve UX from booking to signup    | K4     | PAYCOM | Conversion  | —                   |
-| One card per row results             | K4     | PAYCOM | Discovery   | —                   |
-| Sort by biggest discount             | K4     | PAYCOM | Discovery   | —                   |
-| Standardize locale naming convention | K4     | PAYCOM | Infra       | On Dev              |
-| Inform CS when new catalog created   | K4     | CONTEX | Ops         | Released            |
-| Predefined Form for Visitor          | K4     | CONTEX | Ops         | Released            |
-| Variant multi merchant               | K4     | CONTEX | Ops         | On Dev              |
-| Retool Rating & Total Sold           | K4     | CONTEX | Ops         | On Dev              |
-| Product Setup Improvements           | K4     | CONTEX | Ops         | Next Pickup         |
-| Analytics in CH                      | K4     | CONTEX | Measurement | Next Pickup         |
-| Blog Tracker                         | K4     | PAYCOM | Content     | Released            |
-| Wordpress Improvements - In line CTA | K4     | CONTEX | Content     | Released            |
+| Home Page Curated Exp Update         | Pipeline | PAYCOM | Discovery   | Released            |
+| Multiple Image Banners               | Pipeline | PAYCOM | Discovery   | Released            |
+| Custom Sections                      | Pipeline | PAYCOM | Discovery   | Released            |
+| Voucher in Home Page                 | Pipeline | PAYCOM | Conversion  | Product Requirement |
+| Pop Up without Param                 | Pipeline | PAYCOM | Conversion  | Product Requirement |
+| Move Sign up/in CTA to top           | Pipeline | PAYCOM | Conversion  | —                   |
+| Move from email pass to OTP based    | Pipeline | PAYCOM | Conversion  | —                   |
+| Improve UX from booking to signup    | Pipeline | PAYCOM | Conversion  | —                   |
+| One card per row results             | Pipeline | PAYCOM | Discovery   | —                   |
+| Sort by biggest discount             | Pipeline | PAYCOM | Discovery   | —                   |
+| Standardize locale naming convention | Pipeline | PAYCOM | Infra       | On Dev              |
+| Inform CS when new catalog created   | Pipeline | CONTEX | Ops         | Released            |
+| Predefined Form for Visitor          | Pipeline | CONTEX | Ops         | Released            |
+| Variant multi merchant               | Pipeline | CONTEX | Ops         | On Dev              |
+| Retool Rating & Total Sold           | Pipeline | CONTEX | Ops         | On Dev              |
+| Product Setup Improvements           | Pipeline | CONTEX | Ops         | Next Pickup         |
+| Analytics in CH                      | Pipeline | CONTEX | Measurement | Next Pickup         |
+| Blog Tracker                         | Pipeline | PAYCOM | Content     | Released            |
+| Wordpress Improvements - In line CTA | Pipeline | CONTEX | Content     | Released            |
 
 ### EXPLORE — High Uncertainty (New Capabilities)
 
@@ -78,14 +78,14 @@ Unproven for SatuSatu. Uncertain ROI. Require validation before full commitment.
 
 | Initiative                             | Source  | Squad  | Pillar       | Kano        | Status        | Risk                                                           |
 | -------------------------------------- | ------- | ------ | ------------ | ----------- | ------------- | -------------------------------------------------------------- |
-| I8n Translations                       | K4 + K2 | PAYCOM | Localization | Delight     | On Dev        | High effort (L), unproven conversion lift for foreign visitors |
-| I8n Payment (incl. 2C2P integration)   | K4      | PAYCOM | Localization | Delight     | On Dev        | New payment gateway, uncertain adoption                        |
-| Korean + Hindi UI localization         | K2      | —      | Localization | Delight     | LATER         | Full i18n is expensive; language may not be the barrier        |
-| Mandarin UI localization               | K2      | —      | Localization | Delight     | LATER         | Chinese market dominated by Trip.com                           |
-| Implement locale dan hreflang di blog  | K4      | CONTEX | Discovery    | —           | To Prioritize | i18n infra required                                            |
-| Destination page                       | K4      | CONTEX | Discovery    | Performance | Design        | SEO effectiveness unproven                                     |
-| Autocomplete + Search Filters          | K2 + K4 | CONTEX | Discovery    | Performance | On Dev        | Engineering complexity (M)                                     |
-| Discover Filter & Sort                 | K4      | CONTEX | Discovery    | Performance | On Dev        | Same as above                                                  |
+| I8n Translations                       | Both     | PAYCOM | Localization | Delight     | On Dev        | High effort (L), unproven conversion lift for foreign visitors |
+| I8n Payment (incl. 2C2P integration)   | Pipeline | PAYCOM | Localization | Delight     | On Dev        | New payment gateway, uncertain adoption                        |
+| Korean + Hindi UI localization         | Roadmap  | —      | Localization | Delight     | LATER         | Full i18n is expensive; language may not be the barrier        |
+| Mandarin UI localization               | Roadmap  | —      | Localization | Delight     | LATER         | Chinese market dominated by Trip.com                           |
+| Implement locale dan hreflang di blog  | Pipeline | CONTEX | Discovery    | —           | To Prioritize | i18n infra required                                            |
+| Destination page                       | Pipeline | CONTEX | Discovery    | Performance | Design        | SEO effectiveness unproven                                     |
+| Autocomplete + Search Filters          | Both     | CONTEX | Discovery    | Performance | On Dev        | Engineering complexity (M)                                     |
+| Discover Filter & Sort                 | Pipeline | CONTEX | Discovery    | Performance | On Dev        | Same as above                                                  |
 
 ### EXPLORE — Strategic Bets (Large Investment, Potential Differentiation)
 
@@ -93,15 +93,15 @@ High-risk, high-reward. Only pursue once Exploit base is stable.
 
 | Initiative                             | Source | Pillar     | Kano        | Status        | Risk                                                    |
 | -------------------------------------- | ------ | ---------- | ----------- | ------------- | ------------------------------------------------------- |
-| Loyalty / credits program              | K2     | Retention  | Delight     | LATER         | XL effort; needs transaction volume to design correctly |
-| Referral program                       | K2     | Retention  | Delight     | NEXT          | Uncertain LTV from referred users                       |
-| WhatsApp-native booking flow           | K2     | Conversion | Delight     | LATER         | Experimental channel; L effort                          |
-| Implement llms.txt (one off)           | K4     | Discovery  | —           | Released      | Novel AI/SEO experiment                                 |
-| Implement llms.txt (dynamic)           | K4     | Discovery  | —           | —             | Ongoing AI infrastructure                               |
-| Post-experience email + review request | K2     | Retention  | Performance | NEXT          | New retention mechanic                                  |
-| Product Detail Recommended Products    | K4     | Conversion | —           | To Prioritize | Recommendation engine is new capability                 |
-| Upsell other recommended attractions   | K4     | Conversion | —           | —             | New revenue mechanic, uncertain value                   |
-| Guest Purchase + My Booking for Guest  | K4     | Conversion | —           | To Prioritize | XL effort; complex auth architecture                    |
+| Loyalty / credits program              | Roadmap  | Retention  | Delight     | LATER         | XL effort; needs transaction volume to design correctly |
+| Referral program                       | Roadmap  | Retention  | Delight     | NEXT          | Uncertain LTV from referred users                       |
+| WhatsApp-native booking flow           | Roadmap  | Conversion | Delight     | LATER         | Experimental channel; L effort                          |
+| Implement llms.txt (one off)           | Pipeline | Discovery  | —           | Released      | Novel AI/SEO experiment                                 |
+| Implement llms.txt (dynamic)           | Pipeline | Discovery  | —           | —             | Ongoing AI infrastructure                               |
+| Post-experience email + review request | Roadmap  | Retention  | Performance | NEXT          | New retention mechanic                                  |
+| Product Detail Recommended Products    | Pipeline | Conversion | —           | To Prioritize | Recommendation engine is new capability                 |
+| Upsell other recommended attractions   | Pipeline | Conversion | —           | —             | New revenue mechanic, uncertain value                   |
+| Guest Purchase + My Booking for Guest  | Pipeline | Conversion | —           | To Prioritize | XL effort; complex auth architecture                    |
 
 ---
 

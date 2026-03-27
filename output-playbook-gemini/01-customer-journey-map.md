@@ -97,9 +97,9 @@ xychart-beta
 - Launch a Bali editorial hub ("Best Things to Do in Bali 2026") optimized for SEO & Google Discover
 - Partner with Indonesian travel creators to feature SatuSatu in Bali vlogs with affiliate tracking
 
-**Backlog Cross-Reference** (K4):
+**Backlog Cross-Reference** (Pipeline):
 
-| K4 Item                                      | Squad  | Status   | Connection                               |
+| Pipeline Item                                      | Squad  | Status   | Connection                               |
 | -------------------------------------------- | ------ | -------- | ---------------------------------------- |
 | Blog Tracker                                 | PAYCOM | Released | Content infrastructure for editorial hub |
 | Wordpress Improvements - In line product CTA | CONTEX | Released | Blog-to-booking conversion               |
@@ -130,9 +130,9 @@ xychart-beta
 - Display total booking/review counts prominently: "10,000+ experiences booked"
 - Add cross-platform review import (TripAdvisor, Google) to boost visible review density
 
-**Backlog Cross-Reference** (K4):
+**Backlog Cross-Reference** (Pipeline):
 
-| K4 Item                  | Squad  | Status | Connection                              |
+| Pipeline Item                  | Squad  | Status | Connection                              |
 | ------------------------ | ------ | ------ | --------------------------------------- |
 | Destination page         | CONTEX | Design | SEO hub pages for Bali sub-destinations |
 | SEO Improvements         | CONTEX | —      | Organic search infrastructure           |
@@ -167,9 +167,9 @@ xychart-beta
 - Homepage hero: "10,000+ experiences booked" + "Locally curated for foreign visitors"
 - Add free cancellation badge to all eligible listings
 
-**Backlog Cross-Reference** (K4):
+**Backlog Cross-Reference** (Pipeline):
 
-| K4 Item                             | Squad  | Status              | Connection                            |
+| Pipeline Item                             | Squad  | Status              | Connection                            |
 | ----------------------------------- | ------ | ------------------- | ------------------------------------- |
 | Social Proof in Home Page           | PAYCOM | Product Requirement | Addresses aggregate social proof gap  |
 | External Review                     | CONTEX | On Dev              | Cross-platform review import          |
@@ -204,9 +204,9 @@ xychart-beta
 - If/when fees are introduced, show all-inclusive price upfront from day one
 - Offer "Pay Later" for bookings 2+ weeks ahead
 
-**Backlog Cross-Reference** (K4):
+**Backlog Cross-Reference** (Pipeline):
 
-| K4 Item                                  | Squad  | Status        | Connection                         |
+| Pipeline Item                                  | Squad  | Status        | Connection                         |
 | ---------------------------------------- | ------ | ------------- | ---------------------------------- |
 | SSO phase 1                              | PAYCOM | Testing       | Removes mandatory account creation |
 | I8n Payment (incl. 2C2P integration)     | PAYCOM | On Dev        | Foreign payment method parity      |
@@ -243,9 +243,9 @@ xychart-beta
 - Multilingual logistics summaries (auto-translated) for Mandarin, Hindi, Korean travelers
 - "Share itinerary" deep link to send booking details to companions
 
-**Backlog Cross-Reference** (K4):
+**Backlog Cross-Reference** (Pipeline):
 
-| K4 Item                     | Squad  | Status        | Connection                               |
+| Pipeline Item                     | Squad  | Status        | Connection                               |
 | --------------------------- | ------ | ------------- | ---------------------------------------- |
 | WhatsApp Notifications      | CONTEX | Released      | Operator-to-traveler communication       |
 | My Booking                  | CONTEX | To Prioritize | Central booking management post-purchase |
@@ -278,9 +278,9 @@ xychart-beta
 - Referral program: "Share with a friend, both get IDR 50,000 credit"
 - UGC campaign: incentivize tagging @satusatu on Instagram/TikTok
 
-**Backlog Cross-Reference** (K4):
+**Backlog Cross-Reference** (Pipeline):
 
-| K4 Item                                            | Squad  | Status              | Connection                                |
+| Pipeline Item                                            | Squad  | Status              | Connection                                |
 | -------------------------------------------------- | ------ | ------------------- | ----------------------------------------- |
 | Voucher in Home Page                               | PAYCOM | Product Requirement | Return visit incentive display            |
 | Analytics in CH                                    | CONTEX | Next Pickup         | Post-experience engagement tracking       |

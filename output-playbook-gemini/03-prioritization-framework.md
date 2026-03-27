@@ -145,7 +145,7 @@ flowchart LR
 | **Kano**       | Klook, GYG, KKday all offer guest checkout. Foreign one-time travelers expect it. **Basic.**                      | —     |
 | **Impact**     | Mandatory registration is the #1 documented checkout abandoner for foreign one-time visitors. Direct NSM blocker. | **9** |
 | **Confidence** | Every OTA competitor has validated this. UX research identifies it as a pain point.                               | **9** |
-| **Ease**       | SSO Phase 1 is in testing (K4). Full guest checkout requires auth architecture changes. Effort = L.               | **5** |
+| **Ease**       | SSO Phase 1 is in testing (Pipeline). Full guest checkout requires auth architecture changes. Effort = L.               | **5** |
 | **ICE Score**  | 9 × 9 × 5 = **405**                                                                                               | P1    |
 
 > SSO Phase 1 is already in testing — but the full guest purchase flow (including My Booking for Guest) requires additional effort. The high I × C scores justify P1 despite moderate Ease.

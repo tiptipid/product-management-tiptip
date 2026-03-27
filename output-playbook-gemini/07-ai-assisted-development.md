@@ -121,19 +121,26 @@ flowchart LR
 | Aspect                | Detail                                                                                  |
 | --------------------- | --------------------------------------------------------------------------------------- |
 | **AI Role**           | Rapid prototyping, simulate user interactions, design review                            |
-| **Recommended Tools** | v0.dev (UI generation), Figma AI (via Figma MCP)                                        |
+| **Recommended Tools** | v0.dev (UI generation), Figma MCP (design context + screenshot + tokens)                |
 | **Best Model**        | Claude Haiku 4 (vision — screenshot analysis for UI review)                              |
-| **Input**             | PRD, wireframes, Figma designs                                                          |
+| **Input**             | PRD, Figma file links (via Figma MCP), screenshots (fallback or for live site)          |
 | **Output**            | Design review feedback, accessibility audit, consistency check against design system    |
 
 **Agent Skill**: [UI/UX Review with Scoring](./.agent/skills/uiux-review/SKILL.md)
 
 **How to Use the Skill**:
-1. Take screenshots of the UI or export from Figma (via Figma MCP)
-2. Open Claude Code in the playbook directory
-3. Say: `Use the uiux-review skill to score this checkout page design. This is for Free Cancellation Badge at the Booking stage.`
-4. Attach screenshot(s) — both mobile (375px) and desktop (1280px) recommended
-5. Review the scorecard with your designer — prioritize dimensions scoring below 6
+
+**Path A — Figma link (preferred for design review)**:
+1. Open Claude Code with Figma MCP connected
+2. Say: `Use the uiux-review skill to score this checkout page design. Figma: [paste Figma link]. This is for Free Cancellation Badge at the Booking stage.`
+3. The agent calls `get_metadata` + `get_screenshot` + `get_variable_defs` automatically
+
+**Path B — Screenshots (for live site audit or no Figma MCP)**:
+1. Take screenshots at mobile (375px) and desktop (1280px)
+2. Say: `Use the uiux-review skill to score this checkout page design. This is for Free Cancellation Badge at the Booking stage.`
+3. Attach screenshot(s)
+
+Review the scorecard with your designer — prioritize dimensions scoring below 6
 
 ---
 

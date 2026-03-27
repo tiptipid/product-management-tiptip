@@ -81,7 +81,7 @@ The following topics are **not yet covered** in the playbook but would add signi
 | Aspect | Detail |
 |---|---|
 | **What it covers** | How product responds to production incidents: severity classification, escalation paths, communication templates (internal + external), post-incident review process, and how incidents feed back into the backlog (Page 08) |
-| **Why it matters** | When checkout breaks at 2 AM during peak booking hour, the team needs a playbook — not a Slack panic thread. Structured incident response reduces mean time to resolution and prevents recurring issues |
+| **Why it matters** | When checkout breaks at 2 AM during peak booking hour, the team needs a playbook — not a Google Chat panic thread. Structured incident response reduces mean time to resolution and prevents recurring issues |
 | **Suggested owner** | Engineering PIC |
 | **Priority** | 🟠 Before scaling — Build after core checkout flow is stable but before major traffic growth |
 
