@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SatuSatu Product Playbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/simple.min.css">
+    <style>
+        :root {
+            --satu-primary: #7C3AED;
+            --satu-secondary: #2563EB;
+            --satu-accent: #16A34A;
+            --satu-warning: #F59E0B;
+            --satu-dark: #1F2937;
+            --satu-light: #F9FAFB;
+        }
+        .reveal .slides { text-align: left; }
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--satu-dark);
+            text-transform: none;
+            font-weight: 700;
+        }
+        .reveal h1 { font-size: 2.2em; color: var(--satu-primary); }
+        .reveal h2 { font-size: 1.6em; border-bottom: 3px solid var(--satu-primary); padding-bottom: 5px; display: inline-block; margin-bottom: 20px;}
+        .reveal h3 { font-size: 1.2em; color: var(--satu-secondary); margin-bottom: 10px; }
+        .reveal p, .reveal li { font-size: 0.8em; color: #4B5563; line-height: 1.4; }
+        .reveal .accent { color: var(--satu-primary); font-weight: bold; }
+        .reveal .highlight-box {
+            background: var(--satu-light);
+            border-left: 5px solid var(--satu-primary);
+            padding: 15px; border-radius: 4px; margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .flex-container { display: flex; gap: 20px; align-items: flex-start;}
+        .flex-col { flex: 1; }
+        .guide-tag { display: inline-block; background: var(--satu-dark); color: white; padding: 3px 10px; border-radius: 4px; font-size: 0.6em; font-weight: bold; margin-bottom: 10px; }
+        code { color: var(--satu-secondary); background: #f3f4f6; padding: 2px 5px; border-radius: 3px; }
+        .mermaid { display: flex; justify-content: center; margin-top: 15px; }
+        .chart-wrapper { transform: scale(0.65); transform-origin: top center; width: 100%; height: 0; padding-bottom: 60%; }
+        .chart-wrapper-tall { transform: scale(0.5); transform-origin: top center;}
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: TITLE -->
+            <section>
+                <h1>SatuSatu Product Playbook</h1>
+                <p><strong>The Operating System for Our Product Team</strong></p>
+                <p>Moving from insight to impact, together.</p>
+                <aside class="notes">Welcome everyone. Today we're introducing the SatuSatu Product Playbook. This isn't a mandate; it's a living operating system for how we prioritize, build, and measure output.</aside>
+            </section>
+
+            <!-- SLIDE 2: WHY NOW -->
+            <section>
+                <h2>Why Now: The Opportunity</h2>
+                <div class="highlight-box">
+                    <strong>Our Goal:</strong> Parity first, differentiate second. Fix the leaky funnel for foreign visitors.
+                </div>
+                <div class="flex-container">
+                    <div class="flex-col" style="flex: 1.2;">
+                        <ul>
+                            <li><span class="accent">The Reality:</span> We have a highly differentiated value proposition (authentic experiences).</li>
+                            <li><span class="accent">The Gap:</span> We average 4.1/10 vs competitors' 8.0 in UX benchmarks.</li>
+                        </ul>
+                    </div>
+                    <div class="flex-col chart-wrapper">
+                        <div class="mermaid">
+xychart-beta
+    title "Benchmark: SatuSatu vs. Competitor (1-10)"
+    x-axis ["Catalog", "Search", "Book", "Trust", "Loc", "Mob", "Soc", "Price"]
+    y-axis "Score" 0 --> 10
+    bar [4, 4, 5, 4, 2, 6, 3, 5]
+    line [8.5, 8.0, 7.75, 7.75, 8.25, 7.75, 7.75, 8.0]
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">We have authentic experiences competitors lack, but we lose foreign visitors to UX friction (see the chart, the line is competitors, the bars are us). We must fix this.</aside>
+            </section>
+
+            <!-- SLIDE 3: WHAT IS NOT CHANGING -->
+            <section>
+                <h2>What stays the same?</h2>
+                <p>This playbook layers <em>on top of</em> our culture, it doesn't replace it.</p>
+                <ul>
+                    <li><strong>Agile Rituals:</strong> Sprints, standups, and retrospectives remain intact.</li>
+                    <li><strong>Jira & Confluence:</strong> Still our home for execution and docs.</li>
+                    <li><strong>Squad Autonomy:</strong> Teams still own *how* to solve problems.</li>
+                </ul>
+                <aside class="notes">We're not throwing out what works. Jira is still where we execute. The Playbook just governs how an idea gets into Jira.</aside>
+            </section>
+
+            <!-- SLIDE 4: WHAT IS CHANGING -->
+            <section>
+                <h2>What's Changing: The Framework</h2>
+                <div class="flex-container">
+                    <div class="flex-col">
+                        <p>Three core workflow upgrades:</p>
+                        <ol>
+                            <li><strong>4-Layer Prioritization System</strong></li>
+                            <li><strong>AI-Assisted Workflow</strong></li>
+                            <li><strong>Unified Backlog Tracker</strong></li>
+                        </ol>
+                    </div>
+                    <div class="flex-col chart-wrapper">
+                        <div class="mermaid">
+flowchart TD
+    L1["1. Explore / Exploit"]
+    L2["2. ICE Scoring"]
+    L3["3. Kano Classification"]
+    L4["4. Dependency Pillars"]
+    OUT["Sprint Commitment"]
+
+    L1 --> L2 --> L3 --> L4 --> OUT
+    style L1 fill:#2563EB,color:#fff
+    style OUT fill:#16A34A,color:#fff
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">We introduce a structured 4-layer prioritization, AI tools for research, and a single Google Sheet tracker.</aside>
+            </section>
+
+            <!-- SLIDE 5: WHAT'S INSIDE -->
+            <section>
+                <h2>What's Inside the Playbook?</h2>
+                <p>A tour of our 10 foundational guides.</p>
+                <aside class="notes">Let's briefly look at the 10 guides that make up this playbook.</aside>
+            </section>
+
+            <!-- SLIDE 6: GUIDE 00 & 01 -->
+            <section>
+                <section>
+                    <div class="guide-tag">Guide 00: Introduction</div>
+                    <h3>Operating Principles & Setup</h3>
+                    <ul>
+                        <li><span class="accent">Purpose:</span> Defines the core philosophy of "Simplify, Augment, Automate."</li>
+                        <li><span class="accent">Roles:</span> Clarifies expectations for Product, Engineering, Design, and Data.</li>
+                        <li><span class="accent">Tool Stack:</span> Standardizes our use of Claude Code, Figma, and Confluence.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <div class="guide-tag">Guide 01: Customer Journey Map</div>
+                    <h3>Mapping the Foreign Traveler</h3>
+                    <div class="flex-container">
+                        <div class="flex-col">
+                            <ul>
+                                <li>Focus: Foreign Leisure Traveler.</li>
+                                <li>Highlights the "Conversion Valley of Death".</li>
+                            </ul>
+                        </div>
+                        <div class="flex-col chart-wrapper">
+                            <div class="mermaid">
+xychart-beta
+    title "Emotion Arc (SatuSatu vs Target)"
+    x-axis ["Inspiration", "Search", "Evaluate", "Book", "Pre-Exp", "Post"]
+    y-axis "Sentiment" 0 --> 10
+    line [8, 6, 3.5, 4, 7, 6]
+    line [8, 7, 7, 7.5, 8, 8]
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- SLIDE 7: GUIDE 02 & 03 -->
+            <section>
+                <section>
+                    <div class="guide-tag">Guide 02: Strategic Framing</div>
+                    <h3>Explore vs. Exploit</h3>
+                    <div class="flex-container">
+                        <div class="flex-col">
+                            <ul>
+                                <li>Goal: 70% Exploit (Fix funnel)</li>
+                                <li>Goal: 30% Explore (Growth)</li>
+                                <li>Prioritizes usability parity over new features.</li>
+                            </ul>
+                        </div>
+                        <div class="flex-col">
+                            <div class="mermaid">
+pie title "Sprint Allocation"
+    "Exploit" : 70
+    "Explore" : 30
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="guide-tag">Guide 03: Prioritization Framework</div>
+                    <h3>ICE + Kano Scoring</h3>
+                    <div class="flex-container">
+                        <div class="flex-col" style="flex: 0.8;">
+                            <ul>
+                                <li><span class="accent">ICE:</span> Impact, Confidence, Ease.</li>
+                                <li><span class="accent">Kano:</span> Basics get built first.</li>
+                            </ul>
+                        </div>
+                        <div class="flex-col chart-wrapper" style="flex: 1.2;">
+                            <div class="mermaid">
+flowchart LR
+    A["Initiative"] --> B["Kano Classify"]
+    B --> C{"Basic?"}
+    C -->|Yes| D["ICE floor = 300"]
+    C -->|No| E["Score Normally"]
+    style D fill:#16A34A,color:#fff
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- SLIDE 8: GUIDE 04 & 05 -->
+            <section>
+                <section>
+                    <div class="guide-tag">Guide 04: Dependency Graph</div>
+                    <h3>Pillars of Execution</h3>
+                    <div class="flex-container">
+                        <div class="flex-col">
+                            <p><strong>Rule:</strong> Trust → Conversion → Discovery</p>
+                            <p>Stops us from building out of sequence.</p>
+                        </div>
+                        <div class="flex-col chart-wrapper">
+                            <div class="mermaid">
+flowchart LR
+    T["External Review<br/>(Trust)"]
+    C["Pre-activity Email<br/>(Conversion)"]
+    X["Post-Experience<br/>Review Request"]
+    T -->|"Must exist"| X
+    C -->|"Must exist"| X
+    style X fill:#F59E0B,color:#000
+    style T fill:#2563EB,color:#fff
+    style C fill:#16A34A,color:#fff
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="guide-tag">Guide 05: North Star Metrics</div>
+                    <h3>Measuring Success</h3>
+                    <div class="highlight-box" style="text-align: center;">
+                        <h4 style="margin:0;">Weekly Qualified Bookings Completed</h4>
+                    </div>
+                    <ul>
+                        <li><span class="accent">Causal Flow:</span> Acquisition → Activation → Conversion → Retention.</li>
+                        <li>Every tech feature must roll up to this NSM.</li>
+                    </ul>
+                    <p style="text-align:center;"><em>(See next slide for Flow diagram)</em></p>
+                </section>
+                
+                <section>
+                    <h3>The North Star Flow</h3>
+                    <div class="mermaid chart-wrapper-tall">
+flowchart TD
+    subgraph "Layer 1 — Acquisition"
+        A1["Traffic (GA4)"]
+    end
+    subgraph "Layer 2 — Activation"
+        B1["Activation Rate"]
+    end
+    subgraph "Layer 3 — Discovery"
+        C1["Search-to-Catalog"]
+    end
+    subgraph "Layer 4 — Intent"
+        D1["Checkout Initiation"]
+    end
+    subgraph "Layer 5 — North Star"
+        E1["★ Weekly Qualified Bookings"]
+    end
+    A1 --> B1 --> C1 --> D1 --> E1
+    style E1 fill:#7C3AED,color:#fff
+                    </div>
+                </section>
+            </section>
+
+            <!-- SLIDE 9: GUIDE 06 & 07 -->
+            <section>
+                <section>
+                    <div class="guide-tag">Guide 06: Risk Analysis</div>
+                    <h3>Pre-mortem Trade-offs</h3>
+                    <div class="flex-container">
+                        <div class="flex-col">
+                            <ul>
+                                <li>Mandatory before PRD creation.</li>
+                                <li>Surfaces assumptions early.</li>
+                            </ul>
+                        </div>
+                        <div class="flex-col chart-wrapper">
+                            <div class="mermaid">
+flowchart LR
+    A["Initiative Brief"] --> B["Risk Analysis"]
+    B --> C{"Validated?"}
+    C -->|Yes| D["Write PRD"]
+    C -->|No| E["Test First"]
+    style B fill:#7C3AED,color:#fff
+    style D fill:#16A34A,color:#fff
+    style E fill:#F59E0B,color:#000
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="guide-tag">Guide 07: AI-Assisted Development</div>
+                    <h3>The 6-Stage AI Workflow</h3>
+                    <p>Speed and rigor through specialized agents (UI Audits, Competitor bots).</p>
+                    <div class="chart-wrapper">
+                        <div class="mermaid">
+flowchart LR
+    S1["1. Discovery"] --> S2["2. Ideation"] --> S3["3. PRD"] --> S4["4. Prototype"] --> S5["5. Execution"] --> S6["6. Post-Launch"]
+    style S1 fill:#2563EB,color:#fff
+    style S5 fill:#16A34A,color:#fff
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- SLIDE 10: GUIDE 08 & 09 -->
+            <section>
+                <section>
+                    <div class="guide-tag">Guide 08: Backlog Tracker</div>
+                    <h3>The Command Center</h3>
+                    <p>Centralized Google Sheet. If it's not in the tracker, it doesn't exist.</p>
+                    <div class="chart-wrapper">
+                        <div class="mermaid">
+flowchart LR
+    A["Initiative"] --> B["Kano + ICE"] --> C{"Score"} 
+    C --> D["Priority + Horizon"] --> E["Assign Pillar"]
+    style D fill:#DC2626,color:#fff
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="guide-tag">Guide 09: Additional Topics</div>
+                    <h3>The Horizon Pipeline</h3>
+                    <div class="flex-container">
+                        <div class="flex-col">
+                            <ul>
+                                <li>Coming Soon: PRD templates, sprint standardizations.</li>
+                                <li>Maturity-based activation.</li>
+                            </ul>
+                        </div>
+                        <div class="flex-col chart-wrapper">
+                            <div class="mermaid">
+flowchart TD
+    NOW["🟢 Immediate"] --> T1["PRD Standards"]
+    NEXT["🟡 Next Quarter"] --> T2["Sprint Ceremonies"]
+    style NOW fill:#16A34A,color:#fff
+    style NEXT fill:#F59E0B,color:#000
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- SLIDE 11: HOW WE ROLL IT OUT -->
+            <section>
+                <h2>How We Roll It Out</h2>
+                <div class="flex-container">
+                    <div class="flex-col">
+                        <div class="highlight-box">
+                            <h3 style="font-size: 1.1em; margin-bottom: 5px;">Phase 1: Foundation (Now)</h3>
+                            <ul>
+                                <li>Read Guides 00-05.</li>
+                                <li>Adopt the Backlog Tracker.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex-col">
+                        <div class="highlight-box">
+                            <h3 style="font-size: 1.1em; margin-bottom: 5px; color: var(--satu-accent);">Phase 2: Execution (+2 Weeks)</h3>
+                            <ul>
+                                <li>Install AI Agent Skills.</li>
+                                <li>Run Risk Analysis on PRDs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 12: LIVING PLAYBOOK -->
+            <section>
+                <h2>This is a Living Playbook 🌱</h2>
+                <div class="highlight-box">
+                    <strong>It is meant to be challenged, broken, and improved.</strong>
+                </div>
+                <ul>
+                    <li>If a framework slows you down... <span class="accent">Tell us.</span></li>
+                    <li>If the AI agents give bad advice... <span class="accent">We'll fix them.</span></li>
+                    <li>If the tracker is a bottleneck... <span class="accent">We'll streamline it.</span></li>
+                </ul>
+                <p style="margin-top:20px;"><strong>Feedback:</strong> Drop thoughts in the <code>#product-playbook</code> Slack channel.</p>
+            </section>
+
+            <!-- SLIDE 13: CALL TO ACTION -->
+            <section>
+                <h2>Call to Action</h2>
+                <ol>
+                    <li><span class="accent">Read</span> the Playbook Guides thoroughly by this Friday.</li>
+                    <li><span class="accent">Migrate</span> your squad's current backlog into the new Tracker.</li>
+                    <li><span class="accent">Score</span> your top 5 upcoming features using the ICE framework.</li>
+                </ol>
+                <h3 style="text-align: center; margin-top: 40px; color: var(--satu-primary);">Let's get to work! 🚀</h3>
+            </section>
+            
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'base' });
+        Reveal.initialize({ hash: true, slideNumber: 'c/t', transition: 'fade', plugins: [ RevealNotes ] });
+    </script>
+</body>
+</html>
