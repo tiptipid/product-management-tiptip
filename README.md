@@ -10,7 +10,7 @@
 
 ## What Is This?
 
-A 10-page product management playbook built for **SatuSatu** — an Online Travel Agency (OTA) platform under [TipTip](https://tiptip.com) focused on curated local experiences in Bali for foreign travelers.
+A 10-page product management playbook built for **SatuSatu** — an Online Travel Agency (OTA) platform under [TipTip](https://tiptip.id) focused on curated local experiences in Bali for foreign travelers.
 
 The playbook covers the full PM lifecycle:
 
