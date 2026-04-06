@@ -49,7 +49,7 @@ Each stage defines the AI role, recommended tools, and the agent skill the team 
 | Aspect                | Detail                                                                                            |
 | --------------------- | ------------------------------------------------------------------------------------------------- |
 | **AI Role**           | Brainstorming partner for new ideas, market trend analysis, competitive intelligence reports      |
-| **Recommended Tools** | Claude Sonnet 4 (deep reasoning), ChatGPT (broad brainstorming), Gemini 2.5 Pro (market analysis) |
+| **Recommended Tools** | Claude Sonnet 4 (deep reasoning), Gemini 2.5 Pro (market analysis) |
 | **Best Model**        | Claude Sonnet 4 (nuanced strategic reasoning)                                                     |
 | **Input**             | Research findings from Stage 1, strategic framing (Page 02), current backlog                      |
 | **Output**            | Initiative briefs with preliminary Explore/Exploit classification and Kano hypothesis             |
@@ -69,7 +69,7 @@ Each stage defines the AI role, recommended tools, and the agent skill the team 
 | Aspect                | Detail                                                                                                      |
 | --------------------- | ----------------------------------------------------------------------------------------------------------- |
 | **AI Role**           | Draft PRDs from context/constraints/user stories, review existing PRDs for completeness                     |
-| **Recommended Tools** | Claude Opus 4 (deep reasoning PRDs), ChatPRD, Notion AI                                                     |
+| **Recommended Tools** | Claude Opus 4 (deep reasoning PRDs)                                                                          |
 | **Best Model**        | Claude Opus 4 (complex document generation with cross-referencing)                                          |
 | **Input**             | Initiative brief, Risk & Trade-off Analysis (Page 06), dependency context (Page 04), user journey (Page 01) |
 | **Output**            | Draft PRD with user stories, acceptance criteria, edge cases, metrics to track                              |
@@ -151,7 +151,7 @@ Review the scorecard with your designer — prioritize dimensions scoring below 
 | Aspect                | Detail                                                                                             |
 | --------------------- | -------------------------------------------------------------------------------------------------- |
 | **AI Role**           | Analyze A/B test results, monitor user sentiment, summarize feedback                               |
-| **Recommended Tools** | Gemini 2.5 Flash (fast analysis), OpenPanel + AI (metrics narrative), Miro AI (retro facilitation) |
+| **Recommended Tools** | Gemini 2.5 Flash (fast analysis), OpenPanel + AI (metrics narrative) |
 | **Best Model**        | Gemini 2.5 Flash (high-volume, cost-efficient analysis)                                            |
 | **Input**             | A/B test data, OpenPanel metrics, user feedback, support tickets                                   |
 | **Output**            | Test result interpretation, sentiment trends, recommended next actions                             |

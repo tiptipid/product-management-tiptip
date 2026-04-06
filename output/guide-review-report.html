@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SatuSatu PM Playbook — Multi-Phase Audit Report</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-2: #232733;
+    --border: #2e3343;
+    --text: #e2e4ea;
+    --text-muted: #8b90a0;
+    --accent: #6c8cff;
+    --accent-dim: rgba(108,140,255,0.12);
+    --green: #34d399;
+    --green-dim: rgba(52,211,153,0.12);
+    --yellow: #fbbf24;
+    --yellow-dim: rgba(251,191,36,0.12);
+    --red: #f87171;
+    --red-dim: rgba(248,113,113,0.12);
+    --orange: #fb923c;
+    --orange-dim: rgba(251,146,60,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #fff;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1rem;
+    color: #fff;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    color: var(--text);
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .meta-chip strong { color: var(--text); }
+
+  /* Score card grid */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .score-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  .score-card .score {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .score-card .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .score-card .sublabel {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .score-green .score { color: var(--green); }
+  .score-yellow .score { color: var(--yellow); }
+  .score-red .score { color: var(--red); }
+  .score-orange .score { color: var(--orange); }
+  .score-accent .score { color: var(--accent); }
+
+  /* Health bar */
+  .health-bar-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .health-bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .health-bar-row:last-child { margin-bottom: 0; }
+
+  .health-label {
+    width: 180px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .health-bar {
+    flex: 1;
+    height: 22px;
+    background: var(--surface-2);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .health-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  .health-value {
+    width: 50px;
+    text-align: right;
+    font-size: 0.82rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-left: 0.75rem;
+  }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .badge-critical { background: var(--red-dim); color: var(--red); }
+  .badge-warning { background: var(--yellow-dim); color: var(--yellow); }
+  .badge-good { background: var(--green-dim); color: var(--green); }
+  .badge-info { background: var(--accent-dim); color: var(--accent); }
+  .badge-p0 { background: var(--red-dim); color: var(--red); }
+  .badge-p1 { background: var(--orange-dim); color: var(--orange); }
+  .badge-p2 { background: var(--yellow-dim); color: var(--yellow); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+  }
+
+  th {
+    background: var(--surface-2);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Collapsible */
+  details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 0.75rem 0;
+    overflow: hidden;
+  }
+
+  summary {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  summary:hover { background: rgba(255,255,255,0.03); }
+
+  summary::marker { content: ''; }
+  summary::before {
+    content: '▸';
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+  }
+
+  details[open] summary::before { transform: rotate(90deg); }
+
+  .details-content {
+    padding: 0 1rem 1rem;
+  }
+
+  /* Lists */
+  ul, ol {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+    font-size: 0.88rem;
+  }
+
+  /* Callout */
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 0.8rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+  }
+
+  .callout-red {
+    border-left-color: var(--red);
+    background: var(--red-dim);
+  }
+
+  .callout-green {
+    border-left-color: var(--green);
+    background: var(--green-dim);
+  }
+
+  .callout-yellow {
+    border-left-color: var(--yellow);
+    background: var(--yellow-dim);
+  }
+
+  /* Radar chart (CSS-only approximation) */
+  .radar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .radar-table {
+    max-width: 500px;
+  }
+
+  .radar-table td:first-child {
+    width: 180px;
+  }
+
+  .radar-bar {
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; color: #1a1a1a; }
+    .score-card, details, .health-bar-container { border-color: #ddd; }
+    th { background: #f5f5f5; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- HEADER                                       -->
+<!-- ============================================ -->
+<h1>SatuSatu PM Playbook — Multi-Phase Audit Report</h1>
+<p class="subtitle">Content integrity, industry benchmarking, and AI practices review across 11 guide files</p>
+
+<div class="header-meta">
+  <span class="meta-chip"><strong>Date:</strong> 2026-04-01</span>
+  <span class="meta-chip"><strong>Files Reviewed:</strong> 11</span>
+  <span class="meta-chip"><strong>Initiatives Tracked:</strong> 49</span>
+  <span class="meta-chip"><strong>Frameworks Referenced:</strong> ICE + Kano + Explore/Exploit + Dependencies</span>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION A — EXECUTIVE SUMMARY                -->
+<!-- ============================================ -->
+<h2>A. Executive Summary</h2>
+
+<div class="score-grid">
+  <div class="score-card score-accent">
+    <div class="score">6.5</div>
+    <div class="label">Overall Health</div>
+    <div class="sublabel">out of 10</div>
+  </div>
+  <div class="score-card score-green">
+    <div class="score">3.8</div>
+    <div class="label">Prioritization</div>
+    <div class="sublabel">Strongest / 5</div>
+  </div>
+  <div class="score-card score-red">
+    <div class="score">2.3</div>
+    <div class="label">Discovery</div>
+    <div class="sublabel">Weakest / 5</div>
+  </div>
+  <div class="score-card score-green">
+    <div class="score">4.5</div>
+    <div class="label">AI PM Workflows</div>
+    <div class="sublabel">out of 5</div>
+  </div>
+  <div class="score-card score-red">
+    <div class="score">1.0</div>
+    <div class="label">AI Governance</div>
+    <div class="sublabel">Critical Gap / 5</div>
+  </div>
+</div>
+
+<h3>Top 5 Critical Issues</h3>
+<table>
+  <thead>
+    <tr><th>#</th><th>Issue</th><th>Severity</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>No Continuous Discovery system</strong> — no JTBD, no Opportunity Solution Trees, no user research cadence, no assumption testing. The playbook prioritizes what the team already knows but has no mechanism for learning what it doesn't.</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+      <td>Phase 2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>No AI data privacy or governance</strong> — guide recommends feeding support tickets and user data into third-party LLMs without any PII handling, data retention, or compliance guidance.</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+      <td>Phase 3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>ChatGPT recommendation contradicts "no OpenAI" policy</strong> — Page 07 recommends ChatGPT for brainstorming while Page 00 explicitly states "No OpenAI/GPT subscriptions needed."</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+      <td>Phase 1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>No experimentation / A/B testing protocol</strong> — conversion funnel estimates are inferred, not measured. Listed as "next quarter" in Page 09 but is existential for a pre-traction product.</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+      <td>Phase 2</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>AI product strategy entirely absent</strong> — no build/wrap/integrate framework, no AI feature prioritization, no LLM cost-performance guidance for user-facing features. AI treated only as internal tooling.</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+      <td>Phase 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Top 5 Strengths</h3>
+<table>
+  <thead>
+    <tr><th>#</th><th>Strength</th><th>Rating</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>4-layer prioritization model</strong> (Explore/Exploit &rarr; ICE &rarr; Kano &rarr; Dependencies) — coherent, well-integrated, and better than most Series A playbooks.</td>
+      <td><span class="badge badge-good">EXCELLENT</span></td>
+      <td>Phase 2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>AI PM workflow integration</strong> — 6 agent skills with YAML specs, multi-model strategy, MCP ecosystem, lifecycle-stage mapping. Top-quartile for AI-in-PM coverage.</td>
+      <td><span class="badge badge-good">EXCELLENT</span></td>
+      <td>Phase 3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Competitive UX benchmarking</strong> — quantified radar scoring against Klook/KKday/GetYourGuide/Trip.com with specific gaps and strategic recommendations per competitor.</td>
+      <td><span class="badge badge-good">EXCELLENT</span></td>
+      <td>Phase 2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>Metrics framework with counter-metrics</strong> — NSM well-justified, leading/lagging split clear, counter-metrics with alert thresholds prevent Goodhart's Law gaming.</td>
+      <td><span class="badge badge-good">STRONG</span></td>
+      <td>Phase 2</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Pre-PRD risk gate</strong> — risk analysis is a required step before PRD writing, with falsifiable assumptions and specific validation approaches. Rare at this startup stage.</td>
+      <td><span class="badge badge-good">STRONG</span></td>
+      <td>Phase 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<!-- SECTION B — REDUNDANCY & INCONSISTENCY       -->
+<!-- ============================================ -->
+<h2>B. Redundancy &amp; Inconsistency Findings</h2>
+
+<h3>Redundancy Matrix</h3>
+<p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.75rem;">Concepts appearing in 2+ files that create maintenance risk when information changes.</p>
+
+<table>
+  <thead>
+    <tr><th>Concept</th><th>Files</th><th>Nature of Overlap</th><th>Risk</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4-layer model explanation</td>
+      <td>02, 03, 04</td>
+      <td>Near-identical table in all three files with minor wording variations</td>
+      <td><span class="badge badge-warning">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>ICE Score formula &amp; calibration</td>
+      <td>00, 03, 08</td>
+      <td>Summary in 00, full detail in 03, re-stated in 08 column definitions</td>
+      <td><span class="badge badge-warning">MEDIUM</span></td>
+    </tr>
+    <tr>
+      <td>Priority level definitions (P0-P3)</td>
+      <td>00, 03, 08</td>
+      <td>Labels in 00, ICE ranges in 03, formula encoding in 08. Three places to update if boundaries change</td>
+      <td><span class="badge badge-warning">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>Central sequencing principle + opportunity cost table</td>
+      <td>02, 06</td>
+      <td>Near-copy-paste: identical quote and 3-row table in both files</td>
+      <td><span class="badge badge-warning">MEDIUM</span></td>
+    </tr>
+    <tr>
+      <td>LLM model standards</td>
+      <td>00, 07, impl</td>
+      <td>5-model table in 00, 4-model table in 07, 5-model table verbatim in implementation plan</td>
+      <td><span class="badge badge-warning">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>MCP server recommendations</td>
+      <td>00, 07, impl</td>
+      <td>Same servers listed with diverging detail; impl adds lifecycle stage mapping not in 00</td>
+      <td><span class="badge badge-warning">MEDIUM</span></td>
+    </tr>
+    <tr>
+      <td>Tool adoption rules</td>
+      <td>00, impl</td>
+      <td>5 rules near-copy-pasted between files</td>
+      <td><span class="badge badge-info">LOW</span></td>
+    </tr>
+    <tr>
+      <td>Scoring new initiatives process</td>
+      <td>03, 08</td>
+      <td>7-step in 03 vs 8-step in 08 (adds "add row" as step 1). Content otherwise identical</td>
+      <td><span class="badge badge-warning">MEDIUM</span></td>
+    </tr>
+    <tr>
+      <td>Agent skills list</td>
+      <td>07, impl</td>
+      <td>Same 6 skills with different column structure; impl adds Priority column</td>
+      <td><span class="badge badge-info">LOW</span></td>
+    </tr>
+    <tr>
+      <td>Initiative lists with different column focus</td>
+      <td>02, 03</td>
+      <td>Same initiatives: 02 shows Explore/Exploit+Kano, 03 shows ICE scores. Must stay in sync</td>
+      <td><span class="badge badge-warning">MEDIUM</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Inconsistency Findings</h3>
+
+<table>
+  <thead>
+    <tr><th>Issue</th><th>File A Says</th><th>File B Says</th><th>Severity</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ChatGPT vs No-OpenAI policy</strong></td>
+      <td>Page 00: "No OpenAI/GPT subscriptions needed"</td>
+      <td>Page 07: Lists ChatGPT as recommended tool for Ideation &amp; Strategy</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+    </tr>
+    <tr>
+      <td><strong>Simplify/Augment/Automate framework</strong></td>
+      <td>Implementation plan: Defines 3 tiers as core organizing principle for Page 07</td>
+      <td>Page 07 (final): Framework never appears — completely omitted</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+    </tr>
+    <tr>
+      <td><strong>Risk Analysis lifecycle stage</strong></td>
+      <td>Page 07: Risk skill under Stage 6 (Post-Launch)</td>
+      <td>Implementation plan + Page 06: Risk analysis is a pre-PRD gate (Stage 3)</td>
+      <td><span class="badge badge-critical">CRITICAL</span></td>
+    </tr>
+    <tr>
+      <td><strong>6-stage lifecycle naming</strong></td>
+      <td>Page 07: Discovery &amp; Research, Ideation &amp; Strategy, Definition &amp; Documentation, Prototyping &amp; Testing, Execution &amp; Delivery, Post-Launch</td>
+      <td>Impl plan: Ideation &amp; Discovery, Market Research &amp; Validation, Planning &amp; Prioritization, Development &amp; Execution, Launch &amp; Go-to-Market, Post-Launch Analysis</td>
+      <td><span class="badge badge-warning">WARNING</span></td>
+    </tr>
+    <tr>
+      <td><strong>Referral program horizon</strong></td>
+      <td>Page 02: Horizon = NEXT</td>
+      <td>Page 03: Horizon = LATER (ICE 96 supports LATER)</td>
+      <td><span class="badge badge-warning">WARNING</span></td>
+    </tr>
+    <tr>
+      <td><strong>Unapproved tools in Page 07</strong></td>
+      <td>Page 00: Approved tools registry with "no shadow tools" rule</td>
+      <td>Page 07: Recommends Copilot, Cursor, Linear AI, v0.dev, Miro AI — none in Page 00 registry</td>
+      <td><span class="badge badge-warning">WARNING</span></td>
+    </tr>
+    <tr>
+      <td><strong>Must-have metrics count</strong></td>
+      <td>Page 05: 14 must-have (8 leading + 6 lagging)</td>
+      <td>Impl plan: References source as "18 leading + 9 lagging"</td>
+      <td><span class="badge badge-warning">WARNING</span></td>
+    </tr>
+    <tr>
+      <td><strong>Item #45 priority</strong></td>
+      <td>ICE = 160 (qualifies for P2: range 150-349)</td>
+      <td>Listed in P3 table in Page 03</td>
+      <td><span class="badge badge-warning">DATA ERROR</span></td>
+    </tr>
+    <tr>
+      <td><strong>Google Pay Kano floor</strong></td>
+      <td>Kano = Basic, ICE Floor Rule says Basic = minimum P1 (ICE &ge; 300)</td>
+      <td>Scoring table places it at P2 (ICE 256) — floor rule not applied</td>
+      <td><span class="badge badge-warning">DATA ERROR</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Structural Issues</h3>
+
+<details>
+  <summary><span class="badge badge-critical">CRITICAL</span> implementation-plan.md creates dual source of truth</summary>
+  <div class="details-content">
+    <p>The implementation plan contains detailed content specs for all pages (tool tables, content summaries, lifecycle stage definitions) that partially duplicate and partially contradict the final pages. It is the single largest source of both redundancy and inconsistency.</p>
+    <p><strong>Recommendation:</strong> Archive to <code>_meta/</code> folder or strip to process-only instructions, removing content specs that now live in the actual pages.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-warning">WARNING</span> 4-layer model defined three times</summary>
+  <div class="details-content">
+    <p>The same explanatory table appears in Pages 02, 03, and 04 with minor wording variations. Define once in Page 00 or 02, then reference from others.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-warning">WARNING</span> Scoring process duplicated with drift</summary>
+  <div class="details-content">
+    <p>Page 03 has a 7-step process; Page 08 has an 8-step process (adds "add row" as step 1). Make Page 08 canonical and have Page 03 reference it.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-warning">WARNING</span> Page 07 recommends tools not in Page 00 registry</summary>
+  <div class="details-content">
+    <p>Page 07 references ChatGPT, GitHub Copilot, Cursor/Antigravity, Linear AI, v0.dev, Miro AI, Notion AI, and ChatPRD — none appear in the Page 00 approved tools list. This violates the "no shadow tools" rule.</p>
+    <p><strong>Recommendation:</strong> Either expand the Page 00 registry or prune Page 07 to only reference approved tools.</p>
+  </div>
+</details>
+
+<!-- ============================================ -->
+<!-- SECTION C — INDUSTRY STANDARDS GAP ANALYSIS  -->
+<!-- ============================================ -->
+<h2>C. Industry Standards Gap Analysis — PM Operations</h2>
+
+<h3>Coverage by Dimension</h3>
+
+<div class="health-bar-container">
+  <div class="health-bar-row">
+    <span class="health-label">Prioritization</span>
+    <div class="health-bar"><div class="health-fill" style="width:76%;background:var(--green);"></div></div>
+    <span class="health-value" style="color:var(--green);">3.8/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">Metrics</span>
+    <div class="health-bar"><div class="health-fill" style="width:70%;background:var(--green);"></div></div>
+    <span class="health-value" style="color:var(--green);">3.5/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">Roadmapping</span>
+    <div class="health-bar"><div class="health-fill" style="width:70%;background:var(--green);"></div></div>
+    <span class="health-value" style="color:var(--green);">3.5/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">Stakeholder &amp; Cross-fn</span>
+    <div class="health-bar"><div class="health-fill" style="width:54%;background:var(--yellow);"></div></div>
+    <span class="health-value" style="color:var(--yellow);">2.7/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">Risk Management</span>
+    <div class="health-bar"><div class="health-fill" style="width:50%;background:var(--orange);"></div></div>
+    <span class="health-value" style="color:var(--orange);">2.5/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">Discovery &amp; Validation</span>
+    <div class="health-bar"><div class="health-fill" style="width:46%;background:var(--red);"></div></div>
+    <span class="health-value" style="color:var(--red);">2.3/5</span>
+  </div>
+</div>
+
+<h3>Per-Chapter Benchmarking</h3>
+
+<details>
+  <summary>00-introduction.md — Roadmapping 3/5, Stakeholder 3/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>Clear tool standardization reducing shadow tooling</li>
+      <li>"AI outputs are drafts" policy is excellent governance</li>
+      <li>Squad structure with domain ownership well-defined</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No product vision/mission statement at the top (Melissa Perri, <em>Escaping the Build Trap</em>)</li>
+      <li>No "empowered teams" vs "feature teams" distinction (Cagan, <em>Empowered</em>)</li>
+      <li>No dual-track agile explanation</li>
+      <li>Role table reads as feature-team RACI, not product trio charter</li>
+    </ul>
+    <h4>Recommendations</h4>
+    <ol>
+      <li>Add product vision/mission that the entire playbook ladders to</li>
+      <li>Reframe roles around the product trio model (PM=value/viability, Design=usability, Eng=feasibility)</li>
+      <li>Add a paragraph on dual-track agile</li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>01-customer-journey-map.md — Discovery 3/5, Metrics 3/5, Stakeholder 2/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>Competitor radar scoring with quantified gaps — genuinely excellent competitive analysis</li>
+      <li>6-stage journey with emotion arc and backlog cross-referencing</li>
+      <li>"Core Strategic Problem" synthesis is sharp and actionable</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No Jobs-to-Be-Done framing (Christensen). Persona is demographic-first, not job-first</li>
+      <li>No Opportunity Solution Tree (Teresa Torres)</li>
+      <li>No user research cadence or continuous discovery loop</li>
+      <li>Pain points stated as facts without evidence source tags</li>
+    </ul>
+    <h4>Recommendations</h4>
+    <ol>
+      <li>Reframe persona through JTBD: "When [situation], I want to [motivation], so I can [outcome]"</li>
+      <li>Add Opportunity Solution Tree connecting NSM to opportunities to solutions to experiments</li>
+      <li>Define cadence: weekly user interviews, monthly journey map updates, quarterly persona refresh</li>
+      <li>Tag each pain point with evidence source (interview, analytics, competitor inference, hypothesis)</li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>02-strategic-framing.md — Prioritization 4/5, Roadmapping 4/5, Discovery 2/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>March (1991) citation with proper academic grounding</li>
+      <li>Startup stage ratio benchmarks provide context</li>
+      <li>Opportunity cost argument with sprint math is compelling</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No Cost of Delay / CD3 (Reinertsen, <em>Principles of Product Development Flow</em>)</li>
+      <li>No experiment design for Explore items — need hypothesis, MVP test, kill criteria (Lean Startup)</li>
+      <li>No one-way door vs two-way door classification (Bezos/Amazon framework)</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>03-prioritization-framework.md — Prioritization 4/5, Discovery 2/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>Explicit framework selection rationale (why ICE+Kano, not RICE or WSJF)</li>
+      <li>Kano ICE Floor Rule safeguards against boring-but-critical deprioritization</li>
+      <li>Complete scoring table with 49 items — a working document, not a template</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No Opportunity Scoring (Tony Ulwick) — Impact scored by PM judgment without user input</li>
+      <li>No confidence evidence ladder with specific criteria per level</li>
+      <li>No graduation path to RICE when traffic data exists</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>04-dependency-graph.md — Roadmapping 4/5, Prioritization 3/5, Stakeholder 3/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>Trust/Conversion/Discovery pillar model with clear sequencing rule</li>
+      <li>Cross-chain dependency identification with junction points</li>
+      <li>Review triggers are well-defined</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No User Story Mapping (Jeff Patton)</li>
+      <li>No critical path analysis identifying the longest dependency chain</li>
+      <li>No technical dependencies (shared services, APIs, database migrations)</li>
+      <li>No cross-squad conflict resolution protocol</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>05-north-star-metrics.md — Metrics 4/5, Discovery 2/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>NSM well-justified with industry precedent (Airbnb, Booking.com, Klook)</li>
+      <li>"Why Weekly / Why Qualified / Why Count" demonstrates genuine metrics thinking</li>
+      <li>Counter-metrics with alert thresholds prevent gaming</li>
+      <li>PM Review Ritual is time-boxed and actionable</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No AARRR pirate metrics mapping (Dave McClure)</li>
+      <li>No Sean Ellis PMF test</li>
+      <li>No OKR alignment for board-level reporting</li>
+      <li>No NSM decomposition tree (NSM = Traffic &times; Activation &times; Checkout &times; Payment)</li>
+      <li>No cohort analysis methodology</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>06-risk-analysis.md — Risk 3/5, Discovery 3/5, Stakeholder 3/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>Pre-PRD risk gate is a strong process control</li>
+      <li>Validation approaches are unusually specific ("audit 100% of active listings")</li>
+      <li>RACI with "exactly one A" constraint is correct</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No build/buy/partner analysis for integrations</li>
+      <li>No technical debt quadrant (Martin Fowler)</li>
+      <li>No market timing risk (seasonality, competitive launches, currency)</li>
+      <li>No regulatory risk assessment (GDPR, PCI DSS, data sovereignty)</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>08-backlog-tracker-guide.md — Prioritization 4/5, Roadmapping 3/5, Stakeholder 3/5</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>Column definitions thorough enough for any new team member</li>
+      <li>Google Sheets formulas reduce manual error</li>
+      <li>Jira integration with column mapping is practical</li>
+    </ul>
+    <h4>Gaps</h4>
+    <ul>
+      <li>No "Target Outcome" or "Hypothesis" column — tracker is feature-centric (Perri anti-pattern)</li>
+      <li>No "Shipped Impact" column to close the learning loop</li>
+      <li>No WIP limits per squad</li>
+      <li>No stakeholder-specific filtered views</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>09-additional-topics.md — Self-Aware Gap Identification</summary>
+  <div class="details-content">
+    <h4>Strengths</h4>
+    <ul>
+      <li>Honest gap identification with prioritized topics</li>
+      <li>PRD Template as immediate priority is the correct next step</li>
+    </ul>
+    <h4>Issues</h4>
+    <ul>
+      <li>Experimentation Protocol should be "Immediate," not "Next quarter"</li>
+      <li>Data Privacy &amp; Compliance is "before scaling" but should be "now" — PII and payment data already collected</li>
+      <li>Missing topics: Product Principles, Product Operating Cadence, PMF measurement</li>
+    </ul>
+  </div>
+</details>
+
+<div class="callout">
+  <strong>Core pattern:</strong> The playbook excels at <em>"decide and build"</em> (prioritization, sequencing, risk gates) but systematically underinvests in <em>"discover and validate"</em> (user research, experiments, assumption testing). This is the single most important dimension to strengthen.
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION D — AI PRACTICES GAP ANALYSIS        -->
+<!-- ============================================ -->
+<h2>D. AI Practices Gap Analysis</h2>
+
+<h3>Coverage by Dimension</h3>
+
+<div class="health-bar-container">
+  <div class="health-bar-row">
+    <span class="health-label">AI in PM Workflows</span>
+    <div class="health-bar"><div class="health-fill" style="width:90%;background:var(--green);"></div></div>
+    <span class="health-value" style="color:var(--green);">4.5/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">AI-Assisted Coding</span>
+    <div class="health-bar"><div class="health-fill" style="width:40%;background:var(--orange);"></div></div>
+    <span class="health-value" style="color:var(--orange);">2.0/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">AI Product Strategy</span>
+    <div class="health-bar"><div class="health-fill" style="width:30%;background:var(--red);"></div></div>
+    <span class="health-value" style="color:var(--red);">1.5/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">AI Team Structure</span>
+    <div class="health-bar"><div class="health-fill" style="width:30%;background:var(--red);"></div></div>
+    <span class="health-value" style="color:var(--red);">1.5/5</span>
+  </div>
+  <div class="health-bar-row">
+    <span class="health-label">AI Governance</span>
+    <div class="health-bar"><div class="health-fill" style="width:20%;background:var(--red);"></div></div>
+    <span class="health-value" style="color:var(--red);">1.0/5</span>
+  </div>
+</div>
+
+<h3>What the Guide Does Well</h3>
+
+<div class="callout callout-green">
+  <strong>Top-quartile for AI-in-PM-workflow coverage.</strong> The 6 agent skills with YAML specs, multi-model strategy (Claude for reasoning, Gemini for volume), MCP ecosystem with lifecycle mapping, and "Context Pack" grounding concept are more concrete and actionable than most publicly available PM guides.
+</div>
+
+<details>
+  <summary>AI PM Workflow Strengths (expanded)</summary>
+  <div class="details-content">
+    <ul>
+      <li><strong>Multi-model strategy with cost consciousness</strong> — "If you need to think, use Claude; if you need to process, use Gemini" with single paid subscription is practical</li>
+      <li><strong>Lifecycle-stage mapping</strong> — tools, models, and skills mapped to specific PM workflow stages (Discovery through Post-Launch)</li>
+      <li><strong>MCP server ecosystem</strong> — specific servers for specific workflows (Atlassian for Jira/Confluence, Playwright for testing, Figma for design handoff)</li>
+      <li><strong>RAG-style data grounding</strong> — "Context Pack" concept with warnings against generic AI outputs</li>
+      <li><strong>Human-in-the-loop as first principle</strong> — <code>AI DRAFT -- PM REVIEW REQUIRED</code> convention</li>
+      <li><strong>"Trust as a Metric"</strong> — tracking edit distance, rework rate, time-to-decision for AI outputs</li>
+    </ul>
+  </div>
+</details>
+
+<h3>Critical AI Gaps</h3>
+
+<details>
+  <summary><span class="badge badge-p0">P0</span> Data privacy when using AI tools</summary>
+  <div class="details-content">
+    <p>The playbook recommends feeding support tickets, user data, and internal documents into third-party LLMs without any PII handling guidance. This is a compliance and trust risk.</p>
+    <p><strong>Add to Page 07:</strong> PII scrubbing requirements, approved data categories for AI input, data retention policies, which data must NOT be sent to external models. Reference Anthropic's usage policies and Google's PAIR guidelines.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-p0">P0</span> AI product strategy framework</summary>
+  <div class="details-content">
+    <p>The playbook treats AI only as internal tooling. For a 2026 startup, not having a framework for building AI-powered features is a strategic blind spot.</p>
+    <p><strong>Add new section or page:</strong> Build/integrate/wrap decision framework, AI feature prioritization considerations (data dependency, model uncertainty), data strategy for AI features, AI-native vs AI-augmented product strategy (e.g., conversational booking, AI trip planning).</p>
+    <p><strong>Reference:</strong> Reforge AI PM curriculum, a16z AI playbooks.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-p0">P0</span> MCP security and prompt injection awareness</summary>
+  <div class="details-content">
+    <p>MCP servers give AI agents read/write access to Jira, Confluence, and Figma. No security guidance provided. A prompt injection through a Confluence page read by an AI agent is a real attack vector.</p>
+    <p><strong>Add to Page 07:</strong> Read-only vs read-write permission guidance, approval gates for AI-initiated writes, prompt injection awareness for data read from external sources.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-p1">P1</span> AI coding workflows for engineering</summary>
+  <div class="details-content">
+    <p>Page 07 Stage 5 is a stub for engineering AI usage despite the title "AI-Assisted Development." No coverage of context management (CLAUDE.md, .cursorrules), agentic workflows, AI pair programming, or AI-generated tests.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-p1">P1</span> Evaluation framework for agent skills</summary>
+  <div class="details-content">
+    <p>No way to measure whether agent skills produce good output over time. Need: sample input/output pairs, scoring rubrics applied to AI outputs, regression testing when prompts change.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-p1">P1</span> Prompt versioning strategy</summary>
+  <div class="details-content">
+    <p>Prompts in <code>.agent/skills/*/prompts/</code> have no versioning, changelog, or A/B testing framework. Add version tagging, changelog requirements, and rollback procedures.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-p1">P1</span> LLM cost-performance for product features</summary>
+  <div class="details-content">
+    <p>Model selection guide is internal-only. No guidance for shipping AI features to users: token economics, latency budgets, model selection for production, cost monitoring.</p>
+  </div>
+</details>
+
+<details>
+  <summary><span class="badge badge-p1">P1</span> AI literacy and training plan</summary>
+  <div class="details-content">
+    <p>Team onboarding is limited to "clone repo and invoke skills." Need AI literacy progression: beginner (use skills) &rarr; intermediate (customize prompts) &rarr; advanced (build new skills).</p>
+  </div>
+</details>
+
+<h3>Industry Comparison</h3>
+
+<table>
+  <thead>
+    <tr><th>Dimension</th><th>This Guide</th><th>Leading Startups (a16z / Reforge / PAIR)</th><th>Gap Size</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AI as PM tool</td>
+      <td>Concrete skills, multi-model, MCP integration</td>
+      <td>Similar depth + emphasis on evals and prompt management</td>
+      <td><span class="badge badge-good">SMALL</span></td>
+    </tr>
+    <tr>
+      <td>AI as product strategy</td>
+      <td>Nearly absent</td>
+      <td>Central concern: build/wrap/integrate, data moats, AI-native strategy</td>
+      <td><span class="badge badge-critical">LARGE</span></td>
+    </tr>
+    <tr>
+      <td>AI governance</td>
+      <td>Human-in-the-loop only</td>
+      <td>Comprehensive: bias testing, evals, security, privacy, attribution</td>
+      <td><span class="badge badge-critical">LARGE</span></td>
+    </tr>
+    <tr>
+      <td>AI coding workflows</td>
+      <td>Tool list only</td>
+      <td>Agentic workflows, context management, multi-agent, AI testing</td>
+      <td><span class="badge badge-warning">MEDIUM</span></td>
+    </tr>
+    <tr>
+      <td>AI team structure</td>
+      <td>Implicit PM-centric</td>
+      <td>Explicit: AI PM role, staffing models, AI literacy ladders</td>
+      <td><span class="badge badge-warning">MEDIUM</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<!-- SECTION E — RECOMMENDED ACTIONS              -->
+<!-- ============================================ -->
+<h2>E. Recommended Actions</h2>
+
+<h3><span class="badge badge-p0">P0</span> — Fix Before Playbook Is Considered Complete</h3>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Action</th><th>File(s)</th><th>What to Do</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Remove ChatGPT, reconcile tool policy</strong></td>
+      <td>07</td>
+      <td>Remove ChatGPT reference from Stage 2. Either add Copilot/Cursor/Linear AI to Page 00 approved registry, or remove from Page 07.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Add AI data privacy section</strong></td>
+      <td>07 (new section)</td>
+      <td>PII scrubbing requirements, approved data categories for AI input, data retention, which data must NOT go to external models.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Add MCP security guidance</strong></td>
+      <td>07 (new section)</td>
+      <td>Read-only vs read-write permissions, approval gates for AI writes, prompt injection awareness.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>Fix Risk Analysis stage mapping</strong></td>
+      <td>07</td>
+      <td>Move Risk &amp; Trade-off Analysis agent skill from Stage 6 to Stage 3 (pre-PRD gate).</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Implement Simplify/Augment/Automate framework</strong></td>
+      <td>07</td>
+      <td>The implementation plan specifies this as a core organizing principle but Page 07 omits it entirely. Add the tiering.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>Fix data errors in scoring table</strong></td>
+      <td>03</td>
+      <td>Move Item #45 (ICE=160) from P3 to P2. Apply Kano floor to Google Pay (promote to P1).</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>Fix Referral program horizon</strong></td>
+      <td>02</td>
+      <td>Change from NEXT to LATER to match ICE score (96) in Page 03.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>Archive implementation-plan.md</strong></td>
+      <td>implementation-plan.md</td>
+      <td>Move to <code>_meta/</code> folder. It has diverged from final pages and creates a dual source of truth.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="badge badge-p1">P1</span> — Address in Next Revision Cycle</h3>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Action</th><th>File(s)</th><th>What to Do</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9</td>
+      <td><strong>Add Continuous Discovery system</strong></td>
+      <td>01 (expand), new page</td>
+      <td>JTBD persona reframe, Opportunity Solution Trees (Teresa Torres), weekly research cadence, assumption testing protocol, evidence source tags on pain points.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>Elevate Experimentation Protocol to Immediate</strong></td>
+      <td>09, new page</td>
+      <td>Move from "next quarter" to "immediate." Define: hypothesis format, test design, statistical significance, kill criteria.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><strong>Add outcome-based backlog framing</strong></td>
+      <td>08</td>
+      <td>Add "Target Outcome" and "Shipped Impact" columns. Add WIP limits per squad.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><strong>Add product vision/mission</strong></td>
+      <td>00</td>
+      <td>Product vision statement at the top that the entire playbook ladders to (Perri, <em>Escaping the Build Trap</em>).</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><strong>Add OKR framework</strong></td>
+      <td>05 (new section)</td>
+      <td>Map NSM and top metrics into quarterly OKRs. Add NSM decomposition tree.</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><strong>Add AARRR mapping</strong></td>
+      <td>05 (new section)</td>
+      <td>Classify each metric into pirate funnel stage for investor communication.</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td><strong>Add AI product strategy section</strong></td>
+      <td>07 or new page</td>
+      <td>Build/integrate/wrap decision framework, AI feature prioritization, data strategy for AI features.</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td><strong>Expand AI coding workflows</strong></td>
+      <td>07 Stage 5</td>
+      <td>Context management (CLAUDE.md, .cursorrules), AI pair programming, AI-generated tests, agentic workflow patterns.</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td><strong>Add Confidence Evidence Ladder</strong></td>
+      <td>03</td>
+      <td>Level 1=PM hypothesis, Level 2=competitor validation, Level 3=qualitative research, Level 4=quantitative data, Level 5=A/B test.</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td><strong>Add Explore Validation Protocol</strong></td>
+      <td>02</td>
+      <td>For each Explore item: hypothesis, cheapest test, success metric, kill criteria (Lean Startup).</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td><strong>Consolidate redundant definitions</strong></td>
+      <td>02, 03, 04, 08</td>
+      <td>Define 4-layer model once (Page 00 or 02), reference elsewhere. Make Page 08 canonical for scoring process.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="badge badge-p2">P2</span> — Address When Expanding the Playbook</h3>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Action</th><th>What to Do</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>20</td>
+      <td><strong>Build/buy/partner framework</strong></td>
+      <td>Add to Page 06 for payment gateways, review systems, email services, SSO providers.</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td><strong>Technical debt management</strong></td>
+      <td>Portfolio-level technical debt assessment using Fowler's quadrant (Reckless/Prudent &times; Deliberate/Inadvertent).</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td><strong>Market timing risk</strong></td>
+      <td>Add to risk template: seasonality, competitive launches, currency fluctuation, regulatory timeline.</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td><strong>PMF measurement</strong></td>
+      <td>Sean Ellis test, retention curve analysis, engagement depth metrics.</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td><strong>Product Operating Cadence</strong></td>
+      <td>New page: daily standup, weekly sprint, monthly deep-dive, quarterly planning rhythm.</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td><strong>AI eval framework</strong></td>
+      <td>Sample input/output pairs for agent skills, scoring rubrics, regression testing when prompts change.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td><strong>Prompt versioning</strong></td>
+      <td>Version tagging, changelog, A/B testing framework, rollback procedures for agent skill prompts.</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td><strong>AI literacy progression</strong></td>
+      <td>Beginner (use skills) &rarr; Intermediate (customize prompts) &rarr; Advanced (build new skills) with training resources.</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td><strong>AI team staffing model</strong></td>
+      <td>When to hire ML engineers vs rely on AI-as-a-service at different startup stages.</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td><strong>User Story Mapping</strong></td>
+      <td>Add to Page 04: group features by user activity, showing "walking skeleton" vs enhancements (Jeff Patton).</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td><strong>Stakeholder-specific views</strong></td>
+      <td>Define PM View, Eng View, and Leadership View as filtered perspectives on the backlog tracker.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================ -->
+<!-- FOOTER                                       -->
+<!-- ============================================ -->
+<div class="footer">
+  <p>Generated by Claude Code Multi-Phase Audit &middot; Phase 1: Content Inventory &middot; Phase 2: PM Standards Benchmark &middot; Phase 3: AI Practices Review &middot; Phase 4: Synthesis</p>
+  <p>Industry references: Cagan (<em>Inspired</em>, <em>Empowered</em>), Torres (<em>Continuous Discovery Habits</em>), Perri (<em>Escaping the Build Trap</em>), Christensen (<em>Competing Against Luck</em>), Reinertsen (<em>Principles of Product Development Flow</em>), Patton (<em>User Story Mapping</em>), Ulwick (<em>What Customers Want</em>), March (1991), Fowler, Ries (<em>Lean Startup</em>), McClure (AARRR), a16z, Reforge, Google PAIR</p>
+  <p style="margin-top:0.5rem;">2026-04-01</p>
+</div>
+
+</body>
+</html>

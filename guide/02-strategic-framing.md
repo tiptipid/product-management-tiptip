@@ -94,7 +94,7 @@ High-risk, high-reward. Only pursue once Exploit base is stable.
 | Initiative                             | Source | Pillar     | Kano        | Status        | Risk                                                    |
 | -------------------------------------- | ------ | ---------- | ----------- | ------------- | ------------------------------------------------------- |
 | Loyalty / credits program              | Roadmap  | Retention  | Delight     | LATER         | XL effort; needs transaction volume to design correctly |
-| Referral program                       | Roadmap  | Retention  | Delight     | NEXT          | Uncertain LTV from referred users                       |
+| Referral program                       | Roadmap  | Retention  | Delight     | LATER         | Uncertain LTV from referred users                       |
 | WhatsApp-native booking flow           | Roadmap  | Conversion | Delight     | LATER         | Experimental channel; L effort                          |
 | Implement llms.txt (one off)           | Pipeline | Discovery  | —           | Released      | Novel AI/SEO experiment                                 |
 | Implement llms.txt (dynamic)           | Pipeline | Discovery  | —           | —             | Ongoing AI infrastructure                               |
