@@ -31,15 +31,17 @@ This skill is self-contained. All referenced frameworks are embedded below.
 | Review Nationality Flags | Detail page (when shipped) | P2 |
 | Operator Verification Badge | Detail page | P2 |
 
-### Primary Persona
-- **Who**: Foreign leisure traveler (India, China, South Korea, Australia), age 28–42
+### Target Context
+- **Industry**: [INDUSTRY] (Default: Bali-based OTA for activities)
+- **Primary Persona**: [PERSONA] (Default: Foreign leisure traveler (India, China, South Korea, Australia), age 28–42)
 - **Device**: Mobile-first (375px primary viewport)
 - **Core anxiety**: "Is this platform safe? Will my money be protected?"
 
-### Reviewer Persona (3 specialist perspectives)
+### Reviewer Persona (4 specialist perspectives)
 | Perspective | Expertise | Evaluates |
 |---|---|---|
 | **UX Conversion Specialist** | Baymard checkout research, NNG mobile patterns, Fitts's Law, OTA trust patterns (Klook/GYG/Booking.com) | Trust Signals, CTA Clarity |
+| **UX Copywriter** | Micro-copy, value props, tone of voice, industry standard terminology | Copywriting |
 | **Information & Mobile Architect** | Nielsen heuristics, progressive disclosure, Core Web Vitals, Material Design / Apple HIG targets | Info Architecture, Mobile Responsiveness |
 | **Accessibility & SEO Engineer** | WCAG 2.1 AA, semantic HTML, Schema.org structured data, image optimization | Accessibility + cross-cutting SEO impact |
 
@@ -104,8 +106,9 @@ Accepts design input via two paths (auto-detected based on available MCPs and us
 
 | Dimension | Weight | What to Check |
 |---|---|---|
-| **Trust Signals** | 25% | Cancellation badge visible? Social proof counter? Verified badge? Review ratings? (Use Trust Signal Checklist above.) Baymard: trust signals before fold reduces abandonment ~35%. Benchmark: Klook shows badges on every listing card. |
-| **CTA Clarity** | 20% | Primary action obvious? One CTA per viewport? Action verb label? Fitts's Law: primary CTA in thumb zone on mobile. NNG: action verbs outperform generic labels. |
+| **Trust Signals** | 20% | Cancellation badge visible? Social proof counter? Verified badge? Review ratings? (Use Trust Signal Checklist above.) Baymard: trust signals before fold reduces abandonment ~35%. Benchmark: Klook shows badges on every listing card. |
+| **CTA Clarity** | 15% | Primary action obvious? One CTA per viewport? Action verb label? Fitts's Law: primary CTA in thumb zone on mobile. NNG: action verbs outperform generic labels. |
+| **Copywriting** | 10% | Tone of voice, clarity, persuasiveness, industry-standard terms. |
 | **Information Architecture** | 20% | Pricing transparent (all-inclusive)? Essential details visible without scrolling? Nielsen #2: pricing must match user's mental model. Schema.org: check for TourTrip/Event structured data. |
 | **Mobile Responsiveness** | 20% | Layout works at 375px? Tap targets ≥ 44pt (Apple HIG) / 48dp (Material)? Text readable without zooming? Core Web Vitals: LCP < 2.5s, CLS < 0.1, INP < 200ms. |
 | **Accessibility** | 15% | Color contrast ≥ 4.5:1? Alt text? Keyboard navigable? WCAG 2.1 AA. Semantic HTML: single H1, logical heading hierarchy, ARIA landmarks. Screen reader: logical tab order. |
@@ -125,7 +128,7 @@ Accepts design input via two paths (auto-detected based on available MCPs and us
 
 | Agent | Persona | Dimensions Scored | Standards Applied |
 |---|---|---|---|
-| **Agent 1: UX Conversion** | UX Conversion Specialist | Trust Signals (25%), CTA Clarity (20%) | Baymard Institute, NNG F-pattern, Fitts's Law |
+| **Agent 1: UX Conversion** | UX Conversion Specialist + UX Copywriter | Trust Signals (20%), CTA Clarity (15%), Copywriting (10%) | Baymard Institute, NNG F-pattern, Fitts's Law |
 | **Agent 2: Info & Mobile** | Information & Mobile Architect | Info Architecture (20%), Mobile Responsiveness (20%) | Nielsen heuristics, Core Web Vitals, Material Design / Apple HIG |
 | **Agent 3: Accessibility & SEO** | Accessibility & SEO Engineer | Accessibility (15%) + cross-cutting SEO Impact Check | WCAG 2.1 AA, Schema.org, semantic HTML |
 
